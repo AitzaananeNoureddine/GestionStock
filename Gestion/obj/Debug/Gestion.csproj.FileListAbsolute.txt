@@ -1,0 +1,83 @@
+C:\Users\Pc\Desktop\GestionStock-main\Gestion\bin\Debug\Gestion.exe.config
+C:\Users\Pc\Desktop\GestionStock-main\Gestion\bin\Debug\Gestion.exe
+C:\Users\Pc\Desktop\GestionStock-main\Gestion\bin\Debug\Gestion.pdb
+C:\Users\Pc\Desktop\GestionStock-main\Gestion\obj\Debug\Gestion.csprojAssemblyReference.cache
+C:\Users\Pc\Desktop\GestionStock-main\Gestion\obj\Debug\Gestion.Form1.resources
+C:\Users\Pc\Desktop\GestionStock-main\Gestion\obj\Debug\Gestion.Properties.Resources.resources
+C:\Users\Pc\Desktop\GestionStock-main\Gestion\obj\Debug\Gestion.csproj.GenerateResource.cache
+C:\Users\Pc\Desktop\GestionStock-main\Gestion\obj\Debug\Gestion.csproj.CoreCompileInputs.cache
+C:\Users\Pc\Desktop\GestionStock-main\Gestion\obj\Debug\Gestion.exe
+C:\Users\Pc\Desktop\GestionStock-main\Gestion\obj\Debug\Gestion.pdb
+C:\Users\Pc\Desktop\GestionStock-main\Gestion\bin\Debug\Guna.UI2.dll
+C:\Users\Pc\Desktop\GestionStock-main\Gestion\obj\Debug\Gestion.csproj.CopyComplete
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\bin\Debug\Gestion.exe.config
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\bin\Debug\Gestion.exe
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\bin\Debug\Gestion.pdb
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\bin\Debug\Guna.UI2.dll
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csprojAssemblyReference.cache
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.Form1.resources
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.Form2.resources
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.Properties.Resources.resources
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.GenerateResource.cache
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.CoreCompileInputs.cache
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.CopyComplete
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.exe
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.pdb
+<<<<<<< HEAD
+C:\Users\admin\Desktop\GestionStock\Gestion\bin\Debug\Gestion.exe.config
+C:\Users\admin\Desktop\GestionStock\Gestion\bin\Debug\Gestion.exe
+C:\Users\admin\Desktop\GestionStock\Gestion\bin\Debug\Gestion.pdb
+C:\Users\admin\Desktop\GestionStock\Gestion\bin\Debug\Guna.UI2.dll
+C:\Users\admin\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\GestionStock\Gestion\obj\Debug\Gestion.ajouter_produit.resources
+C:\Users\admin\Desktop\GestionStock\Gestion\obj\Debug\Gestion.Form2.resources
+C:\Users\admin\Desktop\GestionStock\Gestion\obj\Debug\Gestion.Properties.Resources.resources
+C:\Users\admin\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.CopyComplete
+C:\Users\admin\Desktop\GestionStock\Gestion\obj\Debug\Gestion.exe
+C:\Users\admin\Desktop\GestionStock\Gestion\obj\Debug\Gestion.pdb
+=======
+C:\Users\Lam\Desktop\GestionStock\Gestion\bin\Debug\Gestion.exe.config
+C:\Users\Lam\Desktop\GestionStock\Gestion\bin\Debug\Gestion.exe
+C:\Users\Lam\Desktop\GestionStock\Gestion\bin\Debug\Gestion.pdb
+C:\Users\Lam\Desktop\GestionStock\Gestion\bin\Debug\Guna.UI2.dll
+C:\Users\Lam\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csprojAssemblyReference.cache
+C:\Users\Lam\Desktop\GestionStock\Gestion\obj\Debug\Gestion.ajouter_produit.resources
+C:\Users\Lam\Desktop\GestionStock\Gestion\obj\Debug\Gestion.Form2.resources
+C:\Users\Lam\Desktop\GestionStock\Gestion\obj\Debug\Gestion.Properties.Resources.resources
+C:\Users\Lam\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.GenerateResource.cache
+C:\Users\Lam\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.CoreCompileInputs.cache
+C:\Users\Lam\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.CopyComplete
+C:\Users\Lam\Desktop\GestionStock\Gestion\obj\Debug\Gestion.exe
+C:\Users\Lam\Desktop\GestionStock\Gestion\obj\Debug\Gestion.pdb
+>>>>>>> 324054949bf006367f4bec95d34237e136ba697c
+C:\Users\Pc\Desktop\GestionStock\Gestion\bin\Debug\Gestion.exe.config
+C:\Users\Pc\Desktop\GestionStock\Gestion\bin\Debug\Gestion.exe
+C:\Users\Pc\Desktop\GestionStock\Gestion\bin\Debug\Gestion.pdb
+C:\Users\Pc\Desktop\GestionStock\Gestion\bin\Debug\Guna.UI2.dll
+C:\Users\Pc\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csprojAssemblyReference.cache
+C:\Users\Pc\Desktop\GestionStock\Gestion\obj\Debug\Gestion.ajouter_produit.resources
+C:\Users\Pc\Desktop\GestionStock\Gestion\obj\Debug\Gestion.Form2.resources
+C:\Users\Pc\Desktop\GestionStock\Gestion\obj\Debug\Gestion.Properties.Resources.resources
+C:\Users\Pc\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.GenerateResource.cache
+C:\Users\Pc\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.CoreCompileInputs.cache
+C:\Users\Pc\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.CopyComplete
+C:\Users\Pc\Desktop\GestionStock\Gestion\obj\Debug\Gestion.exe
+C:\Users\Pc\Desktop\GestionStock\Gestion\obj\Debug\Gestion.pdb
+C:\Users\Pc\Desktop\GestionStock\Gestion\obj\Debug\Gestion.Produit_déstocker.resources
+C:\Users\Lam\Desktop\GestionStock\Gestion\obj\Debug\Gestion.Form1.resources
+>>>>>>> 716498019bbf83fa9f1050345543c6e292e7111e
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.ajouter_produit.resources
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.gestion_produits.resources
+C:\Users\admin\Desktop\GestionStock\Gestion\obj\Debug\Gestion.gestion_produits.resources
+C:\Users\admin\Desktop\GestionStock\Gestion\obj\Debug\Gestion.tableau_bord.resources
+>>>>>>> 682346f0ad8117b47217d3b40edcb856f3680553
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.GestionFournisseurs.resources
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.Produit_déstocker.resources
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.tableau_bord.resources
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.AjouterProduit.resources
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.ProduitsDestocker.resources
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.GestionProduits.resources
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.TableauBord.resources
+C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.App.resources
