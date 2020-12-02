@@ -168,5 +168,38 @@ namespace Gestion
             GestionProduitsPanel.Hide();
             ListeProdPane.Show();
         }
+
+        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        {
+            ProDestPane.Hide();
+            GestionProduitsPanel.Show();
+        }
+
+        private void guna2Button4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void TabBordB6_Click(object sender, EventArgs e)
+        {
+            ProDestPane.Hide();
+            MainPanel.Show();
+        }
+
+        private void ProdDestB_Click(object sender, EventArgs e)
+        {
+            GestionProduitsPanel.Hide();
+            ProDestPane.Show();
+        }
+
+        private void MainPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
