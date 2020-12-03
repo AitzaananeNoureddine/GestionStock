@@ -219,5 +219,29 @@ namespace Gestion
             GestionFoursPanel.Hide();
             ListeFournsPanel.Show();
         }
+
+        private void listeCommandesPane_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button11_Click(object sender, EventArgs e)
+        {
+            listeCommandesPane.Hide();
+            MainPanel.Show();
+
+        }
+
+        private void guna2ImageButton4_Click_1(object sender, EventArgs e)
+        {
+            listeCommandesPane.Hide();
+            GestionFoursPanel.Show();
+        }
+
+        private void CommandesB_Click(object sender, EventArgs e)
+        {
+            GestionFoursPanel.Hide();
+            listeCommandesPane.Show();
+        }
     }
 }

@@ -81,3 +81,4 @@ C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.ProduitsDestocker
 C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.GestionProduits.resources
 C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.TableauBord.resources
 C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.App.resources
+C:\Users\Pc\Desktop\GestionStock\Gestion\obj\Debug\Gestion.App.resources
