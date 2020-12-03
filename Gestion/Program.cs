@@ -12,7 +12,7 @@ namespace Gestion
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main() //// noureddine : changes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
