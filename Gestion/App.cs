@@ -201,5 +201,23 @@ namespace Gestion
         {
 
         }
+
+        private void TabBordB7_Click(object sender, EventArgs e)
+        {
+            ListeFournsPanel.Hide();
+            MainPanel.Show();
+        }
+
+        private void GobackB6_Click(object sender, EventArgs e)
+        {
+            ListeFournsPanel.Hide();
+            GestionFoursPanel.Show();
+        }
+
+        private void ListeFournB_Click(object sender, EventArgs e)
+        {
+            GestionFoursPanel.Hide();
+            ListeFournsPanel.Show();
+        }
     }
 }
