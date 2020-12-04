@@ -15,6 +15,10 @@ namespace Gestion
         public App()
         {
             InitializeComponent();
+            MainPanel.BackgroundImageLayout = ImageLayout.Stretch;
+            GestionProduitsPanel.BackgroundImageLayout = ImageLayout.Stretch;
+            GestionFoursPanel.BackgroundImageLayout = ImageLayout.Stretch;
+            ListeProdPane.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void statistique_Click(object sender, EventArgs e)
@@ -227,21 +231,33 @@ namespace Gestion
 
         private void guna2Button11_Click(object sender, EventArgs e)
         {
-            listeCommandesPane.Hide();
+            ListeCommandesPanel.Hide();
             MainPanel.Show();
 
         }
 
         private void guna2ImageButton4_Click_1(object sender, EventArgs e)
         {
-            listeCommandesPane.Hide();
+            ListeCommandesPanel.Hide();
             GestionFoursPanel.Show();
         }
 
         private void CommandesB_Click(object sender, EventArgs e)
         {
             GestionFoursPanel.Hide();
-            listeCommandesPane.Show();
+            ListeCommandesPanel.Show();
+        }
+
+        private void guna2Button15_Click(object sender, EventArgs e)
+        {
+            ListeCommandesPanel.Hide();
+            MainPanel.Show();
+        }
+
+        private void guna2ImageButton9_Click(object sender, EventArgs e)
+        {
+            ListeCommandesPanel.Hide();
+            GestionFoursPanel.Show();
         }
     }
 }
