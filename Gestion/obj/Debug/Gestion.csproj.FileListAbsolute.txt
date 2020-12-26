@@ -82,3 +82,17 @@ C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.GestionProduits.r
 C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.TableauBord.resources
 C:\Users\WIN 10\Desktop\GestionStock\Gestion\obj\Debug\Gestion.App.resources
 C:\Users\Pc\Desktop\GestionStock\Gestion\obj\Debug\Gestion.App.resources
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\bin\Debug\ProjectDB.mdf
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\bin\Debug\ProjectDB_log.ldf
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\bin\Debug\Gestion.exe.config
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\bin\Debug\Gestion.exe
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\bin\Debug\Gestion.pdb
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\bin\Debug\Guna.UI2.dll
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\obj\Debug\Gestion.csprojAssemblyReference.cache
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\obj\Debug\Gestion.Properties.Resources.resources
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\obj\Debug\Gestion.App.resources
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\obj\Debug\Gestion.csproj.GenerateResource.cache
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\obj\Debug\Gestion.csproj.CoreCompileInputs.cache
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\obj\Debug\Gestion.csproj.CopyComplete
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\obj\Debug\Gestion.exe
+C:\Users\aitza\OneDrive\Bureau\GestionStock\Gestion\obj\Debug\Gestion.pdb

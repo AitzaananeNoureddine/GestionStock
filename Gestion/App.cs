@@ -37,6 +37,8 @@ namespace Gestion
 
         private void TableauBord_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectDBDataSet.Produits' table. You can move, or remove it, as needed.
+            this.produitsTableAdapter.Fill(this.projectDBDataSet.Produits);
 
         }
 
