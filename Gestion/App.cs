@@ -261,5 +261,24 @@ namespace Gestion
             ListeCommandesPanel.Hide();
             GestionFoursPanel.Show();
         }
+
+        private void ListeFournTab_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void SearchFournB_Click(object sender, EventArgs e)
+        {
+            string Fournisseur = FournAChercher.Text.ToString();
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            var dbFourns = from f in db.Fournisseurs
+                           where f.Nom.Contains(Fournisseur)
+                           select f;
+            /*var dbFourns = from f in db.Fournisseurs
+                           select f;*/
+            List < Fournisseur > list_fourns = new List<Fournisseur>();
+            foreach (var f in dbFourns) list_fourns.Add(f);
+            ListeFournTab.DataSource = list_fourns;
+        }
     }
 }

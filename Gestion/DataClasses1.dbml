@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="C:\USERS\AITZA\ONEDRIVE\BUREAU\GESTIONSTOCK\GESTION\BIN\DEBUG\PROJECTDB.MDF" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=C:\USERS\AITZA\ONEDRIVE\BUREAU\GESTIONSTOCK\GESTION\BIN\DEBUG\PROJECTDB.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="Gestion.Properties.Settings" SettingsPropertyName="C__USERS_AITZA_ONEDRIVE_BUREAU_GESTIONSTOCK_GESTION_BIN_DEBUG_PROJECTDB_MDFConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Achats" Member="Achats">
+    <Type Name="Achat">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Produit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quant" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date_achat" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Produit_Achat" Member="Produit1" ThisKey="Produit" OtherKey="Id" Type="Produit" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Commandes" Member="Commandes">
+    <Type Name="Commande">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Produit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Fournisseur" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quant" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date_commande" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Date_livraison" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Fournisseur_Commande" Member="Fournisseur1" ThisKey="Fournisseur" OtherKey="Id" Type="Fournisseur" IsForeignKey="true" />
+      <Association Name="Produit_Commande" Member="Produit1" ThisKey="Produit" OtherKey="Id" Type="Produit" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Fournisseurs" Member="Fournisseurs">
+    <Type Name="Fournisseur">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="Adresse" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="Contact" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Association Name="Fournisseur_Commande" Member="Commandes" ThisKey="Id" OtherKey="Fournisseur" Type="Commande" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Produits" Member="Produits">
+    <Type Name="Produit">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="Prix" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date_exp" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Produit_Achat" Member="Achats" ThisKey="Id" OtherKey="Produit" Type="Achat" />
+      <Association Name="Produit_Commande" Member="Commandes" ThisKey="Id" OtherKey="Produit" Type="Commande" />
+      <Association Name="Produit_Vente" Member="Ventes" ThisKey="Id" OtherKey="Produit" Type="Vente" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ventes" Member="Ventes">
+    <Type Name="Vente">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Produit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quant" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date_vente" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Produit_Vente" Member="Produit1" ThisKey="Produit" OtherKey="Id" Type="Produit" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

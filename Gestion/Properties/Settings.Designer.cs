@@ -33,5 +33,18 @@ namespace Gestion.Properties {
                 return ((string)(this["ProjectDBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=C:\\USERS\\AITZA\\ONEDRIVE\\BUREAU" +
+            "\\GESTIONSTOCK\\GESTION\\BIN\\DEBUG\\PROJECTDB.MDF;Integrated Security=True;Connect T" +
+            "imeout=30;Encrypt=False;TrustServerCertificate=False")]
+        public string C__USERS_AITZA_ONEDRIVE_BUREAU_GESTIONSTOCK_GESTION_BIN_DEBUG_PROJECTDB_MDFConnectionString {
+            get {
+                return ((string)(this["C__USERS_AITZA_ONEDRIVE_BUREAU_GESTIONSTOCK_GESTION_BIN_DEBUG_PROJECTDB_MDFConnec" +
+                    "tionString"]));
+            }
+        }
     }
 }

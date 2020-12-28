@@ -50,10 +50,6 @@
             this.SearchFournB = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.ListeFournTab = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adresse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ListeFournsPanel = new System.Windows.Forms.Panel();
             this.ProdAchercher = new Guna.UI2.WinForms.Guna2TextBox();
             this.TabBordB6 = new Guna.UI2.WinForms.Guna2Button();
@@ -78,6 +74,14 @@
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.SearchProdB = new Guna.UI2.WinForms.Guna2ImageButton();
             this.ProdTab = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateexpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.produitsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectDBDataSet = new Gestion.ProjectDBDataSet();
             this.ListeProdPane = new System.Windows.Forms.Panel();
             this.FournAdresse = new Guna.UI2.WinForms.Guna2TextBox();
             this.FournNom = new Guna.UI2.WinForms.Guna2TextBox();
@@ -146,20 +150,14 @@
             this.guna2ImageButton9 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Button13 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button15 = new Guna.UI2.WinForms.Guna2Button();
-            this.projectDBDataSet = new Gestion.ProjectDBDataSet();
-            this.produitsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.produitsTableAdapter = new Gestion.ProjectDBDataSetTableAdapters.ProduitsTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateexpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ListeFournTab)).BeginInit();
             this.ListeFournsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProdDestTab)).BeginInit();
             this.ProDestPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProdTab)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produitsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).BeginInit();
             this.ListeProdPane.SuspendLayout();
             this.AjFournPanel.SuspendLayout();
             this.AjProdPanel.SuspendLayout();
@@ -169,8 +167,6 @@
             this.GestionProduitsPanel.SuspendLayout();
             this.ListeCommandesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.produitsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // FournAChercher
@@ -287,6 +283,7 @@
             this.SearchFournB.PressedState.Parent = this.SearchFournB;
             this.SearchFournB.Size = new System.Drawing.Size(42, 45);
             this.SearchFournB.TabIndex = 46;
+            this.SearchFournB.Click += new System.EventHandler(this.SearchFournB_Click);
             // 
             // guna2ImageButton2
             // 
@@ -323,11 +320,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ListeFournTab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.ListeFournTab.ColumnHeadersHeight = 21;
-            this.ListeFournTab.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn9,
-            this.Adresse,
-            this.dataGridViewTextBoxColumn13});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -366,26 +358,7 @@
             this.ListeFournTab.ThemeStyle.RowsStyle.Height = 22;
             this.ListeFournTab.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.ListeFournTab.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Nom";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // Adresse
-            // 
-            this.Adresse.HeaderText = "Adresse";
-            this.Adresse.Name = "Adresse";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "Options";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.ListeFournTab.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListeFournTab_CellContentClick);
             // 
             // ListeFournsPanel
             // 
@@ -850,6 +823,53 @@
             this.ProdTab.ThemeStyle.RowsStyle.Height = 22;
             this.ProdTab.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.ProdTab.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nomDataGridViewTextBoxColumn
+            // 
+            this.nomDataGridViewTextBoxColumn.DataPropertyName = "Nom";
+            this.nomDataGridViewTextBoxColumn.HeaderText = "Nom";
+            this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
+            // 
+            // imageDataGridViewTextBoxColumn
+            // 
+            this.imageDataGridViewTextBoxColumn.DataPropertyName = "Image";
+            this.imageDataGridViewTextBoxColumn.HeaderText = "Image";
+            this.imageDataGridViewTextBoxColumn.Name = "imageDataGridViewTextBoxColumn";
+            // 
+            // prixDataGridViewTextBoxColumn
+            // 
+            this.prixDataGridViewTextBoxColumn.DataPropertyName = "Prix";
+            this.prixDataGridViewTextBoxColumn.HeaderText = "Prix";
+            this.prixDataGridViewTextBoxColumn.Name = "prixDataGridViewTextBoxColumn";
+            // 
+            // dateexpDataGridViewTextBoxColumn
+            // 
+            this.dateexpDataGridViewTextBoxColumn.DataPropertyName = "Date_exp";
+            this.dateexpDataGridViewTextBoxColumn.HeaderText = "Date_exp";
+            this.dateexpDataGridViewTextBoxColumn.Name = "dateexpDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // produitsBindingSource
+            // 
+            this.produitsBindingSource.DataMember = "Produits";
+            this.produitsBindingSource.DataSource = this.projectDBDataSet;
+            // 
+            // projectDBDataSet
+            // 
+            this.projectDBDataSet.DataSetName = "ProjectDBDataSet";
+            this.projectDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ListeProdPane
             // 
@@ -2173,56 +2193,9 @@
             this.guna2Button15.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.guna2Button15.Click += new System.EventHandler(this.guna2Button15_Click);
             // 
-            // projectDBDataSet
-            // 
-            this.projectDBDataSet.DataSetName = "ProjectDBDataSet";
-            this.projectDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // produitsBindingSource
-            // 
-            this.produitsBindingSource.DataMember = "Produits";
-            this.produitsBindingSource.DataSource = this.projectDBDataSet;
-            // 
             // produitsTableAdapter
             // 
             this.produitsTableAdapter.ClearBeforeFill = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nomDataGridViewTextBoxColumn
-            // 
-            this.nomDataGridViewTextBoxColumn.DataPropertyName = "Nom";
-            this.nomDataGridViewTextBoxColumn.HeaderText = "Nom";
-            this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
-            // 
-            // imageDataGridViewTextBoxColumn
-            // 
-            this.imageDataGridViewTextBoxColumn.DataPropertyName = "Image";
-            this.imageDataGridViewTextBoxColumn.HeaderText = "Image";
-            this.imageDataGridViewTextBoxColumn.Name = "imageDataGridViewTextBoxColumn";
-            // 
-            // prixDataGridViewTextBoxColumn
-            // 
-            this.prixDataGridViewTextBoxColumn.DataPropertyName = "Prix";
-            this.prixDataGridViewTextBoxColumn.HeaderText = "Prix";
-            this.prixDataGridViewTextBoxColumn.Name = "prixDataGridViewTextBoxColumn";
-            // 
-            // dateexpDataGridViewTextBoxColumn
-            // 
-            this.dateexpDataGridViewTextBoxColumn.DataPropertyName = "Date_exp";
-            this.dateexpDataGridViewTextBoxColumn.HeaderText = "Date_exp";
-            this.dateexpDataGridViewTextBoxColumn.Name = "dateexpDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
             // App
             // 
@@ -2230,9 +2203,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(895, 461);
+            this.Controls.Add(this.ListeFournsPanel);
             this.Controls.Add(this.ListeProdPane);
             this.Controls.Add(this.ListeCommandesPanel);
-            this.Controls.Add(this.ListeFournsPanel);
             this.Controls.Add(this.AjProdPanel);
             this.Controls.Add(this.ProDestPane);
             this.Controls.Add(this.GestionFoursPanel);
@@ -2250,6 +2223,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProdDestTab)).EndInit();
             this.ProDestPane.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ProdTab)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.produitsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).EndInit();
             this.ListeProdPane.ResumeLayout(false);
             this.AjFournPanel.ResumeLayout(false);
             this.AjProdPanel.ResumeLayout(false);
@@ -2259,8 +2234,6 @@
             this.GestionProduitsPanel.ResumeLayout(false);
             this.ListeCommandesPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.produitsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2275,10 +2248,6 @@
         private Guna.UI2.WinForms.Guna2ImageButton SearchFournB;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
         private Guna.UI2.WinForms.Guna2DataGridView ListeFournTab;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Adresse;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.Panel ListeFournsPanel;
         private Guna.UI2.WinForms.Guna2TextBox ProdAchercher;
         private Guna.UI2.WinForms.Guna2Button TabBordB6;
