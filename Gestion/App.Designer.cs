@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -47,10 +46,10 @@
             this.guna2Button10 = new Guna.UI2.WinForms.Guna2Button();
             this.GobackB6 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
-            this.SearchFournB = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.ListeFournTab = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ListeFournsPanel = new System.Windows.Forms.Panel();
+            this.SearchFournB = new Guna.UI2.WinForms.Guna2ImageButton();
             this.ProdAchercher = new Guna.UI2.WinForms.Guna2TextBox();
             this.TabBordB6 = new Guna.UI2.WinForms.Guna2Button();
             this.GobackB5 = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -59,12 +58,6 @@
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.ProdDestTab = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProDestPane = new Guna.UI2.WinForms.Guna2Panel();
             this.ProduitAChercher = new Guna.UI2.WinForms.Guna2TextBox();
             this.TabBordB5 = new Guna.UI2.WinForms.Guna2Button();
@@ -74,14 +67,6 @@
             this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.SearchProdB = new Guna.UI2.WinForms.Guna2ImageButton();
             this.ProdTab = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateexpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.produitsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.projectDBDataSet = new Gestion.ProjectDBDataSet();
             this.ListeProdPane = new System.Windows.Forms.Panel();
             this.FournAdresse = new Guna.UI2.WinForms.Guna2TextBox();
             this.FournNom = new Guna.UI2.WinForms.Guna2TextBox();
@@ -135,29 +120,24 @@
             this.BilanJourB = new Guna.UI2.WinForms.Guna2Button();
             this.GestionProduitsPanel = new System.Windows.Forms.Panel();
             this.ListeCommandesPanel = new System.Windows.Forms.Panel();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ComboFourns = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.CommandesList = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Produit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrixUnitaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date_demande = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fournisseur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantité = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_commande = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date_livraison = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrixTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2ImageButton7 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2ImageButton8 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Separator4 = new Guna.UI2.WinForms.Guna2Separator();
             this.guna2ImageButton9 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Button13 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button15 = new Guna.UI2.WinForms.Guna2Button();
-            this.produitsTableAdapter = new Gestion.ProjectDBDataSetTableAdapters.ProduitsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ListeFournTab)).BeginInit();
             this.ListeFournsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProdDestTab)).BeginInit();
             this.ProDestPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProdTab)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.produitsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).BeginInit();
             this.ListeProdPane.SuspendLayout();
             this.AjFournPanel.SuspendLayout();
             this.AjProdPanel.SuspendLayout();
@@ -166,7 +146,7 @@
             this.MainPanel.SuspendLayout();
             this.GestionProduitsPanel.SuspendLayout();
             this.ListeCommandesPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CommandesList)).BeginInit();
             this.SuspendLayout();
             // 
             // FournAChercher
@@ -198,6 +178,7 @@
             this.FournAChercher.ShadowDecoration.Parent = this.FournAChercher;
             this.FournAChercher.Size = new System.Drawing.Size(231, 38);
             this.FournAChercher.TabIndex = 41;
+            this.FournAChercher.TextChanged += new System.EventHandler(this.FournAChercher_TextChanged);
             // 
             // TabBordB7
             // 
@@ -266,25 +247,6 @@
             this.guna2Separator3.Size = new System.Drawing.Size(870, 10);
             this.guna2Separator3.TabIndex = 45;
             // 
-            // SearchFournB
-            // 
-            this.SearchFournB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchFournB.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.SearchFournB.CheckedState.Parent = this.SearchFournB;
-            this.SearchFournB.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SearchFournB.HoverState.ImageSize = new System.Drawing.Size(55, 55);
-            this.SearchFournB.HoverState.Parent = this.SearchFournB;
-            this.SearchFournB.Image = ((System.Drawing.Image)(resources.GetObject("SearchFournB.Image")));
-            this.SearchFournB.ImageRotate = 0F;
-            this.SearchFournB.ImageSize = new System.Drawing.Size(55, 55);
-            this.SearchFournB.Location = new System.Drawing.Point(571, 130);
-            this.SearchFournB.Name = "SearchFournB";
-            this.SearchFournB.PressedState.ImageSize = new System.Drawing.Size(55, 55);
-            this.SearchFournB.PressedState.Parent = this.SearchFournB;
-            this.SearchFournB.Size = new System.Drawing.Size(42, 45);
-            this.SearchFournB.TabIndex = 46;
-            this.SearchFournB.Click += new System.EventHandler(this.SearchFournB_Click);
-            // 
             // guna2ImageButton2
             // 
             this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
@@ -303,7 +265,7 @@
             // 
             // ListeFournTab
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(205)))), ((int)(((byte)(189)))));
             this.ListeFournTab.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.ListeFournTab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ListeFournTab.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -312,7 +274,7 @@
             this.ListeFournTab.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.ListeFournTab.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(87)))), ((int)(((byte)(34)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -321,43 +283,44 @@
             this.ListeFournTab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.ListeFournTab.ColumnHeadersHeight = 21;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(221)))), ((int)(((byte)(211)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(143)))), ((int)(((byte)(107)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ListeFournTab.DefaultCellStyle = dataGridViewCellStyle3;
             this.ListeFournTab.EnableHeadersVisualStyles = false;
-            this.ListeFournTab.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.ListeFournTab.Location = new System.Drawing.Point(132, 216);
+            this.ListeFournTab.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(203)))), ((int)(((byte)(186)))));
+            this.ListeFournTab.Location = new System.Drawing.Point(58, 216);
             this.ListeFournTab.Name = "ListeFournTab";
+            this.ListeFournTab.ReadOnly = true;
             this.ListeFournTab.RowHeadersVisible = false;
             this.ListeFournTab.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ListeFournTab.Size = new System.Drawing.Size(644, 159);
+            this.ListeFournTab.Size = new System.Drawing.Size(757, 159);
             this.ListeFournTab.TabIndex = 48;
-            this.ListeFournTab.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.ListeFournTab.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.ListeFournTab.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.DeepOrange;
+            this.ListeFournTab.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(205)))), ((int)(((byte)(189)))));
             this.ListeFournTab.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.ListeFournTab.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.ListeFournTab.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.ListeFournTab.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.ListeFournTab.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.ListeFournTab.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.ListeFournTab.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.ListeFournTab.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(203)))), ((int)(((byte)(186)))));
+            this.ListeFournTab.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(87)))), ((int)(((byte)(34)))));
             this.ListeFournTab.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.ListeFournTab.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.ListeFournTab.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.ListeFournTab.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.ListeFournTab.ThemeStyle.HeaderStyle.Height = 21;
-            this.ListeFournTab.ThemeStyle.ReadOnly = false;
-            this.ListeFournTab.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.ListeFournTab.ThemeStyle.ReadOnly = true;
+            this.ListeFournTab.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(221)))), ((int)(((byte)(211)))));
             this.ListeFournTab.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.ListeFournTab.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.ListeFournTab.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ListeFournTab.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.ListeFournTab.ThemeStyle.RowsStyle.Height = 22;
-            this.ListeFournTab.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.ListeFournTab.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.ListeFournTab.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(143)))), ((int)(((byte)(107)))));
+            this.ListeFournTab.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.ListeFournTab.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListeFournTab_CellContentClick);
             // 
             // ListeFournsPanel
@@ -376,6 +339,25 @@
             this.ListeFournsPanel.Size = new System.Drawing.Size(895, 461);
             this.ListeFournsPanel.TabIndex = 54;
             this.ListeFournsPanel.Visible = false;
+            // 
+            // SearchFournB
+            // 
+            this.SearchFournB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchFournB.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.SearchFournB.CheckedState.Parent = this.SearchFournB;
+            this.SearchFournB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SearchFournB.HoverState.ImageSize = new System.Drawing.Size(45, 45);
+            this.SearchFournB.HoverState.Parent = this.SearchFournB;
+            this.SearchFournB.Image = ((System.Drawing.Image)(resources.GetObject("SearchFournB.Image")));
+            this.SearchFournB.ImageRotate = 0F;
+            this.SearchFournB.ImageSize = new System.Drawing.Size(45, 45);
+            this.SearchFournB.Location = new System.Drawing.Point(525, 138);
+            this.SearchFournB.Name = "SearchFournB";
+            this.SearchFournB.PressedState.ImageSize = new System.Drawing.Size(45, 45);
+            this.SearchFournB.PressedState.Parent = this.SearchFournB;
+            this.SearchFournB.Size = new System.Drawing.Size(36, 32);
+            this.SearchFournB.TabIndex = 46;
+            this.SearchFournB.Click += new System.EventHandler(this.SearchFournB_Click);
             // 
             // ProdAchercher
             // 
@@ -396,7 +378,7 @@
             this.ProdAchercher.ForeColor = System.Drawing.Color.Black;
             this.ProdAchercher.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ProdAchercher.HoverState.Parent = this.ProdAchercher;
-            this.ProdAchercher.Location = new System.Drawing.Point(335, 142);
+            this.ProdAchercher.Location = new System.Drawing.Point(335, 138);
             this.ProdAchercher.Margin = new System.Windows.Forms.Padding(2);
             this.ProdAchercher.Name = "ProdAchercher";
             this.ProdAchercher.PasswordChar = '\0';
@@ -404,8 +386,9 @@
             this.ProdAchercher.PlaceholderText = "Chercher un produit";
             this.ProdAchercher.SelectedText = "";
             this.ProdAchercher.ShadowDecoration.Parent = this.ProdAchercher;
-            this.ProdAchercher.Size = new System.Drawing.Size(231, 36);
+            this.ProdAchercher.Size = new System.Drawing.Size(231, 41);
             this.ProdAchercher.TabIndex = 48;
+            this.ProdAchercher.TextChanged += new System.EventHandler(this.ProdAchercher_TextChanged);
             // 
             // TabBordB6
             // 
@@ -459,17 +442,18 @@
             this.SearchProdDestB.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.SearchProdDestB.CheckedState.Parent = this.SearchProdDestB;
             this.SearchProdDestB.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SearchProdDestB.HoverState.ImageSize = new System.Drawing.Size(55, 55);
+            this.SearchProdDestB.HoverState.ImageSize = new System.Drawing.Size(45, 45);
             this.SearchProdDestB.HoverState.Parent = this.SearchProdDestB;
             this.SearchProdDestB.Image = ((System.Drawing.Image)(resources.GetObject("SearchProdDestB.Image")));
             this.SearchProdDestB.ImageRotate = 0F;
-            this.SearchProdDestB.ImageSize = new System.Drawing.Size(55, 55);
-            this.SearchProdDestB.Location = new System.Drawing.Point(574, 139);
+            this.SearchProdDestB.ImageSize = new System.Drawing.Size(45, 45);
+            this.SearchProdDestB.Location = new System.Drawing.Point(528, 141);
             this.SearchProdDestB.Name = "SearchProdDestB";
-            this.SearchProdDestB.PressedState.ImageSize = new System.Drawing.Size(55, 55);
+            this.SearchProdDestB.PressedState.ImageSize = new System.Drawing.Size(45, 45);
             this.SearchProdDestB.PressedState.Parent = this.SearchProdDestB;
-            this.SearchProdDestB.Size = new System.Drawing.Size(42, 39);
+            this.SearchProdDestB.Size = new System.Drawing.Size(33, 35);
             this.SearchProdDestB.TabIndex = 52;
+            this.SearchProdDestB.Click += new System.EventHandler(this.SearchProdDestB_Click);
             // 
             // guna2ImageButton1
             // 
@@ -511,7 +495,7 @@
             // 
             // ProdDestTab
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(223)))), ((int)(((byte)(219)))));
             this.ProdDestTab.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.ProdDestTab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ProdDestTab.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -520,7 +504,7 @@
             this.ProdDestTab.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.ProdDestTab.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -528,82 +512,46 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ProdDestTab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.ProdDestTab.ColumnHeadersHeight = 21;
-            this.ProdDestTab.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn7});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(233)))), ((int)(((byte)(231)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(185)))), ((int)(((byte)(175)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ProdDestTab.DefaultCellStyle = dataGridViewCellStyle6;
             this.ProdDestTab.EnableHeadersVisualStyles = false;
-            this.ProdDestTab.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.ProdDestTab.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(222)))), ((int)(((byte)(218)))));
             this.ProdDestTab.Location = new System.Drawing.Point(86, 216);
             this.ProdDestTab.Name = "ProdDestTab";
+            this.ProdDestTab.ReadOnly = true;
             this.ProdDestTab.RowHeadersVisible = false;
             this.ProdDestTab.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ProdDestTab.Size = new System.Drawing.Size(729, 159);
             this.ProdDestTab.TabIndex = 55;
-            this.ProdDestTab.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.ProdDestTab.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.ProdDestTab.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Teal;
+            this.ProdDestTab.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(223)))), ((int)(((byte)(219)))));
             this.ProdDestTab.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.ProdDestTab.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.ProdDestTab.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.ProdDestTab.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.ProdDestTab.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.ProdDestTab.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.ProdDestTab.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.ProdDestTab.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(222)))), ((int)(((byte)(218)))));
+            this.ProdDestTab.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.ProdDestTab.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.ProdDestTab.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.ProdDestTab.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.ProdDestTab.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.ProdDestTab.ThemeStyle.HeaderStyle.Height = 21;
-            this.ProdDestTab.ThemeStyle.ReadOnly = false;
-            this.ProdDestTab.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.ProdDestTab.ThemeStyle.ReadOnly = true;
+            this.ProdDestTab.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(233)))), ((int)(((byte)(231)))));
             this.ProdDestTab.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.ProdDestTab.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.ProdDestTab.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ProdDestTab.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.ProdDestTab.ThemeStyle.RowsStyle.Height = 22;
-            this.ProdDestTab.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.ProdDestTab.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.ProdDestTab.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(185)))), ((int)(((byte)(175)))));
+            this.ProdDestTab.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.ProdDestTab.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Image";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Nom";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Prix";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Date_expiration";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Options";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // ProDestPane
             // 
@@ -652,6 +600,7 @@
             this.ProduitAChercher.ShadowDecoration.Parent = this.ProduitAChercher;
             this.ProduitAChercher.Size = new System.Drawing.Size(231, 37);
             this.ProduitAChercher.TabIndex = 41;
+            this.ProduitAChercher.TextChanged += new System.EventHandler(this.ProduitAChercher_TextChanged);
             // 
             // TabBordB5
             // 
@@ -745,31 +694,31 @@
             this.SearchProdB.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.SearchProdB.CheckedState.Parent = this.SearchProdB;
             this.SearchProdB.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SearchProdB.HoverState.ImageSize = new System.Drawing.Size(55, 55);
+            this.SearchProdB.HoverState.ImageSize = new System.Drawing.Size(45, 45);
             this.SearchProdB.HoverState.Parent = this.SearchProdB;
             this.SearchProdB.Image = ((System.Drawing.Image)(resources.GetObject("SearchProdB.Image")));
             this.SearchProdB.ImageRotate = 0F;
-            this.SearchProdB.ImageSize = new System.Drawing.Size(55, 55);
-            this.SearchProdB.Location = new System.Drawing.Point(571, 130);
+            this.SearchProdB.ImageSize = new System.Drawing.Size(45, 45);
+            this.SearchProdB.Location = new System.Drawing.Point(528, 137);
             this.SearchProdB.Name = "SearchProdB";
-            this.SearchProdB.PressedState.ImageSize = new System.Drawing.Size(55, 55);
+            this.SearchProdB.PressedState.ImageSize = new System.Drawing.Size(45, 45);
             this.SearchProdB.PressedState.Parent = this.SearchProdB;
-            this.SearchProdB.Size = new System.Drawing.Size(42, 47);
+            this.SearchProdB.Size = new System.Drawing.Size(32, 32);
             this.SearchProdB.TabIndex = 46;
+            this.SearchProdB.Click += new System.EventHandler(this.SearchProdB_Click);
             // 
             // ProdTab
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
             this.ProdTab.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.ProdTab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProdTab.AutoGenerateColumns = false;
             this.ProdTab.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ProdTab.BackgroundColor = System.Drawing.Color.White;
             this.ProdTab.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProdTab.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.ProdTab.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(243)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -777,99 +726,45 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ProdTab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.ProdTab.ColumnHeadersHeight = 21;
-            this.ProdTab.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nomDataGridViewTextBoxColumn,
-            this.imageDataGridViewTextBoxColumn,
-            this.prixDataGridViewTextBoxColumn,
-            this.dateexpDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn});
-            this.ProdTab.DataSource = this.produitsBindingSource;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(197)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ProdTab.DefaultCellStyle = dataGridViewCellStyle9;
             this.ProdTab.EnableHeadersVisualStyles = false;
-            this.ProdTab.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.ProdTab.Location = new System.Drawing.Point(122, 213);
+            this.ProdTab.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(230)))), ((int)(((byte)(251)))));
+            this.ProdTab.Location = new System.Drawing.Point(58, 213);
             this.ProdTab.Name = "ProdTab";
+            this.ProdTab.ReadOnly = true;
             this.ProdTab.RowHeadersVisible = false;
             this.ProdTab.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ProdTab.Size = new System.Drawing.Size(644, 159);
+            this.ProdTab.Size = new System.Drawing.Size(757, 159);
             this.ProdTab.TabIndex = 48;
-            this.ProdTab.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.ProdTab.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.ProdTab.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightBlue;
+            this.ProdTab.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
             this.ProdTab.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.ProdTab.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.ProdTab.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.ProdTab.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.ProdTab.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.ProdTab.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.ProdTab.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.ProdTab.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(230)))), ((int)(((byte)(251)))));
+            this.ProdTab.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(243)))));
             this.ProdTab.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.ProdTab.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.ProdTab.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.ProdTab.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.ProdTab.ThemeStyle.HeaderStyle.Height = 21;
-            this.ProdTab.ThemeStyle.ReadOnly = false;
-            this.ProdTab.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.ProdTab.ThemeStyle.ReadOnly = true;
+            this.ProdTab.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
             this.ProdTab.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.ProdTab.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.ProdTab.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ProdTab.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.ProdTab.ThemeStyle.RowsStyle.Height = 22;
-            this.ProdTab.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.ProdTab.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nomDataGridViewTextBoxColumn
-            // 
-            this.nomDataGridViewTextBoxColumn.DataPropertyName = "Nom";
-            this.nomDataGridViewTextBoxColumn.HeaderText = "Nom";
-            this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
-            // 
-            // imageDataGridViewTextBoxColumn
-            // 
-            this.imageDataGridViewTextBoxColumn.DataPropertyName = "Image";
-            this.imageDataGridViewTextBoxColumn.HeaderText = "Image";
-            this.imageDataGridViewTextBoxColumn.Name = "imageDataGridViewTextBoxColumn";
-            // 
-            // prixDataGridViewTextBoxColumn
-            // 
-            this.prixDataGridViewTextBoxColumn.DataPropertyName = "Prix";
-            this.prixDataGridViewTextBoxColumn.HeaderText = "Prix";
-            this.prixDataGridViewTextBoxColumn.Name = "prixDataGridViewTextBoxColumn";
-            // 
-            // dateexpDataGridViewTextBoxColumn
-            // 
-            this.dateexpDataGridViewTextBoxColumn.DataPropertyName = "Date_exp";
-            this.dateexpDataGridViewTextBoxColumn.HeaderText = "Date_exp";
-            this.dateexpDataGridViewTextBoxColumn.Name = "dateexpDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            // 
-            // produitsBindingSource
-            // 
-            this.produitsBindingSource.DataMember = "Produits";
-            this.produitsBindingSource.DataSource = this.projectDBDataSet;
-            // 
-            // projectDBDataSet
-            // 
-            this.projectDBDataSet.DataSetName = "ProjectDBDataSet";
-            this.projectDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.ProdTab.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(197)))), ((int)(((byte)(247)))));
+            this.ProdTab.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
             // ListeProdPane
             // 
@@ -1949,9 +1844,8 @@
             // 
             // ListeCommandesPanel
             // 
-            this.ListeCommandesPanel.Controls.Add(this.guna2ComboBox1);
-            this.ListeCommandesPanel.Controls.Add(this.guna2DataGridView2);
-            this.ListeCommandesPanel.Controls.Add(this.guna2ImageButton7);
+            this.ListeCommandesPanel.Controls.Add(this.ComboFourns);
+            this.ListeCommandesPanel.Controls.Add(this.CommandesList);
             this.ListeCommandesPanel.Controls.Add(this.guna2ImageButton8);
             this.ListeCommandesPanel.Controls.Add(this.guna2Separator4);
             this.ListeCommandesPanel.Controls.Add(this.guna2ImageButton9);
@@ -1964,151 +1858,135 @@
             this.ListeCommandesPanel.TabIndex = 55;
             this.ListeCommandesPanel.Visible = false;
             // 
-            // guna2ComboBox1
+            // ComboFourns
             // 
-            this.guna2ComboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ComboFourns.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.BorderRadius = 10;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
+            this.ComboFourns.BackColor = System.Drawing.Color.Transparent;
+            this.ComboFourns.BorderColor = System.Drawing.Color.Black;
+            this.ComboFourns.BorderRadius = 10;
+            this.ComboFourns.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboFourns.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboFourns.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboFourns.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ComboFourns.FocusedState.Parent = this.ComboFourns;
+            this.ComboFourns.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ComboFourns.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.ComboFourns.HoverState.Parent = this.ComboFourns;
+            this.ComboFourns.ItemHeight = 30;
+            this.ComboFourns.Items.AddRange(new object[] {
             "Founisseur",
             "Fourn1",
             "Fourn2"});
-            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(327, 135);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(241, 36);
-            this.guna2ComboBox1.TabIndex = 49;
+            this.ComboFourns.ItemsAppearance.Parent = this.ComboFourns;
+            this.ComboFourns.Location = new System.Drawing.Point(375, 133);
+            this.ComboFourns.Name = "ComboFourns";
+            this.ComboFourns.ShadowDecoration.Parent = this.ComboFourns;
+            this.ComboFourns.Size = new System.Drawing.Size(202, 36);
+            this.ComboFourns.TabIndex = 49;
+            this.ComboFourns.SelectedIndexChanged += new System.EventHandler(this.ComboFourns_SelectedIndexChanged);
             // 
-            // guna2DataGridView2
+            // CommandesList
             // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.guna2DataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.guna2DataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.guna2DataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.guna2DataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(201)))), ((int)(((byte)(197)))));
+            this.CommandesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.CommandesList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CommandesList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.CommandesList.BackgroundColor = System.Drawing.Color.White;
+            this.CommandesList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CommandesList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.CommandesList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.guna2DataGridView2.ColumnHeadersHeight = 21;
-            this.guna2DataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn17,
+            this.CommandesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.CommandesList.ColumnHeadersHeight = 21;
+            this.CommandesList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.Produit,
-            this.PrixUnitaire,
-            this.Date_demande,
-            this.Date_livraison,
-            this.PrixTotal,
-            this.dataGridViewTextBoxColumn23});
+            this.Fournisseur,
+            this.Quantité,
+            this.Date_commande,
+            this.Date_livraison});
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(135)))), ((int)(((byte)(125)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle12;
-            this.guna2DataGridView2.EnableHeadersVisualStyles = false;
-            this.guna2DataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView2.Location = new System.Drawing.Point(72, 227);
-            this.guna2DataGridView2.Name = "guna2DataGridView2";
-            this.guna2DataGridView2.RowHeadersVisible = false;
-            this.guna2DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView2.Size = new System.Drawing.Size(743, 159);
-            this.guna2DataGridView2.TabIndex = 48;
-            this.guna2DataGridView2.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView2.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView2.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView2.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.guna2DataGridView2.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.guna2DataGridView2.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.guna2DataGridView2.ThemeStyle.HeaderStyle.Height = 21;
-            this.guna2DataGridView2.ThemeStyle.ReadOnly = false;
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.Height = 22;
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.CommandesList.DefaultCellStyle = dataGridViewCellStyle12;
+            this.CommandesList.EnableHeadersVisualStyles = false;
+            this.CommandesList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(192)))), ((int)(((byte)(188)))));
+            this.CommandesList.Location = new System.Drawing.Point(58, 227);
+            this.CommandesList.Name = "CommandesList";
+            this.CommandesList.ReadOnly = true;
+            this.CommandesList.RowHeadersVisible = false;
+            this.CommandesList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.CommandesList.Size = new System.Drawing.Size(757, 159);
+            this.CommandesList.TabIndex = 48;
+            this.CommandesList.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Alizarin;
+            this.CommandesList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(201)))), ((int)(((byte)(197)))));
+            this.CommandesList.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.CommandesList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.CommandesList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.CommandesList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.CommandesList.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.CommandesList.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(192)))), ((int)(((byte)(188)))));
+            this.CommandesList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.CommandesList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.CommandesList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.CommandesList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.CommandesList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.CommandesList.ThemeStyle.HeaderStyle.Height = 21;
+            this.CommandesList.ThemeStyle.ReadOnly = true;
+            this.CommandesList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(219)))), ((int)(((byte)(216)))));
+            this.CommandesList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.CommandesList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.CommandesList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.CommandesList.ThemeStyle.RowsStyle.Height = 22;
+            this.CommandesList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(135)))), ((int)(((byte)(125)))));
+            this.CommandesList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
-            // dataGridViewTextBoxColumn17
+            // Id
             // 
-            this.dataGridViewTextBoxColumn17.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // Produit
             // 
             this.Produit.HeaderText = "Produit";
             this.Produit.Name = "Produit";
+            this.Produit.ReadOnly = true;
             // 
-            // PrixUnitaire
+            // Fournisseur
             // 
-            this.PrixUnitaire.HeaderText = "PrixUnitaire";
-            this.PrixUnitaire.Name = "PrixUnitaire";
+            this.Fournisseur.HeaderText = "Fournisseur";
+            this.Fournisseur.Name = "Fournisseur";
+            this.Fournisseur.ReadOnly = true;
             // 
-            // Date_demande
+            // Quantité
             // 
-            this.Date_demande.HeaderText = "Date_demande";
-            this.Date_demande.Name = "Date_demande";
+            this.Quantité.HeaderText = "Quantité";
+            this.Quantité.Name = "Quantité";
+            this.Quantité.ReadOnly = true;
+            // 
+            // Date_commande
+            // 
+            this.Date_commande.HeaderText = "Date_commande";
+            this.Date_commande.Name = "Date_commande";
+            this.Date_commande.ReadOnly = true;
             // 
             // Date_livraison
             // 
             this.Date_livraison.HeaderText = "Date_livraison";
             this.Date_livraison.Name = "Date_livraison";
-            // 
-            // PrixTotal
-            // 
-            this.PrixTotal.HeaderText = "PrixTotale";
-            this.PrixTotal.Name = "PrixTotal";
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.HeaderText = "Options";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            // 
-            // guna2ImageButton7
-            // 
-            this.guna2ImageButton7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ImageButton7.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton7.CheckedState.Parent = this.guna2ImageButton7;
-            this.guna2ImageButton7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2ImageButton7.HoverState.ImageSize = new System.Drawing.Size(55, 55);
-            this.guna2ImageButton7.HoverState.Parent = this.guna2ImageButton7;
-            this.guna2ImageButton7.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton7.Image")));
-            this.guna2ImageButton7.ImageRotate = 0F;
-            this.guna2ImageButton7.ImageSize = new System.Drawing.Size(55, 55);
-            this.guna2ImageButton7.Location = new System.Drawing.Point(571, 130);
-            this.guna2ImageButton7.Name = "guna2ImageButton7";
-            this.guna2ImageButton7.PressedState.ImageSize = new System.Drawing.Size(55, 55);
-            this.guna2ImageButton7.PressedState.Parent = this.guna2ImageButton7;
-            this.guna2ImageButton7.Size = new System.Drawing.Size(42, 47);
-            this.guna2ImageButton7.TabIndex = 46;
+            this.Date_livraison.ReadOnly = true;
             // 
             // guna2ImageButton8
             // 
@@ -2119,11 +1997,11 @@
             this.guna2ImageButton8.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton8.Image")));
             this.guna2ImageButton8.ImageRotate = 0F;
             this.guna2ImageButton8.ImageSize = new System.Drawing.Size(55, 55);
-            this.guna2ImageButton8.Location = new System.Drawing.Point(260, 123);
+            this.guna2ImageButton8.Location = new System.Drawing.Point(311, 118);
             this.guna2ImageButton8.Name = "guna2ImageButton8";
             this.guna2ImageButton8.PressedState.ImageSize = new System.Drawing.Size(55, 55);
             this.guna2ImageButton8.PressedState.Parent = this.guna2ImageButton8;
-            this.guna2ImageButton8.Size = new System.Drawing.Size(64, 54);
+            this.guna2ImageButton8.Size = new System.Drawing.Size(58, 59);
             this.guna2ImageButton8.TabIndex = 47;
             // 
             // guna2Separator4
@@ -2193,21 +2071,17 @@
             this.guna2Button15.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.guna2Button15.Click += new System.EventHandler(this.guna2Button15_Click);
             // 
-            // produitsTableAdapter
-            // 
-            this.produitsTableAdapter.ClearBeforeFill = true;
-            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(895, 461);
-            this.Controls.Add(this.ListeFournsPanel);
-            this.Controls.Add(this.ListeProdPane);
-            this.Controls.Add(this.ListeCommandesPanel);
-            this.Controls.Add(this.AjProdPanel);
             this.Controls.Add(this.ProDestPane);
+            this.Controls.Add(this.ListeCommandesPanel);
+            this.Controls.Add(this.ListeProdPane);
+            this.Controls.Add(this.ListeFournsPanel);
+            this.Controls.Add(this.AjProdPanel);
             this.Controls.Add(this.GestionFoursPanel);
             this.Controls.Add(this.GestionProduitsPanel);
             this.Controls.Add(this.MainPanel);
@@ -2223,8 +2097,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProdDestTab)).EndInit();
             this.ProDestPane.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ProdTab)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.produitsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectDBDataSet)).EndInit();
             this.ListeProdPane.ResumeLayout(false);
             this.AjFournPanel.ResumeLayout(false);
             this.AjProdPanel.ResumeLayout(false);
@@ -2233,7 +2105,7 @@
             this.MainPanel.ResumeLayout(false);
             this.GestionProduitsPanel.ResumeLayout(false);
             this.ListeCommandesPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CommandesList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2245,7 +2117,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button10;
         private Guna.UI2.WinForms.Guna2ImageButton GobackB6;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator3;
-        private Guna.UI2.WinForms.Guna2ImageButton SearchFournB;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
         private Guna.UI2.WinForms.Guna2DataGridView ListeFournTab;
         private System.Windows.Forms.Panel ListeFournsPanel;
@@ -2257,12 +2128,6 @@
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2DataGridView ProdDestTab;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private Guna.UI2.WinForms.Guna2Panel ProDestPane;
         private Guna.UI2.WinForms.Guna2TextBox ProduitAChercher;
         private Guna.UI2.WinForms.Guna2Button TabBordB5;
@@ -2325,29 +2190,25 @@
         private Guna.UI2.WinForms.Guna2Button BilanJourB;
         private System.Windows.Forms.Panel GestionProduitsPanel;
         private System.Windows.Forms.Panel ListeCommandesPanel;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView2;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton7;
+        private Guna.UI2.WinForms.Guna2ComboBox ComboFourns;
+        private Guna.UI2.WinForms.Guna2DataGridView CommandesList;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton8;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator4;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton9;
         private Guna.UI2.WinForms.Guna2Button guna2Button13;
         private Guna.UI2.WinForms.Guna2Button guna2Button15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrixUnitaire;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date_demande;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date_livraison;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrixTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private ProjectDBDataSet projectDBDataSet;
-        private System.Windows.Forms.BindingSource produitsBindingSource;
-        private ProjectDBDataSetTableAdapters.ProduitsTableAdapter produitsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn imageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prixDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateexpDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private Guna.UI2.WinForms.Guna2ImageButton SearchFournB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Produit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fournisseur;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantité;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date_commande;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date_livraison;
     }
 }
