@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace Gestion
 {
@@ -19,7 +21,7 @@ namespace Gestion
             public Nullable<int> quant;
             public DateTime Date_commande;
             public Nullable<DateTime> Date_livraison;
-            public Commande_alt(int id,string nom_produit,string nom_fourn,Nullable<int> quant, DateTime Date_commande,Nullable<DateTime> Date_livraison)
+            public Commande_alt(int id, string nom_produit, string nom_fourn, Nullable<int> quant, DateTime Date_commande, Nullable<DateTime> Date_livraison)
             {
                 this.id = id;
                 this.nom_produit = nom_produit;
@@ -31,7 +33,7 @@ namespace Gestion
 
             public override string ToString()
             {
-                return id + "|" +nom_produit + "|" + nom_fourn + "|" + quant + "|" + Date_commande + "|" + Date_livraison;
+                return id + "|" + nom_produit + "|" + nom_fourn + "|" + quant + "|" + Date_commande + "|" + Date_livraison;
             }
         }
 
@@ -117,10 +119,18 @@ namespace Gestion
         {
 
         }
-
+        OpenFileDialog op = new OpenFileDialog();
+        DialogResult dr = new DialogResult();
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-
+            dr = DialogResult.No;
+            if(op.ShowDialog() == DialogResult.OK)
+            {
+                op.Filter = "Les fichiers (*.jpg, *.jepg, *.png, *.gif, *.bmp) | *.jpg; *.jepg; *.png; *.gif; *.bmp";
+                op.Title = "Choisir une image";
+                dr = DialogResult.OK;
+                pictureBox1.Image = Image.FromFile(op.FileName);
+            }
         }
 
         private void TabBordB3_Click(object sender, EventArgs e)
@@ -131,6 +141,9 @@ namespace Gestion
 
         private void GobackB_Click(object sender, EventArgs e)
         {
+            NomProd.Text="";
+            PrixProd.Text="";
+            StatusProd.Text="Status";
             AjProdPanel.Hide();
             GestionProduitsPanel.Show();
         }
@@ -187,6 +200,7 @@ namespace Gestion
 
         private void GobackB3_Click(object sender, EventArgs e)
         {
+            ProduitAChercher.Text = "";
             ListeProdPane.Hide();
             GestionProduitsPanel.Show();
         }
@@ -196,7 +210,7 @@ namespace Gestion
             GestionProduitsPanel.Hide();
             ListeProdPane.Show();
             ////// initializer le tableau
-            SearchProdB_Click(null,null);
+            SearchProdB_Click(null, null);
         }
 
         private void guna2ImageButton4_Click(object sender, EventArgs e)
@@ -308,7 +322,7 @@ namespace Gestion
             List<Fournisseur> selected = new List<Fournisseur>();
             foreach (var f in Query) selected.Add(f);
             ListeFournTab.DataSource = selected;
-            
+
         }
 
         private void FournAChercher_TextChanged(object sender, EventArgs e)
@@ -348,7 +362,7 @@ namespace Gestion
                             Date_livraison = c.Date_livraison,
                         };
             List<Commande_alt> selected = new List<Commande_alt>();
-            foreach (var c in Query) selected.Add(new Commande_alt(c.Id,c.Produit,c.Fournisseur,c.Quantité,c.Date_commande,c.Date_livraison));
+            foreach (var c in Query) selected.Add(new Commande_alt(c.Id, c.Produit, c.Fournisseur, c.Quantité, c.Date_commande, c.Date_livraison));
             CommandesList.DataSource = selected;
         }
 
@@ -364,9 +378,29 @@ namespace Gestion
                         where p.Status.Equals("non disponible")
                         where p.Nom.Contains(produit)
                         select p;
-            List < Produit > selected = new List<Produit>();
+            List<Produit> selected = new List<Produit>();
             foreach (var p in Query) selected.Add(p);
             ProdDestTab.DataSource = selected;
+        }
+        private void AjProdform_Click(object sender, EventArgs e)
+        {
+          
+            Produit pr = new Produit();
+            pr.Nom = NomProd.Text;
+            pr.Prix = Convert.ToInt32(PrixProd.Text);
+            pr.Date_exp = ExpirProd.Value;
+            pr.Status= StatusProd.Text;
+         
+
+            ProjectDB.Produits.InsertOnSubmit(pr);
+            ProjectDB.SubmitChanges();
+        }
+
+        private void AnnulerProd_Click(object sender, EventArgs e)
+        {
+            NomProd.Text = "";
+            PrixProd.Text = "";
+            StatusProd.Text = "Status";
         }
     }
 }

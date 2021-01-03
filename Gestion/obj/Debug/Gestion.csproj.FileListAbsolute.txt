@@ -12,3 +12,17 @@ C:\GestionStock\Gestion\obj\Debug\Gestion.pdb
 C:\GestionStock\Gestion\bin\Debug\ProjectDB.mdf
 C:\GestionStock\Gestion\bin\Debug\ProjectDB_log.ldf
 C:\GestionStock\Gestion\obj\Debug\Gestion.csprojAssemblyReference.cache
+C:\Users\Adnane\Desktop\GestionStock\Gestion\bin\Debug\ProjectDB.mdf
+C:\Users\Adnane\Desktop\GestionStock\Gestion\bin\Debug\ProjectDB_log.ldf
+C:\Users\Adnane\Desktop\GestionStock\Gestion\bin\Debug\Guna.UI2.dll
+C:\Users\Adnane\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csprojAssemblyReference.cache
+C:\Users\Adnane\Desktop\GestionStock\Gestion\obj\Debug\Gestion.Properties.Resources.resources
+C:\Users\Adnane\Desktop\GestionStock\Gestion\obj\Debug\Gestion.App.resources
+C:\Users\Adnane\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.GenerateResource.cache
+C:\Users\Adnane\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.CoreCompileInputs.cache
+C:\Users\Adnane\Desktop\GestionStock\Gestion\obj\Debug\Gestion.csproj.CopyComplete
+C:\Users\Adnane\Desktop\GestionStock\Gestion\obj\Debug\Gestion.exe
+C:\Users\Adnane\Desktop\GestionStock\Gestion\obj\Debug\Gestion.pdb
+C:\Users\Adnane\Desktop\GestionStock\Gestion\bin\Debug\Gestion.exe.config
+C:\Users\Adnane\Desktop\GestionStock\Gestion\bin\Debug\Gestion.exe
+C:\Users\Adnane\Desktop\GestionStock\Gestion\bin\Debug\Gestion.pdb
