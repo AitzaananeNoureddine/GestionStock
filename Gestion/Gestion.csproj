@@ -133,12 +133,16 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Image\danone.jpg" />
+    <Content Include="Img\chevre_log.jpg" />
+    <Content Include="Img\creamers.jpg" />
+    <Content Include="Img\gaming_chair.jpg" />
+    <Content Include="Img\Gelatine_powder.jpg" />
+    <Content Include="Img\Table.jpg" />
     <Content Include="ProjectDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>ProjectDB.mdf</DependentUpon>
     </Content>
   </ItemGroup>

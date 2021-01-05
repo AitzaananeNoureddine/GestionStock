@@ -16,28 +16,30 @@ namespace Gestion
     {
         public class Commande_alt
         {
-            public int id;
-            public string nom_produit, nom_fourn;
-            public Nullable<int> quant;
+            public int Id;
+            public string Produit, Fournisseur;
+            public Nullable<int> Quantité;
             public DateTime Date_commande;
             public Nullable<DateTime> Date_livraison;
             public Commande_alt(int id, string nom_produit, string nom_fourn, Nullable<int> quant, DateTime Date_commande, Nullable<DateTime> Date_livraison)
             {
-                this.id = id;
-                this.nom_produit = nom_produit;
-                this.nom_fourn = nom_fourn;
-                this.quant = quant;
+                this.Id = id;
+                this.Produit = nom_produit;
+                this.Fournisseur = nom_fourn;
+                this.Quantité = quant;
                 this.Date_commande = Date_commande;
                 this.Date_livraison = Date_livraison;
             }
 
             public override string ToString()
             {
-                return id + "|" + nom_produit + "|" + nom_fourn + "|" + quant + "|" + Date_commande + "|" + Date_livraison;
+                return Id + "|" + Produit + "|" + Fournisseur + "|" + Quantité + "|" + Date_commande + "|" + Date_livraison;
             }
         }
 
-        LinqToProjectDBDataContext ProjectDB = new LinqToProjectDBDataContext();
+        readonly LinqToProjectDBDataContext ProjectDB = new LinqToProjectDBDataContext();
+        string Image_id;
+        readonly string ProjectPath = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName;
         public App()
         {
             InitializeComponent();
@@ -46,31 +48,6 @@ namespace Gestion
             GestionFoursPanel.BackgroundImageLayout = ImageLayout.Stretch;
             ListeProdPane.BackgroundImageLayout = ImageLayout.Stretch;
         }
-
-        private void statistique_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void produit_button_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Statistique_Label_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TableauBord_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GestionProduitsPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void GestionProduitsB_Click(object sender, EventArgs e)
         {
             MainPanel.Hide();
@@ -82,12 +59,6 @@ namespace Gestion
             MainPanel.Hide();
             GestionFoursPanel.Show();
         }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
             GestionProduitsPanel.Hide();
@@ -99,40 +70,19 @@ namespace Gestion
             GestionFoursPanel.Hide();
             MainPanel.Show();
         }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nom_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button6_Click(object sender, EventArgs e)
-        {
-
-        }
-        OpenFileDialog op = new OpenFileDialog();
-        DialogResult dr = new DialogResult();
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            dr = DialogResult.No;
-            if(op.ShowDialog() == DialogResult.OK)
+            OpenFileDialog op = new OpenFileDialog();
+            op.Filter = "Les fichiers (*.jpg, *.jepg, *.png, *.gif, *.bmp) | *.jpg; *.jepg; *.png; *.gif; *.bmp";
+            op.Title = "Choisir une image";
+            if (op.ShowDialog() == DialogResult.OK)
             {
-                op.Filter = "Les fichiers (*.jpg, *.jepg, *.png, *.gif, *.bmp) | *.jpg; *.jepg; *.png; *.gif; *.bmp";
-                op.Title = "Choisir une image";
-                dr = DialogResult.OK;
-                pictureBox1.Image = Image.FromFile(op.FileName);
+                File.Copy(op.FileName, ProjectPath + @"\Img\" + op.SafeFileName, true);
+                Image_id = op.SafeFileName;
+                image_id_box.Text = Image_id;
+                image_id_box.Visible = true;
             }
         }
-
         private void TabBordB3_Click(object sender, EventArgs e)
         {
             AjProdPanel.Hide();
@@ -171,27 +121,6 @@ namespace Gestion
             AjFournPanel.Hide();
             GestionFoursPanel.Show();
         }
-
-        private void ListeProd_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Button1_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Separator1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ImageButton3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void TabBordB5_Click(object sender, EventArgs e)
         {
             ListeProdPane.Hide();
@@ -204,7 +133,6 @@ namespace Gestion
             ListeProdPane.Hide();
             GestionProduitsPanel.Show();
         }
-
         private void ListeProdB_Click(object sender, EventArgs e)
         {
             GestionProduitsPanel.Hide();
@@ -212,78 +140,48 @@ namespace Gestion
             ////// initializer le tableau
             SearchProdB_Click(null, null);
         }
-
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
             ProDestPane.Hide();
             GestionProduitsPanel.Show();
         }
-
-        private void guna2Button4_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void TabBordB6_Click(object sender, EventArgs e)
         {
             ProDestPane.Hide();
             MainPanel.Show();
         }
-
         private void ProdDestB_Click(object sender, EventArgs e)
         {
             GestionProduitsPanel.Hide();
             ProDestPane.Show();
             SearchProdDestB_Click(null, null);
         }
-
-        private void MainPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void TabBordB7_Click(object sender, EventArgs e)
         {
             ListeFournsPanel.Hide();
             MainPanel.Show();
         }
-
         private void GobackB6_Click(object sender, EventArgs e)
         {
             ListeFournsPanel.Hide();
             GestionFoursPanel.Show();
         }
-
         private void ListeFournB_Click(object sender, EventArgs e)
         {
             GestionFoursPanel.Hide();
             ListeFournsPanel.Show();
             SearchFournB_Click(null, null);
         }
-
-        private void listeCommandesPane_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void guna2Button11_Click(object sender, EventArgs e)
         {
             ListeCommandesPanel.Hide();
             MainPanel.Show();
-
         }
-
         private void guna2ImageButton4_Click_1(object sender, EventArgs e)
         {
             ListeCommandesPanel.Hide();
             GestionFoursPanel.Show();
         }
-
         private void CommandesB_Click(object sender, EventArgs e)
         {
             GestionFoursPanel.Hide();
@@ -295,43 +193,36 @@ namespace Gestion
             foreach (string s in Q) list.Add(s);
             ComboFourns.DataSource = list;
         }
-
         private void guna2Button15_Click(object sender, EventArgs e)
         {
             ListeCommandesPanel.Hide();
             MainPanel.Show();
         }
-
         private void guna2ImageButton9_Click(object sender, EventArgs e)
         {
             ListeCommandesPanel.Hide();
             GestionFoursPanel.Show();
         }
-
-        private void ListeFournTab_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void SearchFournB_Click(object sender, EventArgs e)
         {
+            ListeFournTab.Visible = true;
             string fournisseur = FournAChercher.Text;
             var Query = from f in ProjectDB.Fournisseurs
                         where f.Nom.Contains(fournisseur)
                         select f;
             List<Fournisseur> selected = new List<Fournisseur>();
             foreach (var f in Query) selected.Add(f);
-            ListeFournTab.DataSource = selected;
+            if (selected.Count != 0) ListeFournTab.DataSource = selected;
+            else ListeFournTab.Visible = false;
 
         }
-
         private void FournAChercher_TextChanged(object sender, EventArgs e)
         {
             this.SearchFournB_Click(null, null);
         }
-
         private void SearchProdB_Click(object sender, EventArgs e)
         {
+            ProdTab.Visible = true;
             string produit = ProduitAChercher.Text;
             var Query = from p in ProjectDB.Produits
                         where p.Nom.Contains(produit)
@@ -339,6 +230,9 @@ namespace Gestion
             List<Produit> selected = new List<Produit>();
             foreach (var p in Query) selected.Add(p);
             ProdTab.DataSource = selected;
+            ProdTab.Columns["Image"].Visible = false;
+            if (selected.Count != 0) LoadImages(ProdTab, selected.Count);
+            else ProdTab.Visible = false;
         }
         private void ProduitAChercher_TextChanged(object sender, EventArgs e)
         {
@@ -347,6 +241,8 @@ namespace Gestion
 
         private void ComboFourns_SelectedIndexChanged(object sender, EventArgs e)
         {
+            CommandesList.Visible = true;
+            CommandesList.Rows.Clear();
             string fournisseur = ComboFourns.SelectedItem.ToString();
             var Query = from c in ProjectDB.Commandes
                         join f in ProjectDB.Fournisseurs on c.Fournisseur equals f.Id
@@ -362,8 +258,24 @@ namespace Gestion
                             Date_livraison = c.Date_livraison,
                         };
             List<Commande_alt> selected = new List<Commande_alt>();
-            foreach (var c in Query) selected.Add(new Commande_alt(c.Id, c.Produit, c.Fournisseur, c.Quantité, c.Date_commande, c.Date_livraison));
-            CommandesList.DataSource = selected;
+            foreach (var c in Query) selected.Add(new Commande_alt(c.Id,c.Produit,c.Fournisseur,c.Quantité,c.Date_commande,c.Date_livraison));
+            if (selected.Count != 0)
+            {
+                for (int i = 0; i < selected.Count; i++)
+                {
+                    CommandesList.Rows.Add();
+                    CommandesList.Rows[i].Cells["Id"].Value = selected[i].Id;
+                    CommandesList.Rows[i].Cells["Produit"].Value = selected[i].Produit;
+                    CommandesList.Rows[i].Cells["Fournisseur"].Value = selected[i].Fournisseur;
+                    CommandesList.Rows[i].Cells["Quantité"].Value = selected[i].Quantité;
+                    CommandesList.Rows[i].Cells["Date_commande"].Value = selected[i].Date_commande;
+                    CommandesList.Rows[i].Cells["Date_livraison"].Value = selected[i].Date_livraison;
+                }
+            }
+            else
+            {
+                CommandesList.Visible = false;
+            }
         }
 
         private void ProdAchercher_TextChanged(object sender, EventArgs e)
@@ -373,27 +285,86 @@ namespace Gestion
 
         private void SearchProdDestB_Click(object sender, EventArgs e)
         {
+            ProdDestTab.Visible = true;
             string produit = ProdAchercher.Text;
+            DateTime now = DateTime.Now;
             var Query = from p in ProjectDB.Produits
-                        where p.Status.Equals("non disponible")
+                        where now.CompareTo(p.Date_exp) > 0
                         where p.Nom.Contains(produit)
                         select p;
+            var Query2 = from v in ProjectDB.Ventes
+                         join p in ProjectDB.Produits
+                         on v.Produit equals p.Id
+                         where p.Nom.Contains(produit)
+                         select p;
             List<Produit> selected = new List<Produit>();
             foreach (var p in Query) selected.Add(p);
+            foreach (var p in Query2) if (!selected.Contains(p)) selected.Add(p);
             ProdDestTab.DataSource = selected;
+            ProdDestTab.Columns["Image"].Visible = false;
+            if (selected.Count != 0) LoadImages(ProdDestTab, selected.Count);
+            else ProdDestTab.Visible = false;
+        }
+        private void LoadImages(DataGridView dg,int count)
+        {
+            DataGridViewImageColumn img_column = new DataGridViewImageColumn();
+            img_column.Name = "Img";
+            img_column.HeaderText = "Image";
+            img_column.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            if (!dg.Columns.Contains("Img"))
+            {
+                dg.Columns.Add(img_column);
+                dg.Columns["Img"].DisplayIndex = 2;
+            }
+            System.Drawing.Image img=null;
+            dg.Columns["Img"].Width = 90;
+            for (int i = 0; i < count; i++)
+            {
+                try
+                {
+                    dg.Rows[i].Height = 90;
+                    img = System.Drawing.Image.FromFile(ProjectPath + @"\Img\" + dg.Rows[i].Cells["Image"].Value);
+                    dg.Rows[i].Cells["Img"].Value = img;
+                } catch (FileNotFoundException)
+                {
+                    dg.Rows[i].Cells["Img"].Value = null;
+                } catch (OutOfMemoryException e) 
+                {
+                    MessageBox.Show(e.Message);
+                }
+            }
         }
         private void AjProdform_Click(object sender, EventArgs e)
         {
-          
-            Produit pr = new Produit();
-            pr.Nom = NomProd.Text;
-            pr.Prix = Convert.ToInt32(PrixProd.Text);
-            pr.Date_exp = ExpirProd.Value;
-            pr.Status= StatusProd.Text;
-         
-
-            ProjectDB.Produits.InsertOnSubmit(pr);
-            ProjectDB.SubmitChanges();
+            if (NomProd.Text!="" && ExpirProd.Text!="" && StatusProd.Text!="")
+            {
+                Produit pr = new Produit();
+                pr.Nom = NomProd.Text;
+                pr.Image = Image_id;
+                try
+                {
+                    pr.Prix = Convert.ToInt32(PrixProd.Text);
+                    DateTime now = DateTime.Now;
+                    if (DateTime.Now.CompareTo(ExpirProd.Value) > 0) throw new Exception();
+                    else pr.Date_exp = ExpirProd.Value;
+                    pr.Status = StatusProd.Text;
+                    ProjectDB.Produits.InsertOnSubmit(pr);
+                    ProjectDB.SubmitChanges();
+                    MessageBox.Show("le produit a bien été enregisté");
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Entrez un prix valide");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("la date que vous avez saisie est non valide");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tous les champs doivent être remplis");
+            }
         }
 
         private void AnnulerProd_Click(object sender, EventArgs e)
@@ -401,6 +372,7 @@ namespace Gestion
             NomProd.Text = "";
             PrixProd.Text = "";
             StatusProd.Text = "Status";
+            image_id_box.Visible = false;
         }
     }
 }
