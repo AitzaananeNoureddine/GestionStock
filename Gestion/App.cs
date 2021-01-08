@@ -39,6 +39,7 @@ namespace Gestion
 
         readonly LinqToProjectDBDataContext ProjectDB = new LinqToProjectDBDataContext();
         string Image_id;
+        Panel Hidden_pane;
         readonly string ProjectPath = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName;
         public App()
         {
@@ -191,6 +192,7 @@ namespace Gestion
             var Q = from f in ProjectDB.Fournisseurs
                     select f.Nom;
             foreach (string s in Q) list.Add(s);
+            list.Sort();
             ComboFourns.DataSource = list;
         }
         private void guna2Button15_Click(object sender, EventArgs e)
@@ -212,7 +214,16 @@ namespace Gestion
                         select f;
             List<Fournisseur> selected = new List<Fournisseur>();
             foreach (var f in Query) selected.Add(f);
-            if (selected.Count != 0) ListeFournTab.DataSource = selected;
+            if (selected.Count != 0)
+            {
+                ListeFournTab.DataSource = selected;
+                ModDelColumns(ListeFournTab);
+                ListeFournTab.Columns["Modifier"].Width = 70;
+                ListeFournTab.Columns["Supprimer"].Width = 70;
+                ListeFournTab.Columns["Modifier"].DefaultCellStyle.Padding = new Padding(5);
+                ListeFournTab.Columns["Supprimer"].DefaultCellStyle.Padding = new Padding(5);
+                for (int i=0;i<selected.Count;i++) ListeFournTab.Rows[i].Height = 40;
+            }
             else ListeFournTab.Visible = false;
 
         }
@@ -231,8 +242,36 @@ namespace Gestion
             foreach (var p in Query) selected.Add(p);
             ProdTab.DataSource = selected;
             ProdTab.Columns["Image"].Visible = false;
-            if (selected.Count != 0) LoadImages(ProdTab, selected.Count);
+            if (selected.Count != 0)
+            {
+                LoadImages(ProdTab, selected.Count);
+                ModDelColumns(ProdTab);
+            }
             else ProdTab.Visible = false;
+        }
+        private void ModDelColumns(DataGridView DG)
+        {
+            //////////////////////
+            DataGridViewButtonColumn btnColumn1 = new DataGridViewButtonColumn();
+            btnColumn1.Name = "Modifier";
+            btnColumn1.Text = "Mod";
+            btnColumn1.UseColumnTextForButtonValue = true;
+            btnColumn1.DefaultCellStyle.Padding = new Padding(30);
+            btnColumn1.FlatStyle = FlatStyle.Flat;
+            btnColumn1.DefaultCellStyle.ForeColor = Color.FromArgb(0, 182, 244);
+            /*btnColumn1.DefaultCellStyle.BackColor = Color.White;*/
+            if(!DG.Columns.Contains("Modifier")) DG.Columns.Add(btnColumn1);
+            ///////////
+            DataGridViewButtonColumn btnColumn2 = new DataGridViewButtonColumn();
+            btnColumn2.Name = "Supprimer";
+            btnColumn2.Text = "Supp";
+            btnColumn2.UseColumnTextForButtonValue = true;
+            btnColumn2.DefaultCellStyle.Padding = new Padding(30);
+            btnColumn2.FlatStyle = FlatStyle.Flat;
+            btnColumn2.DefaultCellStyle.ForeColor = Color.FromArgb(214, 40, 40);
+            /*btnColumn2.DefaultCellStyle.BackColor = Color.White;*/
+            if (!DG.Columns.Contains("Supprimer")) DG.Columns.Add(btnColumn2);
+            //////////////////////
         }
         private void ProduitAChercher_TextChanged(object sender, EventArgs e)
         {
@@ -289,8 +328,9 @@ namespace Gestion
             string produit = ProdAchercher.Text;
             DateTime now = DateTime.Now;
             var Query = from p in ProjectDB.Produits
-                        where now.CompareTo(p.Date_exp) > 0
+                        where now.CompareTo(p.Date_exp.Value) > 0
                         where p.Nom.Contains(produit)
+                        where p.Status.Equals("disponible")
                         select p;
             var Query2 = from v in ProjectDB.Ventes
                          join p in ProjectDB.Produits
@@ -302,7 +342,11 @@ namespace Gestion
             foreach (var p in Query2) if (!selected.Contains(p)) selected.Add(p);
             ProdDestTab.DataSource = selected;
             ProdDestTab.Columns["Image"].Visible = false;
-            if (selected.Count != 0) LoadImages(ProdDestTab, selected.Count);
+            if (selected.Count != 0)
+            {
+                LoadImages(ProdDestTab, selected.Count);
+                ModDelColumns(ProdDestTab);
+            }
             else ProdDestTab.Visible = false;
         }
         private void LoadImages(DataGridView dg,int count)
@@ -317,12 +361,12 @@ namespace Gestion
                 dg.Columns["Img"].DisplayIndex = 2;
             }
             System.Drawing.Image img=null;
-            dg.Columns["Img"].Width = 90;
+            dg.Columns["Img"].Width = 130;
             for (int i = 0; i < count; i++)
             {
                 try
                 {
-                    dg.Rows[i].Height = 90;
+                    dg.Rows[i].Height = 100;
                     img = System.Drawing.Image.FromFile(ProjectPath + @"\Img\" + dg.Rows[i].Cells["Image"].Value);
                     dg.Rows[i].Cells["Img"].Value = img;
                 } catch (FileNotFoundException)
@@ -336,6 +380,7 @@ namespace Gestion
         }
         private void AjProdform_Click(object sender, EventArgs e)
         {
+            NomProd.Text = NomProd.Text.Trim();
             if (NomProd.Text!="" && ExpirProd.Text!="" && StatusProd.Text!="")
             {
                 Produit pr = new Produit();
@@ -344,7 +389,6 @@ namespace Gestion
                 try
                 {
                     pr.Prix = Convert.ToInt32(PrixProd.Text);
-                    DateTime now = DateTime.Now;
                     if (DateTime.Now.CompareTo(ExpirProd.Value) > 0) throw new Exception();
                     else pr.Date_exp = ExpirProd.Value;
                     pr.Status = StatusProd.Text;
@@ -373,6 +417,207 @@ namespace Gestion
             PrixProd.Text = "";
             StatusProd.Text = "Status";
             image_id_box.Visible = false;
+        }
+        private void ProdTab_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ModDelBackEnd(sender, e);
+        }
+        int _id;
+        private void ModDelBackEnd(object sender , DataGridViewCellEventArgs e)
+        {
+            var _sender = (DataGridView)sender;
+            int id=0;
+            if (_sender.Rows[e.RowIndex].Cells["Id"]!=null) id = (int)_sender.Rows[e.RowIndex].Cells["Id"].Value;
+            _id = id;
+            if(_sender.Columns[e.ColumnIndex].Name == "Modifier")
+            {
+                if (_sender.Name.Equals("ProdTab") || _sender.Name.Equals("ProdDestTab"))
+                {
+                    if (_sender.Name.Equals("ProdTab"))
+                    {
+                        ListeProdPane.Hide();
+                        Hidden_pane = ListeProdPane;
+                    }
+                    else if (_sender.Name.Equals("ProdDestTab"))
+                    {
+                        ProDestPane.Hide();
+                        Hidden_pane = ProDestPane;
+                    }
+                    var Query = from p in ProjectDB.Produits
+                                where p.Id.Equals(id)
+                                select p;
+                    Produit ToAlter = Query.First();
+                    ProdNom.Text = ToAlter.Nom.Trim();
+                    ProdPrix.Text = ToAlter.Prix.ToString();
+                    ProdStatus.SelectedIndex = ProdStatus.FindString(ToAlter.Status.Trim());
+                    ProdExpDate.Value = (DateTime)ToAlter.Date_exp;
+                    ProdImageId.Text = ToAlter.Image;
+                    ProdImageId.Visible = true;
+                    ModProdPane.Show();
+                }
+                else if (_sender.Name.Equals("ListeFournTab"))
+                {
+                    ListeFournsPanel.Hide();
+                    var Query = (from f in ProjectDB.Fournisseurs
+                                 where f.Id.Equals(id)
+                                 select f).First();
+                    NomFourn.Text = Query.Nom.Trim();
+                    AdresseFourn.Text = Query.Adresse.Trim();
+                    ContactFourn.Text = Query.Contact.Trim();
+                    ModFournPane.Show();
+                }
+            }
+            else if (_sender.Columns[e.ColumnIndex].Name == "Supprimer")
+            {
+                DialogResult dr = MessageBox.Show("Voulez vous vraiment supprimer l'element de la BD ?", "Supprimer", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dr == DialogResult.OK)
+                {
+                    if (_sender.Name.Equals("ProdTab") || _sender.Name.Equals("ProdDestTab"))
+                    {
+                        var Query = (from p in ProjectDB.Produits
+                                     where p.Id.Equals(id)
+                                     select p).First();
+                        var Query2 = (from c in ProjectDB.Commandes
+                                      where c.Produit.Equals(id)
+                                      select c).FirstOrDefault();
+                        if(Query2!=null) ProjectDB.Commandes.DeleteOnSubmit(Query2);
+                        ProjectDB.Produits.DeleteOnSubmit(Query);
+                        ProjectDB.SubmitChanges();
+                        SearchProdDestB_Click(null, null);
+                        SearchProdB_Click(null, null);
+                    }
+                    else if (_sender.Name.Equals("ListeFournTab"))
+                    {
+                        var Query = (from p in ProjectDB.Fournisseurs
+                                     where p.Id.Equals(id)
+                                     select p).First();
+                        var Query2 = (from c in ProjectDB.Commandes
+                                      where c.Produit.Equals(id)
+                                      select c).FirstOrDefault();
+                        if(Query2!=null) ProjectDB.Commandes.DeleteOnSubmit(Query2);
+                        ProjectDB.Fournisseurs.DeleteOnSubmit(Query);
+                        ProjectDB.SubmitChanges();
+                        SearchFournB_Click(null, null);
+                    }
+                }
+            }
+        }
+        private void guna2Button19_Click(object sender, EventArgs e)
+        {
+            ModProdPane.Hide();
+            MainPanel.Show();
+        }
+
+        private void guna2Button17_Click(object sender, EventArgs e)
+        {
+            ProdNom.Clear();
+            ProdPrix.Clear();
+            ProdImageId.Visible = false;
+        }
+
+        private void guna2Button20_Click(object sender, EventArgs e)
+        {
+            var Query = (from pr in ProjectDB.Produits
+                         where pr.Id.Equals(_id)
+                         select pr).FirstOrDefault();
+            ProdNom.Text = ProdNom.Text.Trim();
+            if (ProdNom.Text != "" && ProdExpDate.Text != "" && ProdStatus.Text != "")
+            {
+                try
+                {
+                    if (DateTime.Now.CompareTo(ProdExpDate.Value) > 0) throw new Exception();
+                    else Query.Date_exp = ProdExpDate.Value;
+                    Query.Prix = Convert.ToInt32(ProdPrix.Text);
+                    Query.Nom = ProdNom.Text;
+                    Query.Image = ProdImageId.Text;
+                    Query.Status = ProdStatus.Text;
+                    ProjectDB.SubmitChanges();
+                    SearchProdDestB_Click(null, null);
+                    SearchProdB_Click(null, null);
+                    MessageBox.Show("le produit a bien été modifié");
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Entrez un prix valide");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("la date que vous avez saisie est non valide");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tous les champs doivent être remplis");
+            }
+        }
+
+        private void ProdUploadImageB_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Filter = "Les fichiers (*.jpg, *.jepg, *.png, *.gif, *.bmp) | *.jpg; *.jepg; *.png; *.gif; *.bmp";
+            op.Title = "Choisir une image";
+            if (op.ShowDialog() == DialogResult.OK)
+            {
+                File.Copy(op.FileName, ProjectPath + @"\Img\" + op.SafeFileName, true);
+                Image_id = op.SafeFileName;
+                ProdImageId.Text = Image_id;
+                ProdImageId.Visible = true;
+            }
+        }
+
+        private void ListeFournTab_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ModDelBackEnd(sender, e);
+        }
+
+        private void annuler_Click(object sender, EventArgs e)
+        {
+            NomFourn.Clear();
+            AdresseFourn.Clear();
+            ContactFourn.Clear();
+        }
+
+        private void guna2Button22_Click(object sender, EventArgs e)
+        {
+            ModFournPane.Hide();
+            MainPanel.Show();
+        }
+
+        private void guna2ImageButton5_Click(object sender, EventArgs e)
+        {
+            ModFournPane.Hide();
+            ListeFournsPanel.Show();
+        }
+
+        private void ModFournB_Click(object sender, EventArgs e)
+        {
+            if(NomFourn.Text!="" && AdresseFourn.Text!="" && ContactFourn.Text != "")
+            {
+                var Query = (from f in ProjectDB.Fournisseurs
+                             where f.Id.Equals(_id)
+                             select f).First();
+                Query.Nom = NomFourn.Text.Trim();
+                Query.Adresse = AdresseFourn.Text.Trim();
+                Query.Contact = ContactFourn.Text.Trim();
+                ProjectDB.SubmitChanges();
+                SearchFournB_Click(null, null);
+                MessageBox.Show("Le fournisseur a bien été modifié");
+            }
+            else
+            {
+                MessageBox.Show("Tous les champs doivent être remplis");
+            }
+        }
+
+        private void guna2ImageButton4_Click_2(object sender, EventArgs e)
+        {
+            ModProdPane.Hide();
+            Hidden_pane.Show();
+        }
+
+        private void ProdDestTab_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ModDelBackEnd(sender, e);
         }
     }
 }
