@@ -103,6 +103,14 @@ namespace Gestion
         {
             GestionProduitsPanel.Hide();
             AjProdPanel.Show();
+            ////// loading the combobox with data
+            var Query = from f in ProjectDB.Fournisseurs
+                        select f;
+            List<string> selected = new List<string>();
+            foreach (Fournisseur f in Query) selected.Add(f.Nom);
+            selected.Sort();
+            ListFournsCombo.DataSource = selected;
+            listBoxFourns.Items.Clear();
         }
 
         private void TabBordB4_Click(object sender, EventArgs e)
@@ -218,10 +226,10 @@ namespace Gestion
             {
                 ListeFournTab.DataSource = selected;
                 ModDelColumns(ListeFournTab);
-                ListeFournTab.Columns["Modifier"].Width = 70;
-                ListeFournTab.Columns["Supprimer"].Width = 70;
-                ListeFournTab.Columns["Modifier"].DefaultCellStyle.Padding = new Padding(5);
-                ListeFournTab.Columns["Supprimer"].DefaultCellStyle.Padding = new Padding(5);
+                ListeFournTab.Columns["Modifier"].Width = 60;
+                ListeFournTab.Columns["Supprimer"].Width = 80;
+                ListeFournTab.Columns["Modifier"].DefaultCellStyle.Padding = new Padding(3);
+                ListeFournTab.Columns["Supprimer"].DefaultCellStyle.Padding = new Padding(3);
                 for (int i=0;i<selected.Count;i++) ListeFournTab.Rows[i].Height = 40;
             }
             else ListeFournTab.Visible = false;
@@ -254,22 +262,20 @@ namespace Gestion
             //////////////////////
             DataGridViewButtonColumn btnColumn1 = new DataGridViewButtonColumn();
             btnColumn1.Name = "Modifier";
-            btnColumn1.Text = "Mod";
+            btnColumn1.Text = "Modifier";
             btnColumn1.UseColumnTextForButtonValue = true;
-            btnColumn1.DefaultCellStyle.Padding = new Padding(30);
+            btnColumn1.DefaultCellStyle.Padding = new Padding(5, 35, 5, 35);
             btnColumn1.FlatStyle = FlatStyle.Flat;
             btnColumn1.DefaultCellStyle.ForeColor = Color.FromArgb(0, 182, 244);
-            /*btnColumn1.DefaultCellStyle.BackColor = Color.White;*/
             if(!DG.Columns.Contains("Modifier")) DG.Columns.Add(btnColumn1);
             ///////////
             DataGridViewButtonColumn btnColumn2 = new DataGridViewButtonColumn();
             btnColumn2.Name = "Supprimer";
-            btnColumn2.Text = "Supp";
+            btnColumn2.Text = "Supprimer";
             btnColumn2.UseColumnTextForButtonValue = true;
-            btnColumn2.DefaultCellStyle.Padding = new Padding(30);
+            btnColumn2.DefaultCellStyle.Padding = new Padding(5, 35, 5, 35);
             btnColumn2.FlatStyle = FlatStyle.Flat;
             btnColumn2.DefaultCellStyle.ForeColor = Color.FromArgb(214, 40, 40);
-            /*btnColumn2.DefaultCellStyle.BackColor = Color.White;*/
             if (!DG.Columns.Contains("Supprimer")) DG.Columns.Add(btnColumn2);
             //////////////////////
         }
@@ -346,6 +352,15 @@ namespace Gestion
             {
                 LoadImages(ProdDestTab, selected.Count);
                 ModDelColumns(ProdDestTab);
+                ////////////// adding commander button ///////////
+                DataGridViewButtonColumn btnColumn3 = new DataGridViewButtonColumn();
+                btnColumn3.Name = "Commander";
+                btnColumn3.Text = "Commander";
+                btnColumn3.UseColumnTextForButtonValue = true;
+                btnColumn3.DefaultCellStyle.Padding = new Padding(4,35,4,35);
+                btnColumn3.FlatStyle = FlatStyle.Flat;
+                btnColumn3.DefaultCellStyle.ForeColor = Color.FromArgb(255, 162, 0);
+                if (!ProdDestTab.Columns.Contains("Commander")) ProdDestTab.Columns.Add(btnColumn3);
             }
             else ProdDestTab.Visible = false;
         }
@@ -394,6 +409,28 @@ namespace Gestion
                     pr.Status = StatusProd.Text;
                     ProjectDB.Produits.InsertOnSubmit(pr);
                     ProjectDB.SubmitChanges();
+                    /////// ProduitFournisseur DB //////
+                    int produit_id = (from p in ProjectDB.Produits
+                                 where p.Nom.Equals(pr.Nom)
+                                 where p.Image.Equals(pr.Image)
+                                 select p.Id).First();
+                    int[] fournisseur_ids=new int[listBoxFourns.Items.Count];
+                    int i;
+                    for (i = 0; i < listBoxFourns.Items.Count; i++)
+                    {
+                        fournisseur_ids[i] = (from f in ProjectDB.Fournisseurs
+                                              where f.Nom.Equals(listBoxFourns.Items[i])
+                                              select f.Id).First();
+                    }
+                    for (i = 0; i < fournisseur_ids.Length; i++)
+                    {
+                        ProduitFournisseur pf = new ProduitFournisseur();
+                        pf.Produit = produit_id;
+                        pf.Fournisseur = fournisseur_ids[i];
+                        ProjectDB.ProduitFournisseurs.InsertOnSubmit(pf);
+                    }
+                    ProjectDB.SubmitChanges();
+                    /////// ProduitFournisseur DB //////
                     MessageBox.Show("le produit a bien été enregisté");
                 }
                 catch (FormatException)
@@ -423,6 +460,7 @@ namespace Gestion
             ModDelBackEnd(sender, e);
         }
         int _id;
+        int prod_id;
         private void ModDelBackEnd(object sender , DataGridViewCellEventArgs e)
         {
             var _sender = (DataGridView)sender;
@@ -500,6 +538,31 @@ namespace Gestion
                         SearchFournB_Click(null, null);
                     }
                 }
+            }
+            else if (_sender.Columns[e.ColumnIndex].Name == "Commander")
+            {
+                if(_sender.Name== "ProdDestTab")
+                {
+                    ProDestPane.Hide();
+                    Hidden_pane = ProDestPane;
+                    //// produit combobox
+                    ProduitsCombo.Items.Clear();
+                    ProduitsCombo.Items.Add(_sender.Rows[e.RowIndex].Cells["Nom"].Value);
+                    ProduitsCombo.SelectedItem = _sender.Rows[e.RowIndex].Cells["Nom"].Value;
+                    prod_id= Convert.ToInt32(_sender.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                    //// founisseur combobox
+                    var Query = from pf in ProjectDB.ProduitFournisseurs
+                                where pf.Produit.Equals(prod_id)
+                                join f in ProjectDB.Fournisseurs on pf.Fournisseur equals f.Id
+                                select f.Nom;
+                    List<string> selected = new List<string>();
+                    foreach (string nom in Query) selected.Add(nom);
+                    FournsCombo.DataSource = selected;
+                }
+                ////// case request came from  liste_fournisseurs to be treated here
+                
+                NouvCommandePane.Show();
+
             }
         }
         private void guna2Button19_Click(object sender, EventArgs e)
@@ -618,6 +681,78 @@ namespace Gestion
         private void ProdDestTab_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             ModDelBackEnd(sender, e);
+        }
+
+        private void guna2Button24_Click(object sender, EventArgs e)
+        {
+            NouvCommandePane.Hide();
+            MainPanel.Show();
+        }
+
+        private void guna2ImageButton6_Click(object sender, EventArgs e)
+        {
+            NouvCommandePane.Hide();
+            CommandeQuant.Clear();
+            Hidden_pane.Show();
+        }
+        private void ListFournsCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!listBoxFourns.Items.Contains(ListFournsCombo.SelectedItem.ToString()))
+            {
+                listBoxFourns.Items.Add(ListFournsCombo.SelectedItem.ToString());
+                listBoxFourns.Sorted = true;
+            }
+        }
+
+        private void RemoveListboxItem_Click(object sender, EventArgs e)
+        {
+            if(listBoxFourns.SelectedItems.Count!=0) for (int i = listBoxFourns.SelectedIndices.Count - 1; i >= 0; i--) listBoxFourns.Items.RemoveAt(listBoxFourns.SelectedIndices[i]);
+            else MessageBox.Show("aucun element dans la selection");
+        }
+
+        private void listBoxFourns_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void ProduitsCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AjCommandeB_Click(object sender, EventArgs e)
+        {
+            if (CommandeQuant.Text != "")
+            {
+                if(DateTime.Now.Date.CompareTo(CommandeLivraisonDate.Value.Date) <= 0)
+                {
+                    try{
+                        int fournisseur_id = (from f in ProjectDB.Fournisseurs
+                                     where f.Nom.Equals(FournsCombo.SelectedItem.ToString())
+                                     select f.Id).First();
+                        Commande c = new Commande()
+                        {
+                            Produit = prod_id,
+                            Fournisseur = fournisseur_id,
+                            Quant = Convert.ToInt32(CommandeQuant.Text),
+                            Date_commande = DateTime.Now,
+                            Date_livraison = CommandeLivraisonDate.Value,
+                        };
+                        ProjectDB.Commandes.InsertOnSubmit(c);
+                        ProjectDB.SubmitChanges();
+                        MessageBox.Show("La commande a bien été enregistrée");
+                    } catch (FormatException){
+                        MessageBox.Show("entrer une quantité de commande valide");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La date de livraison est non valide");
+                }
+            }
+            else
+            {
+                MessageBox.Show("tous les champs doivent être remplis");
+            }
         }
     }
 }

@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.FournAChercher = new Guna.UI2.WinForms.Guna2TextBox();
             this.TabBordB7 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button10 = new Guna.UI2.WinForms.Guna2Button();
@@ -92,6 +92,10 @@
             this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
             this.AjProdPanel = new System.Windows.Forms.Panel();
+            this.RemoveListboxItem = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.listBoxFourns = new System.Windows.Forms.ListBox();
+            this.guna2Button20 = new Guna.UI2.WinForms.Guna2Button();
+            this.ListFournsCombo = new Guna.UI2.WinForms.Guna2ComboBox();
             this.image_id_box = new System.Windows.Forms.Label();
             this.TabBordB2 = new Guna.UI2.WinForms.Guna2Button();
             this.GesFournsIcon = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -158,6 +162,19 @@
             this.ModFournB = new Guna.UI2.WinForms.Guna2Button();
             this.NomFourn = new Guna.UI2.WinForms.Guna2TextBox();
             this.AdresseFourn = new Guna.UI2.WinForms.Guna2TextBox();
+            this.NouvCommandePane = new System.Windows.Forms.Panel();
+            this.guna2Button29 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button28 = new Guna.UI2.WinForms.Guna2Button();
+            this.CommandeLivraisonDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.CommandeQuant = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Button27 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button26 = new Guna.UI2.WinForms.Guna2Button();
+            this.ProduitsCombo = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.FournsCombo = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2Button23 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button24 = new Guna.UI2.WinForms.Guna2Button();
+            this.AjCommandeB = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.ListeFournTab)).BeginInit();
             this.ListeFournsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProdDestTab)).BeginInit();
@@ -174,6 +191,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CommandesList)).BeginInit();
             this.ModProdPane.SuspendLayout();
             this.ModFournPane.SuspendLayout();
+            this.NouvCommandePane.SuspendLayout();
             this.SuspendLayout();
             // 
             // FournAChercher
@@ -293,41 +311,41 @@
             // 
             // ListeFournTab
             // 
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
-            this.ListeFournTab.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
+            this.ListeFournTab.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.ListeFournTab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.ListeFournTab.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ListeFournTab.BackgroundColor = System.Drawing.Color.White;
             this.ListeFournTab.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ListeFournTab.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.ListeFournTab.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ListeFournTab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListeFournTab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.ListeFournTab.ColumnHeadersHeight = 21;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ListeFournTab.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ListeFournTab.DefaultCellStyle = dataGridViewCellStyle15;
             this.ListeFournTab.EnableHeadersVisualStyles = false;
             this.ListeFournTab.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
-            this.ListeFournTab.Location = new System.Drawing.Point(24, 197);
+            this.ListeFournTab.Location = new System.Drawing.Point(3, 197);
             this.ListeFournTab.MaximumSize = new System.Drawing.Size(1000, 0);
-            this.ListeFournTab.MinimumSize = new System.Drawing.Size(850, 250);
+            this.ListeFournTab.MinimumSize = new System.Drawing.Size(888, 260);
             this.ListeFournTab.Name = "ListeFournTab";
             this.ListeFournTab.ReadOnly = true;
             this.ListeFournTab.RowHeadersVisible = false;
             this.ListeFournTab.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ListeFournTab.Size = new System.Drawing.Size(850, 250);
+            this.ListeFournTab.Size = new System.Drawing.Size(888, 260);
             this.ListeFournTab.TabIndex = 48;
             this.ListeFournTab.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Light;
             this.ListeFournTab.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
@@ -522,41 +540,41 @@
             // 
             // ProdDestTab
             // 
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
-            this.ProdDestTab.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
+            this.ProdDestTab.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.ProdDestTab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.ProdDestTab.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ProdDestTab.BackgroundColor = System.Drawing.Color.White;
             this.ProdDestTab.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProdDestTab.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.ProdDestTab.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProdDestTab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProdDestTab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.ProdDestTab.ColumnHeadersHeight = 21;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ProdDestTab.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(244)))), ((int)(((byte)(226)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ProdDestTab.DefaultCellStyle = dataGridViewCellStyle18;
             this.ProdDestTab.EnableHeadersVisualStyles = false;
             this.ProdDestTab.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
-            this.ProdDestTab.Location = new System.Drawing.Point(24, 204);
+            this.ProdDestTab.Location = new System.Drawing.Point(4, 202);
             this.ProdDestTab.MaximumSize = new System.Drawing.Size(1000, 0);
-            this.ProdDestTab.MinimumSize = new System.Drawing.Size(850, 250);
+            this.ProdDestTab.MinimumSize = new System.Drawing.Size(888, 260);
             this.ProdDestTab.Name = "ProdDestTab";
             this.ProdDestTab.ReadOnly = true;
             this.ProdDestTab.RowHeadersVisible = false;
             this.ProdDestTab.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ProdDestTab.Size = new System.Drawing.Size(850, 250);
+            this.ProdDestTab.Size = new System.Drawing.Size(888, 260);
             this.ProdDestTab.TabIndex = 55;
             this.ProdDestTab.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Emerald;
             this.ProdDestTab.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(239)))), ((int)(((byte)(212)))));
@@ -735,43 +753,43 @@
             // 
             // ProdTab
             // 
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(203)))), ((int)(((byte)(232)))));
-            this.ProdTab.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(203)))), ((int)(((byte)(232)))));
+            this.ProdTab.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.ProdTab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.ProdTab.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ProdTab.BackgroundColor = System.Drawing.Color.White;
             this.ProdTab.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProdTab.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.ProdTab.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProdTab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProdTab.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.ProdTab.ColumnHeadersHeight = 21;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(220)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(139)))), ((int)(((byte)(205)))));
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ProdTab.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(220)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(139)))), ((int)(((byte)(205)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ProdTab.DefaultCellStyle = dataGridViewCellStyle21;
             this.ProdTab.EnableHeadersVisualStyles = false;
             this.ProdTab.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(201)))), ((int)(((byte)(231)))));
-            this.ProdTab.Location = new System.Drawing.Point(24, 202);
+            this.ProdTab.Location = new System.Drawing.Point(3, 197);
             this.ProdTab.MaximumSize = new System.Drawing.Size(1000, 0);
-            this.ProdTab.MinimumSize = new System.Drawing.Size(850, 250);
+            this.ProdTab.MinimumSize = new System.Drawing.Size(888, 260);
             this.ProdTab.MultiSelect = false;
             this.ProdTab.Name = "ProdTab";
             this.ProdTab.ReadOnly = true;
             this.ProdTab.RowHeadersVisible = false;
             this.ProdTab.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ProdTab.ShowCellErrors = false;
-            this.ProdTab.Size = new System.Drawing.Size(850, 250);
+            this.ProdTab.Size = new System.Drawing.Size(888, 260);
             this.ProdTab.StandardTab = true;
             this.ProdTab.TabIndex = 48;
             this.ProdTab.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Indigo;
@@ -1033,7 +1051,7 @@
             this.PrixProd.ForeColor = System.Drawing.Color.Black;
             this.PrixProd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PrixProd.HoverState.Parent = this.PrixProd;
-            this.PrixProd.Location = new System.Drawing.Point(208, 249);
+            this.PrixProd.Location = new System.Drawing.Point(79, 248);
             this.PrixProd.Margin = new System.Windows.Forms.Padding(2);
             this.PrixProd.Name = "PrixProd";
             this.PrixProd.PasswordChar = '\0';
@@ -1055,7 +1073,7 @@
             this.UploadImage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.UploadImage.ForeColor = System.Drawing.Color.Black;
             this.UploadImage.HoverState.Parent = this.UploadImage;
-            this.UploadImage.Location = new System.Drawing.Point(477, 248);
+            this.UploadImage.Location = new System.Drawing.Point(348, 247);
             this.UploadImage.Margin = new System.Windows.Forms.Padding(2);
             this.UploadImage.Name = "UploadImage";
             this.UploadImage.ShadowDecoration.Parent = this.UploadImage;
@@ -1082,7 +1100,7 @@
             this.NomProd.ForeColor = System.Drawing.Color.Black;
             this.NomProd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.NomProd.HoverState.Parent = this.NomProd;
-            this.NomProd.Location = new System.Drawing.Point(208, 169);
+            this.NomProd.Location = new System.Drawing.Point(79, 168);
             this.NomProd.Margin = new System.Windows.Forms.Padding(2);
             this.NomProd.Name = "NomProd";
             this.NomProd.PasswordChar = '\0';
@@ -1146,7 +1164,7 @@
             this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
             this.guna2Button2.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Location = new System.Drawing.Point(278, 79);
+            this.guna2Button2.Location = new System.Drawing.Point(278, 76);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.PressedColor = System.Drawing.Color.Transparent;
             this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
@@ -1181,7 +1199,7 @@
             this.AnnulerProd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.AnnulerProd.ForeColor = System.Drawing.Color.White;
             this.AnnulerProd.HoverState.Parent = this.AnnulerProd;
-            this.AnnulerProd.Location = new System.Drawing.Point(477, 407);
+            this.AnnulerProd.Location = new System.Drawing.Point(486, 407);
             this.AnnulerProd.Margin = new System.Windows.Forms.Padding(2);
             this.AnnulerProd.Name = "AnnulerProd";
             this.AnnulerProd.ShadowDecoration.Parent = this.AnnulerProd;
@@ -1200,7 +1218,7 @@
             this.ExpirProd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ExpirProd.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.ExpirProd.HoverState.Parent = this.ExpirProd;
-            this.ExpirProd.Location = new System.Drawing.Point(208, 329);
+            this.ExpirProd.Location = new System.Drawing.Point(79, 328);
             this.ExpirProd.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.ExpirProd.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.ExpirProd.Name = "ExpirProd";
@@ -1229,7 +1247,7 @@
             "disponible",
             "non disponible"});
             this.StatusProd.ItemsAppearance.Parent = this.StatusProd;
-            this.StatusProd.Location = new System.Drawing.Point(477, 171);
+            this.StatusProd.Location = new System.Drawing.Point(348, 170);
             this.StatusProd.Name = "StatusProd";
             this.StatusProd.ShadowDecoration.Parent = this.StatusProd;
             this.StatusProd.Size = new System.Drawing.Size(213, 36);
@@ -1247,7 +1265,7 @@
             this.guna2Button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
             this.guna2Button5.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button5.HoverState.Parent = this.guna2Button5;
-            this.guna2Button5.Location = new System.Drawing.Point(208, 142);
+            this.guna2Button5.Location = new System.Drawing.Point(79, 141);
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.PressedColor = System.Drawing.Color.Transparent;
             this.guna2Button5.ShadowDecoration.Parent = this.guna2Button5;
@@ -1267,7 +1285,7 @@
             this.guna2Button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
             this.guna2Button6.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button6.HoverState.Parent = this.guna2Button6;
-            this.guna2Button6.Location = new System.Drawing.Point(208, 222);
+            this.guna2Button6.Location = new System.Drawing.Point(79, 221);
             this.guna2Button6.Name = "guna2Button6";
             this.guna2Button6.PressedColor = System.Drawing.Color.Transparent;
             this.guna2Button6.ShadowDecoration.Parent = this.guna2Button6;
@@ -1287,7 +1305,7 @@
             this.guna2Button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
             this.guna2Button8.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button8.HoverState.Parent = this.guna2Button8;
-            this.guna2Button8.Location = new System.Drawing.Point(477, 142);
+            this.guna2Button8.Location = new System.Drawing.Point(348, 141);
             this.guna2Button8.Name = "guna2Button8";
             this.guna2Button8.PressedColor = System.Drawing.Color.Transparent;
             this.guna2Button8.ShadowDecoration.Parent = this.guna2Button8;
@@ -1307,7 +1325,7 @@
             this.guna2Button9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
             this.guna2Button9.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button9.HoverState.Parent = this.guna2Button9;
-            this.guna2Button9.Location = new System.Drawing.Point(208, 301);
+            this.guna2Button9.Location = new System.Drawing.Point(79, 300);
             this.guna2Button9.Name = "guna2Button9";
             this.guna2Button9.PressedColor = System.Drawing.Color.Transparent;
             this.guna2Button9.ShadowDecoration.Parent = this.guna2Button9;
@@ -1317,6 +1335,10 @@
             // 
             // AjProdPanel
             // 
+            this.AjProdPanel.Controls.Add(this.RemoveListboxItem);
+            this.AjProdPanel.Controls.Add(this.listBoxFourns);
+            this.AjProdPanel.Controls.Add(this.guna2Button20);
+            this.AjProdPanel.Controls.Add(this.ListFournsCombo);
             this.AjProdPanel.Controls.Add(this.image_id_box);
             this.AjProdPanel.Controls.Add(this.guna2Button9);
             this.AjProdPanel.Controls.Add(this.guna2Button8);
@@ -1339,11 +1361,92 @@
             this.AjProdPanel.TabIndex = 32;
             this.AjProdPanel.Visible = false;
             // 
+            // RemoveListboxItem
+            // 
+            this.RemoveListboxItem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.RemoveListboxItem.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.RemoveListboxItem.CheckedState.Parent = this.RemoveListboxItem;
+            this.RemoveListboxItem.HoverState.ImageSize = new System.Drawing.Size(30, 30);
+            this.RemoveListboxItem.HoverState.Parent = this.RemoveListboxItem;
+            this.RemoveListboxItem.Image = ((System.Drawing.Image)(resources.GetObject("RemoveListboxItem.Image")));
+            this.RemoveListboxItem.ImageRotate = 0F;
+            this.RemoveListboxItem.ImageSize = new System.Drawing.Size(30, 30);
+            this.RemoveListboxItem.Location = new System.Drawing.Point(715, 337);
+            this.RemoveListboxItem.Name = "RemoveListboxItem";
+            this.RemoveListboxItem.PressedState.ImageSize = new System.Drawing.Size(30, 30);
+            this.RemoveListboxItem.PressedState.Parent = this.RemoveListboxItem;
+            this.RemoveListboxItem.Size = new System.Drawing.Size(25, 28);
+            this.RemoveListboxItem.TabIndex = 61;
+            this.RemoveListboxItem.Click += new System.EventHandler(this.RemoveListboxItem_Click);
+            // 
+            // listBoxFourns
+            // 
+            this.listBoxFourns.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.listBoxFourns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(240)))), ((int)(((byte)(248)))));
+            this.listBoxFourns.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBoxFourns.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxFourns.FormattingEnabled = true;
+            this.listBoxFourns.ItemHeight = 16;
+            this.listBoxFourns.Location = new System.Drawing.Point(610, 170);
+            this.listBoxFourns.Name = "listBoxFourns";
+            this.listBoxFourns.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listBoxFourns.Size = new System.Drawing.Size(223, 162);
+            this.listBoxFourns.TabIndex = 60;
+            this.listBoxFourns.SelectedIndexChanged += new System.EventHandler(this.listBoxFourns_SelectedIndexChanged);
+            // 
+            // guna2Button20
+            // 
+            this.guna2Button20.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2Button20.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button20.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button20.CheckedState.Parent = this.guna2Button20;
+            this.guna2Button20.CustomImages.Parent = this.guna2Button20;
+            this.guna2Button20.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button20.Font = new System.Drawing.Font("Palatino Linotype", 9.75F);
+            this.guna2Button20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
+            this.guna2Button20.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button20.HoverState.Parent = this.guna2Button20;
+            this.guna2Button20.Location = new System.Drawing.Point(348, 305);
+            this.guna2Button20.Name = "guna2Button20";
+            this.guna2Button20.PressedColor = System.Drawing.Color.Transparent;
+            this.guna2Button20.ShadowDecoration.Parent = this.guna2Button20;
+            this.guna2Button20.Size = new System.Drawing.Size(143, 22);
+            this.guna2Button20.TabIndex = 59;
+            this.guna2Button20.Text = "Liste des fournisseur :";
+            // 
+            // ListFournsCombo
+            // 
+            this.ListFournsCombo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ListFournsCombo.Animated = true;
+            this.ListFournsCombo.BackColor = System.Drawing.Color.Transparent;
+            this.ListFournsCombo.BorderColor = System.Drawing.Color.Black;
+            this.ListFournsCombo.BorderRadius = 10;
+            this.ListFournsCombo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ListFournsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ListFournsCombo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ListFournsCombo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ListFournsCombo.FocusedState.Parent = this.ListFournsCombo;
+            this.ListFournsCombo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ListFournsCombo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.ListFournsCombo.HoverState.Parent = this.ListFournsCombo;
+            this.ListFournsCombo.ItemHeight = 30;
+            this.ListFournsCombo.Items.AddRange(new object[] {
+            "fourn1",
+            "fourn2",
+            "fourn3"});
+            this.ListFournsCombo.ItemsAppearance.Parent = this.ListFournsCombo;
+            this.ListFournsCombo.Location = new System.Drawing.Point(346, 328);
+            this.ListFournsCombo.Name = "ListFournsCombo";
+            this.ListFournsCombo.ShadowDecoration.Parent = this.ListFournsCombo;
+            this.ListFournsCombo.Size = new System.Drawing.Size(213, 36);
+            this.ListFournsCombo.TabIndex = 58;
+            this.ListFournsCombo.SelectedIndexChanged += new System.EventHandler(this.ListFournsCombo_SelectedIndexChanged);
+            // 
             // image_id_box
             // 
             this.image_id_box.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.image_id_box.AutoSize = true;
-            this.image_id_box.Location = new System.Drawing.Point(590, 262);
+            this.image_id_box.Location = new System.Drawing.Point(461, 261);
             this.image_id_box.Name = "image_id_box";
             this.image_id_box.Size = new System.Drawing.Size(98, 13);
             this.image_id_box.TabIndex = 57;
@@ -1883,22 +1986,22 @@
             // CommandesList
             // 
             this.CommandesList.AllowUserToAddRows = false;
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
-            this.CommandesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
+            this.CommandesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.CommandesList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.CommandesList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.CommandesList.BackgroundColor = System.Drawing.Color.White;
             this.CommandesList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CommandesList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.CommandesList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CommandesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CommandesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.CommandesList.ColumnHeadersHeight = 21;
             this.CommandesList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -1907,24 +2010,24 @@
             this.Quantité,
             this.Date_commande,
             this.Date_livraison});
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CommandesList.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CommandesList.DefaultCellStyle = dataGridViewCellStyle24;
             this.CommandesList.EnableHeadersVisualStyles = false;
             this.CommandesList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(62)))));
-            this.CommandesList.Location = new System.Drawing.Point(24, 197);
+            this.CommandesList.Location = new System.Drawing.Point(4, 197);
             this.CommandesList.MaximumSize = new System.Drawing.Size(1000, 0);
-            this.CommandesList.MinimumSize = new System.Drawing.Size(850, 250);
+            this.CommandesList.MinimumSize = new System.Drawing.Size(888, 260);
             this.CommandesList.Name = "CommandesList";
             this.CommandesList.ReadOnly = true;
             this.CommandesList.RowHeadersVisible = false;
             this.CommandesList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.CommandesList.Size = new System.Drawing.Size(850, 250);
+            this.CommandesList.Size = new System.Drawing.Size(888, 260);
             this.CommandesList.TabIndex = 48;
             this.CommandesList.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Dark;
             this.CommandesList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
@@ -2630,21 +2733,301 @@
             this.AdresseFourn.Size = new System.Drawing.Size(222, 38);
             this.AdresseFourn.TabIndex = 43;
             // 
+            // NouvCommandePane
+            // 
+            this.NouvCommandePane.Controls.Add(this.guna2Button29);
+            this.NouvCommandePane.Controls.Add(this.guna2Button28);
+            this.NouvCommandePane.Controls.Add(this.CommandeLivraisonDate);
+            this.NouvCommandePane.Controls.Add(this.CommandeQuant);
+            this.NouvCommandePane.Controls.Add(this.guna2Button27);
+            this.NouvCommandePane.Controls.Add(this.guna2Button26);
+            this.NouvCommandePane.Controls.Add(this.ProduitsCombo);
+            this.NouvCommandePane.Controls.Add(this.FournsCombo);
+            this.NouvCommandePane.Controls.Add(this.guna2ImageButton6);
+            this.NouvCommandePane.Controls.Add(this.guna2Button23);
+            this.NouvCommandePane.Controls.Add(this.guna2Button24);
+            this.NouvCommandePane.Controls.Add(this.AjCommandeB);
+            this.NouvCommandePane.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NouvCommandePane.Location = new System.Drawing.Point(0, 0);
+            this.NouvCommandePane.Name = "NouvCommandePane";
+            this.NouvCommandePane.Size = new System.Drawing.Size(895, 461);
+            this.NouvCommandePane.TabIndex = 61;
+            this.NouvCommandePane.Visible = false;
+            // 
+            // guna2Button29
+            // 
+            this.guna2Button29.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2Button29.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button29.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button29.CheckedState.Parent = this.guna2Button29;
+            this.guna2Button29.CustomImages.Parent = this.guna2Button29;
+            this.guna2Button29.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button29.Font = new System.Drawing.Font("SimSun", 12F);
+            this.guna2Button29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
+            this.guna2Button29.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button29.HoverState.Parent = this.guna2Button29;
+            this.guna2Button29.Location = new System.Drawing.Point(127, 334);
+            this.guna2Button29.Name = "guna2Button29";
+            this.guna2Button29.PressedColor = System.Drawing.Color.Transparent;
+            this.guna2Button29.ShadowDecoration.Parent = this.guna2Button29;
+            this.guna2Button29.Size = new System.Drawing.Size(178, 38);
+            this.guna2Button29.TabIndex = 60;
+            this.guna2Button29.Text = "Date de livraison";
+            // 
+            // guna2Button28
+            // 
+            this.guna2Button28.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2Button28.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button28.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button28.CheckedState.Parent = this.guna2Button28;
+            this.guna2Button28.CustomImages.Parent = this.guna2Button28;
+            this.guna2Button28.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button28.Font = new System.Drawing.Font("SimSun", 12F);
+            this.guna2Button28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
+            this.guna2Button28.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button28.HoverState.Parent = this.guna2Button28;
+            this.guna2Button28.Location = new System.Drawing.Point(127, 275);
+            this.guna2Button28.Name = "guna2Button28";
+            this.guna2Button28.PressedColor = System.Drawing.Color.Transparent;
+            this.guna2Button28.ShadowDecoration.Parent = this.guna2Button28;
+            this.guna2Button28.Size = new System.Drawing.Size(178, 38);
+            this.guna2Button28.TabIndex = 59;
+            this.guna2Button28.Text = "Quantité à commander";
+            // 
+            // CommandeLivraisonDate
+            // 
+            this.CommandeLivraisonDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CommandeLivraisonDate.BorderRadius = 10;
+            this.CommandeLivraisonDate.BorderThickness = 1;
+            this.CommandeLivraisonDate.CheckedState.Parent = this.CommandeLivraisonDate;
+            this.CommandeLivraisonDate.FillColor = System.Drawing.Color.White;
+            this.CommandeLivraisonDate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.CommandeLivraisonDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.CommandeLivraisonDate.HoverState.Parent = this.CommandeLivraisonDate;
+            this.CommandeLivraisonDate.Location = new System.Drawing.Point(326, 333);
+            this.CommandeLivraisonDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.CommandeLivraisonDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.CommandeLivraisonDate.Name = "CommandeLivraisonDate";
+            this.CommandeLivraisonDate.ShadowDecoration.Parent = this.CommandeLivraisonDate;
+            this.CommandeLivraisonDate.Size = new System.Drawing.Size(251, 36);
+            this.CommandeLivraisonDate.TabIndex = 58;
+            this.CommandeLivraisonDate.Value = new System.DateTime(2020, 12, 2, 0, 0, 0, 0);
+            // 
+            // CommandeQuant
+            // 
+            this.CommandeQuant.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CommandeQuant.Animated = true;
+            this.CommandeQuant.BorderColor = System.Drawing.Color.Black;
+            this.CommandeQuant.BorderRadius = 10;
+            this.CommandeQuant.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.CommandeQuant.DefaultText = "";
+            this.CommandeQuant.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.CommandeQuant.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.CommandeQuant.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.CommandeQuant.DisabledState.Parent = this.CommandeQuant;
+            this.CommandeQuant.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.CommandeQuant.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CommandeQuant.FocusedState.Parent = this.CommandeQuant;
+            this.CommandeQuant.Font = new System.Drawing.Font("Segoe UI Semibold", 10.125F, System.Drawing.FontStyle.Bold);
+            this.CommandeQuant.ForeColor = System.Drawing.Color.Black;
+            this.CommandeQuant.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CommandeQuant.HoverState.Parent = this.CommandeQuant;
+            this.CommandeQuant.Location = new System.Drawing.Point(326, 274);
+            this.CommandeQuant.Margin = new System.Windows.Forms.Padding(2);
+            this.CommandeQuant.Name = "CommandeQuant";
+            this.CommandeQuant.PasswordChar = '\0';
+            this.CommandeQuant.PlaceholderForeColor = System.Drawing.Color.Black;
+            this.CommandeQuant.PlaceholderText = "Quantité";
+            this.CommandeQuant.SelectedText = "";
+            this.CommandeQuant.ShadowDecoration.Parent = this.CommandeQuant;
+            this.CommandeQuant.Size = new System.Drawing.Size(251, 36);
+            this.CommandeQuant.TabIndex = 57;
+            // 
+            // guna2Button27
+            // 
+            this.guna2Button27.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2Button27.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button27.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button27.CheckedState.Parent = this.guna2Button27;
+            this.guna2Button27.CustomImages.Parent = this.guna2Button27;
+            this.guna2Button27.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button27.Font = new System.Drawing.Font("SimSun", 12F);
+            this.guna2Button27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
+            this.guna2Button27.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button27.HoverState.Parent = this.guna2Button27;
+            this.guna2Button27.Location = new System.Drawing.Point(127, 212);
+            this.guna2Button27.Name = "guna2Button27";
+            this.guna2Button27.PressedColor = System.Drawing.Color.Transparent;
+            this.guna2Button27.ShadowDecoration.Parent = this.guna2Button27;
+            this.guna2Button27.Size = new System.Drawing.Size(178, 38);
+            this.guna2Button27.TabIndex = 56;
+            this.guna2Button27.Text = "Produit";
+            // 
+            // guna2Button26
+            // 
+            this.guna2Button26.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2Button26.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button26.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button26.CheckedState.Parent = this.guna2Button26;
+            this.guna2Button26.CustomImages.Parent = this.guna2Button26;
+            this.guna2Button26.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button26.Font = new System.Drawing.Font("SimSun", 12F);
+            this.guna2Button26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
+            this.guna2Button26.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button26.HoverState.Parent = this.guna2Button26;
+            this.guna2Button26.Location = new System.Drawing.Point(127, 149);
+            this.guna2Button26.Name = "guna2Button26";
+            this.guna2Button26.PressedColor = System.Drawing.Color.Transparent;
+            this.guna2Button26.ShadowDecoration.Parent = this.guna2Button26;
+            this.guna2Button26.Size = new System.Drawing.Size(178, 38);
+            this.guna2Button26.TabIndex = 55;
+            this.guna2Button26.Text = "Fournisseur";
+            // 
+            // ProduitsCombo
+            // 
+            this.ProduitsCombo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ProduitsCombo.Animated = true;
+            this.ProduitsCombo.BackColor = System.Drawing.Color.Transparent;
+            this.ProduitsCombo.BorderColor = System.Drawing.Color.Black;
+            this.ProduitsCombo.BorderRadius = 10;
+            this.ProduitsCombo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ProduitsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ProduitsCombo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProduitsCombo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProduitsCombo.FocusedState.Parent = this.ProduitsCombo;
+            this.ProduitsCombo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.ProduitsCombo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.ProduitsCombo.HoverState.Parent = this.ProduitsCombo;
+            this.ProduitsCombo.ItemHeight = 30;
+            this.ProduitsCombo.ItemsAppearance.Parent = this.ProduitsCombo;
+            this.ProduitsCombo.Location = new System.Drawing.Point(326, 213);
+            this.ProduitsCombo.Name = "ProduitsCombo";
+            this.ProduitsCombo.ShadowDecoration.Parent = this.ProduitsCombo;
+            this.ProduitsCombo.Size = new System.Drawing.Size(251, 36);
+            this.ProduitsCombo.TabIndex = 54;
+            this.ProduitsCombo.SelectedIndexChanged += new System.EventHandler(this.ProduitsCombo_SelectedIndexChanged);
+            // 
+            // FournsCombo
+            // 
+            this.FournsCombo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.FournsCombo.Animated = true;
+            this.FournsCombo.BackColor = System.Drawing.Color.Transparent;
+            this.FournsCombo.BorderColor = System.Drawing.Color.Black;
+            this.FournsCombo.BorderRadius = 10;
+            this.FournsCombo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.FournsCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FournsCombo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.FournsCombo.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.FournsCombo.FocusedState.Parent = this.FournsCombo;
+            this.FournsCombo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.FournsCombo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.FournsCombo.HoverState.Parent = this.FournsCombo;
+            this.FournsCombo.ItemHeight = 30;
+            this.FournsCombo.ItemsAppearance.Parent = this.FournsCombo;
+            this.FournsCombo.Location = new System.Drawing.Point(326, 150);
+            this.FournsCombo.Name = "FournsCombo";
+            this.FournsCombo.ShadowDecoration.Parent = this.FournsCombo;
+            this.FournsCombo.Size = new System.Drawing.Size(251, 36);
+            this.FournsCombo.TabIndex = 53;
+            // 
+            // guna2ImageButton6
+            // 
+            this.guna2ImageButton6.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton6.CheckedState.Parent = this.guna2ImageButton6;
+            this.guna2ImageButton6.HoverState.ImageSize = new System.Drawing.Size(40, 40);
+            this.guna2ImageButton6.HoverState.Parent = this.guna2ImageButton6;
+            this.guna2ImageButton6.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton6.Image")));
+            this.guna2ImageButton6.ImageRotate = 0F;
+            this.guna2ImageButton6.ImageSize = new System.Drawing.Size(40, 40);
+            this.guna2ImageButton6.Location = new System.Drawing.Point(12, 13);
+            this.guna2ImageButton6.Name = "guna2ImageButton6";
+            this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(40, 40);
+            this.guna2ImageButton6.PressedState.Parent = this.guna2ImageButton6;
+            this.guna2ImageButton6.Size = new System.Drawing.Size(53, 44);
+            this.guna2ImageButton6.TabIndex = 40;
+            this.guna2ImageButton6.Click += new System.EventHandler(this.guna2ImageButton6_Click);
+            // 
+            // guna2Button23
+            // 
+            this.guna2Button23.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button23.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button23.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button23.CheckedState.Parent = this.guna2Button23;
+            this.guna2Button23.CustomImages.Parent = this.guna2Button23;
+            this.guna2Button23.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button23.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold);
+            this.guna2Button23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
+            this.guna2Button23.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button23.HoverState.Parent = this.guna2Button23;
+            this.guna2Button23.Location = new System.Drawing.Point(278, 79);
+            this.guna2Button23.Name = "guna2Button23";
+            this.guna2Button23.PressedColor = System.Drawing.Color.Transparent;
+            this.guna2Button23.ShadowDecoration.Parent = this.guna2Button23;
+            this.guna2Button23.Size = new System.Drawing.Size(342, 38);
+            this.guna2Button23.TabIndex = 39;
+            this.guna2Button23.Text = "Nouvelle Commande";
+            // 
+            // guna2Button24
+            // 
+            this.guna2Button24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2Button24.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button24.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button24.BorderRadius = 10;
+            this.guna2Button24.CheckedState.Parent = this.guna2Button24;
+            this.guna2Button24.CustomImages.Parent = this.guna2Button24;
+            this.guna2Button24.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(61)))), ((int)(((byte)(57)))));
+            this.guna2Button24.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold);
+            this.guna2Button24.ForeColor = System.Drawing.Color.White;
+            this.guna2Button24.HoverState.Parent = this.guna2Button24;
+            this.guna2Button24.Location = new System.Drawing.Point(722, 13);
+            this.guna2Button24.Name = "guna2Button24";
+            this.guna2Button24.ShadowDecoration.Parent = this.guna2Button24;
+            this.guna2Button24.Size = new System.Drawing.Size(161, 34);
+            this.guna2Button24.TabIndex = 38;
+            this.guna2Button24.Text = "Tableau de bord  >";
+            this.guna2Button24.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.guna2Button24.Click += new System.EventHandler(this.guna2Button24_Click);
+            // 
+            // AjCommandeB
+            // 
+            this.AjCommandeB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.AjCommandeB.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(214)))), ((int)(((byte)(249)))));
+            this.AjCommandeB.BorderRadius = 10;
+            this.AjCommandeB.BorderThickness = 1;
+            this.AjCommandeB.CheckedState.Parent = this.AjCommandeB;
+            this.AjCommandeB.CustomImages.Parent = this.AjCommandeB;
+            this.AjCommandeB.FillColor = System.Drawing.Color.Transparent;
+            this.AjCommandeB.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.AjCommandeB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(183)))), ((int)(((byte)(3)))));
+            this.AjCommandeB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(252)))));
+            this.AjCommandeB.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(252)))));
+            this.AjCommandeB.HoverState.Parent = this.AjCommandeB;
+            this.AjCommandeB.Location = new System.Drawing.Point(407, 394);
+            this.AjCommandeB.Margin = new System.Windows.Forms.Padding(2);
+            this.AjCommandeB.Name = "AjCommandeB";
+            this.AjCommandeB.ShadowDecoration.Parent = this.AjCommandeB;
+            this.AjCommandeB.Size = new System.Drawing.Size(91, 40);
+            this.AjCommandeB.TabIndex = 37;
+            this.AjCommandeB.Text = "Ajouter";
+            this.AjCommandeB.Click += new System.EventHandler(this.AjCommandeB_Click);
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(895, 461);
-            this.Controls.Add(this.ListeCommandesPanel);
-            this.Controls.Add(this.ListeFournsPanel);
-            this.Controls.Add(this.ProDestPane);
+            this.Controls.Add(this.NouvCommandePane);
+            this.Controls.Add(this.AjProdPanel);
             this.Controls.Add(this.ListeProdPane);
+            this.Controls.Add(this.AjFournPanel);
+            this.Controls.Add(this.ListeFournsPanel);
+            this.Controls.Add(this.ListeCommandesPanel);
+            this.Controls.Add(this.ProDestPane);
             this.Controls.Add(this.ModProdPane);
             this.Controls.Add(this.ModFournPane);
-            this.Controls.Add(this.AjFournPanel);
             this.Controls.Add(this.MainPanel);
-            this.Controls.Add(this.AjProdPanel);
             this.Controls.Add(this.GestionFoursPanel);
             this.Controls.Add(this.GestionProduitsPanel);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -2670,6 +3053,7 @@
             this.ModProdPane.ResumeLayout(false);
             this.ModProdPane.PerformLayout();
             this.ModFournPane.ResumeLayout(false);
+            this.NouvCommandePane.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2799,5 +3183,22 @@
         private Guna.UI2.WinForms.Guna2Button ModFournB;
         private Guna.UI2.WinForms.Guna2TextBox NomFourn;
         private Guna.UI2.WinForms.Guna2TextBox AdresseFourn;
+        private System.Windows.Forms.Panel NouvCommandePane;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton6;
+        private Guna.UI2.WinForms.Guna2Button guna2Button23;
+        private Guna.UI2.WinForms.Guna2Button guna2Button24;
+        private Guna.UI2.WinForms.Guna2Button AjCommandeB;
+        private Guna.UI2.WinForms.Guna2ComboBox FournsCombo;
+        private Guna.UI2.WinForms.Guna2Button guna2Button27;
+        private Guna.UI2.WinForms.Guna2Button guna2Button26;
+        private Guna.UI2.WinForms.Guna2ComboBox ProduitsCombo;
+        private Guna.UI2.WinForms.Guna2TextBox CommandeQuant;
+        private Guna.UI2.WinForms.Guna2Button guna2Button29;
+        private Guna.UI2.WinForms.Guna2Button guna2Button28;
+        private Guna.UI2.WinForms.Guna2DateTimePicker CommandeLivraisonDate;
+        private Guna.UI2.WinForms.Guna2Button guna2Button20;
+        private Guna.UI2.WinForms.Guna2ComboBox ListFournsCombo;
+        private System.Windows.Forms.ListBox listBoxFourns;
+        private Guna.UI2.WinForms.Guna2ImageButton RemoveListboxItem;
     }
 }
