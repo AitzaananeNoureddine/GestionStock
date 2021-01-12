@@ -36,6 +36,24 @@ namespace Gestion
                 return Id + "|" + Produit + "|" + Fournisseur + "|" + Quantité + "|" + Date_commande + "|" + Date_livraison;
             }
         }
+        public class Vent_alt
+        {
+            public int Id, Prix, Profit;
+            public int? Quant;
+            public string Produit,Image;
+            public DateTime? Date; /// date de vente
+
+            public Vent_alt(int id, int prix, int? quant, int profit, string produit,string image, DateTime? date)
+            {
+                Id = id;
+                Prix = prix;
+                Quant = quant;
+                Profit = profit;
+                Produit = produit;
+                Image = image;
+                Date = date;
+            }
+        }
 
         readonly LinqToProjectDBDataContext ProjectDB = new LinqToProjectDBDataContext();
         string Image_id;
@@ -396,7 +414,7 @@ namespace Gestion
         private void AjProdform_Click(object sender, EventArgs e)
         {
             NomProd.Text = NomProd.Text.Trim();
-            if (NomProd.Text!="" && ExpirProd.Text!="" && StatusProd.Text!="")
+            if (NomProd.Text!="" && ExpirProd.Text!="" && StatusProd.Text!="" && QuantiteEnStock.Text!="" && listBoxFourns.Items.Count!=0)
             {
                 Produit pr = new Produit();
                 pr.Nom = NomProd.Text;
@@ -404,6 +422,7 @@ namespace Gestion
                 try
                 {
                     pr.Prix = Convert.ToInt32(PrixProd.Text);
+                    pr.Quantite = Convert.ToInt32(QuantiteEnStock.Text);
                     if (DateTime.Now.CompareTo(ExpirProd.Value) > 0) throw new Exception();
                     else pr.Date_exp = ExpirProd.Value;
                     pr.Status = StatusProd.Text;
@@ -411,8 +430,9 @@ namespace Gestion
                     ProjectDB.SubmitChanges();
                     /////// ProduitFournisseur DB //////
                     int produit_id = (from p in ProjectDB.Produits
-                                 where p.Nom.Equals(pr.Nom)
-                                 where p.Image.Equals(pr.Image)
+                                 where p.Nom.Trim().Equals(pr.Nom.Trim())
+                                 where p.Date_exp.Value.Date.CompareTo(pr.Date_exp.Value.Date)==0
+                                 where p.Quantite.Equals(pr.Quantite)
                                  select p.Id).First();
                     int[] fournisseur_ids=new int[listBoxFourns.Items.Count];
                     int i;
@@ -435,11 +455,11 @@ namespace Gestion
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("Entrez un prix valide");
+                    MessageBox.Show("Format de l'entrée est non valide");
                 }
-                catch (Exception)
+                catch (Exception exp)
                 {
-                    MessageBox.Show("la date que vous avez saisie est non valide");
+                    MessageBox.Show(exp.StackTrace);
                 }
             }
             else
@@ -487,11 +507,31 @@ namespace Gestion
                     Produit ToAlter = Query.First();
                     ProdNom.Text = ToAlter.Nom.Trim();
                     ProdPrix.Text = ToAlter.Prix.ToString();
+                    EnStockQuant.Text = ToAlter.Quantite.ToString();
                     ProdStatus.SelectedIndex = ProdStatus.FindString(ToAlter.Status.Trim());
                     ProdExpDate.Value = (DateTime)ToAlter.Date_exp;
                     ProdImageId.Text = ToAlter.Image;
                     ProdImageId.Visible = true;
                     ModProdPane.Show();
+
+                    /*ListeFournsComboMod.Items.Clear();
+                    var Query2 = from pf in ProjectDB.ProduitFournisseurs
+                                 where pf.Produit.Equals(id)
+                                 select pf.Fournisseur;
+                    List<int> fournisseur_ids = new List<int>();
+                    foreach (var indice in Query2) fournisseur_ids.Add(indice);
+                    for (int i = 0; i < fournisseur_ids.Count; i++)
+                    {
+                        var Query3 = (from f in ProjectDB.Fournisseurs
+                                      where f.Id.Equals(fournisseur_ids[i])
+                                      select f).FirstOrDefault();
+                        if (Query3 != null)
+                        {
+                            ListeFournsComboMod.Items.Add(Query3.Nom);
+                            ListFourns.Items.Add(Query3.Nom);
+
+                        }
+                    }*/
                 }
                 else if (_sender.Name.Equals("ListeFournTab"))
                 {
@@ -518,7 +558,15 @@ namespace Gestion
                         var Query2 = (from c in ProjectDB.Commandes
                                       where c.Produit.Equals(id)
                                       select c).FirstOrDefault();
-                        if(Query2!=null) ProjectDB.Commandes.DeleteOnSubmit(Query2);
+                        var Query3 = (from v in ProjectDB.Ventes
+                                      where v.Produit.Equals(id)
+                                      select v).FirstOrDefault();
+                        var Query4 = (from pf in ProjectDB.ProduitFournisseurs
+                                      where pf.Produit.Equals(id)
+                                      select pf).FirstOrDefault();
+                        if (Query2!=null) ProjectDB.Commandes.DeleteOnSubmit(Query2);
+                        if (Query3!= null) ProjectDB.Ventes.DeleteOnSubmit(Query3);
+                        if (Query4!=null) ProjectDB.ProduitFournisseurs.DeleteOnSubmit(Query4);
                         ProjectDB.Produits.DeleteOnSubmit(Query);
                         ProjectDB.SubmitChanges();
                         SearchProdDestB_Click(null, null);
@@ -526,13 +574,17 @@ namespace Gestion
                     }
                     else if (_sender.Name.Equals("ListeFournTab"))
                     {
-                        var Query = (from p in ProjectDB.Fournisseurs
-                                     where p.Id.Equals(id)
-                                     select p).First();
+                        var Query = (from f in ProjectDB.Fournisseurs
+                                     where f.Id.Equals(id)
+                                     select f).First();
                         var Query2 = (from c in ProjectDB.Commandes
                                       where c.Produit.Equals(id)
                                       select c).FirstOrDefault();
+                        var Query3 = (from pf in ProjectDB.ProduitFournisseurs
+                                      where pf.Fournisseur.Equals(id)
+                                      select pf).FirstOrDefault();
                         if(Query2!=null) ProjectDB.Commandes.DeleteOnSubmit(Query2);
+                        if (Query3 != null) ProjectDB.ProduitFournisseurs.DeleteOnSubmit(Query3);
                         ProjectDB.Fournisseurs.DeleteOnSubmit(Query);
                         ProjectDB.SubmitChanges();
                         SearchFournB_Click(null, null);
@@ -591,6 +643,7 @@ namespace Gestion
                     if (DateTime.Now.CompareTo(ProdExpDate.Value) > 0) throw new Exception();
                     else Query.Date_exp = ProdExpDate.Value;
                     Query.Prix = Convert.ToInt32(ProdPrix.Text);
+                    Query.Quantite = Convert.ToInt32(EnStockQuant.Text);
                     Query.Nom = ProdNom.Text;
                     Query.Image = ProdImageId.Text;
                     Query.Status = ProdStatus.Text;
@@ -753,6 +806,169 @@ namespace Gestion
             {
                 MessageBox.Show("tous les champs doivent être remplis");
             }
+        }
+
+        private bool ToTperte_disp = false;
+        private bool ToTprofit_disp = false;
+        private void BilanJourB_Click(object sender, EventArgs e)
+        {
+            GestionProduitsPanel.Hide();
+            ListeProfitTitle.Text = "Liste des profits [" + DateTime.Now.Date.ToString("dd/MM/yy") + "]";
+            ProfitsTabFill(ProfitsTab, TotalProfitsLab, ref ToTprofit_disp);
+            ////////////////
+            ListePerteTitle.Text = "Liste des pertes [" + DateTime.Now.Date.ToString("dd/MM/yy") + "]";
+            PertesTabFill(PertesTab, TotalPertesLab, ref ToTperte_disp);
+            ProfitPertePanel.Show();
+        }
+        private void PertesTabFill(DataGridView dgv, Guna.UI2.WinForms.Guna2Button btn,ref bool B)
+        {
+            dgv.Visible = true;
+            var Query = from p in ProjectDB.Produits
+                        where DateTime.Now.Date.CompareTo(p.Date_exp.Value.Date) > 0
+                        where p.Nom.Contains(ChercherPerte.Text)
+                        select p;
+            List<Produit> selected = new List<Produit>();
+            foreach (Produit p in Query) selected.Add(p);
+            if (selected.Count != 0)
+            {
+                dgv.DataSource = selected;
+                if (!dgv.Columns.Contains("Perte")) dgv.Columns.Add("Perte", "Perte");
+                double prix = 0, total = 0;
+                for (int i = 0; i < selected.Count; i++)
+                {
+                    prix = Convert.ToInt32(dgv.Rows[i].Cells["Prix"].Value);
+                    prix = (prix / (1 + 0.2)) * Convert.ToInt32(dgv.Rows[i].Cells["Quantite"].Value);
+                    dgv.Rows[i].Cells["Perte"].Value = Convert.ToString(prix);//// {0.2} 20% de profit dans chaque produit
+                    total += prix;
+                }
+                if (!B)
+                {
+                    btn.Text += " " + total + " DH";
+                    B = true;
+                }
+                dgv.Columns["Image"].Visible = false;
+                LoadImages(dgv, selected.Count);
+            }
+            else
+            {
+                dgv.Visible = false;
+            }
+        }
+        private void ProfitsTabFill(DataGridView dgv, Guna.UI2.WinForms.Guna2Button btn, ref bool B)
+        {
+            dgv.Visible = true;
+            dgv.Rows.Clear();
+            var Query = from v in ProjectDB.Ventes
+                        where v.Date_vente.Value.Date.CompareTo(DateTime.Now.Date) == 0
+                        join p in ProjectDB.Produits on v.Produit equals p.Id
+                        where p.Nom.Contains(ChercherVent.Text)
+                        select new
+                        {
+                            Id = v.Id,
+                            Produit = p.Nom,
+                            Image = p.Image,
+                            Prix = p.Prix,
+                            Quant = v.Quant,
+                            Date = v.Date_vente,
+                            Profit = v.Quant.Value * p.Prix,
+                        };
+            List < Vent_alt > selected = new List<Vent_alt>();
+            foreach (var v in Query) selected.Add(new Vent_alt(v.Id,v.Prix,v.Quant,v.Profit,v.Produit,v.Image,v.Date));
+            if (selected.Count != 0)
+            {
+                double total = 0;
+                if (dgv.Columns.Contains("Id2")) dgv.Columns["Id2"].Name = "Id";
+                if (dgv.Columns.Contains("Produit2")) dgv.Columns["Produit2"].Name = "Produit";
+                if (dgv.Columns.Contains("Image2")) dgv.Columns["Image2"].Name = "Image";
+                if (dgv.Columns.Contains("Prix2")) dgv.Columns["Prix2"].Name = "Prix";
+
+                for (int i = 0; i < selected.Count; i++)
+                {
+                    dgv.Rows.Add();
+                    dgv.Rows[i].Cells["Id"].Value = selected[i].Id;
+                    dgv.Rows[i].Cells["Produit"].Value = selected[i].Produit;
+                    dgv.Rows[i].Cells["Image"].Value = selected[i].Image;
+                    dgv.Rows[i].Cells["Prix"].Value = selected[i].Prix;
+                    dgv.Rows[i].Cells["Quant"].Value = selected[i].Quant;
+                    dgv.Rows[i].Cells["Date"].Value = selected[i].Date;
+                    dgv.Rows[i].Cells["Profit"].Value = selected[i].Profit;
+                    total += selected[i].Profit;
+                }
+                if (!B)
+                {
+                    btn.Text += " " + total + " DH";
+                    B = true;
+                }
+                dgv.Columns["Image"].Visible = false;
+                LoadImages(dgv, selected.Count);
+            }
+            else
+            {
+                dgv.Visible = false;
+            }
+        }
+        private void guna2ImageButton15_Click(object sender, EventArgs e)
+        {
+            PertesTabFill(PertesTab, TotalPertesLab, ref ToTperte_disp);
+        }
+
+        private void guna2Button34_Click(object sender, EventArgs e)
+        {
+            ProfitPertePanel.Hide();
+            MainPanel.Show();
+        }
+
+        private void guna2ImageButton13_Click(object sender, EventArgs e)
+        {
+            ProfitPertePanel.Hide();
+            GestionProduitsPanel.Show();
+        }
+
+        private void guna2Button30_Click(object sender, EventArgs e)
+        {
+            ProfitPertePanel.Hide();
+            MainPanel.Show();
+        }
+
+        private void guna2ImageButton11_Click(object sender, EventArgs e)
+        {
+            ProfitPertePanel.Hide();
+            GestionProduitsPanel.Show();
+        }
+
+        private void ChercherPerte_TextChanged(object sender, EventArgs e)
+        {
+            PertesTabFill(PertesTab, TotalPertesLab, ref ToTperte_disp);
+        }
+
+        private void guna2ImageButton7_Click(object sender, EventArgs e)
+        {
+            ProfitsTabFill(ProfitsTab, TotalProfitsLab, ref ToTprofit_disp);
+        }
+
+        private void ChercherVent_TextChanged(object sender, EventArgs e)
+        {
+            ProfitsTabFill(ProfitsTab, TotalProfitsLab, ref ToTprofit_disp);
+        }
+
+        private void StatusProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (StatusProd.SelectedIndex == 1)
+            {
+                QuantiteEnStock.Text = 0.ToString();
+                QuantiteEnStock.Enabled = false;
+            }
+            else if(StatusProd.SelectedIndex == 0) QuantiteEnStock.Enabled = true;
+        }
+
+        private void ProdStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ProdStatus.SelectedIndex == 1)
+            {
+                EnStockQuant.Text = 0.ToString();
+                EnStockQuant.Enabled = false;
+            }
+            else if (ProdStatus.SelectedIndex == 0) EnStockQuant.Enabled = true;
         }
     }
 }

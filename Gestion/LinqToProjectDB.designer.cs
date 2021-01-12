@@ -36,9 +36,6 @@ namespace Gestion
     partial void InsertFournisseur(Fournisseur instance);
     partial void UpdateFournisseur(Fournisseur instance);
     partial void DeleteFournisseur(Fournisseur instance);
-    partial void InsertProduit(Produit instance);
-    partial void UpdateProduit(Produit instance);
-    partial void DeleteProduit(Produit instance);
     partial void InsertVente(Vente instance);
     partial void UpdateVente(Vente instance);
     partial void DeleteVente(Vente instance);
@@ -48,6 +45,9 @@ namespace Gestion
     partial void InsertCommande(Commande instance);
     partial void UpdateCommande(Commande instance);
     partial void DeleteCommande(Commande instance);
+    partial void InsertProduit(Produit instance);
+    partial void UpdateProduit(Produit instance);
+    partial void DeleteProduit(Produit instance);
     #endregion
 		
 		public LinqToProjectDBDataContext() : 
@@ -96,14 +96,6 @@ namespace Gestion
 			}
 		}
 		
-		public System.Data.Linq.Table<Produit> Produits
-		{
-			get
-			{
-				return this.GetTable<Produit>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Vente> Ventes
 		{
 			get
@@ -125,6 +117,14 @@ namespace Gestion
 			get
 			{
 				return this.GetTable<Commande>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Produit> Produits
+		{
+			get
+			{
+				return this.GetTable<Produit>();
 			}
 		}
 	}
@@ -491,300 +491,6 @@ namespace Gestion
 		{
 			this.SendPropertyChanging();
 			entity.Fournisseur1 = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Produits")]
-	public partial class Produit : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Nom;
-		
-		private string _Image;
-		
-		private int _Prix;
-		
-		private System.Nullable<System.DateTime> _Date_exp;
-		
-		private string _Status;
-		
-		private EntitySet<Achat> _Achats;
-		
-		private EntitySet<Vente> _Ventes;
-		
-		private EntitySet<ProduitFournisseur> _ProduitFournisseurs;
-		
-		private EntitySet<Commande> _Commandes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnNomChanging(string value);
-    partial void OnNomChanged();
-    partial void OnImageChanging(string value);
-    partial void OnImageChanged();
-    partial void OnPrixChanging(int value);
-    partial void OnPrixChanged();
-    partial void OnDate_expChanging(System.Nullable<System.DateTime> value);
-    partial void OnDate_expChanged();
-    partial void OnStatusChanging(string value);
-    partial void OnStatusChanged();
-    #endregion
-		
-		public Produit()
-		{
-			this._Achats = new EntitySet<Achat>(new Action<Achat>(this.attach_Achats), new Action<Achat>(this.detach_Achats));
-			this._Ventes = new EntitySet<Vente>(new Action<Vente>(this.attach_Ventes), new Action<Vente>(this.detach_Ventes));
-			this._ProduitFournisseurs = new EntitySet<ProduitFournisseur>(new Action<ProduitFournisseur>(this.attach_ProduitFournisseurs), new Action<ProduitFournisseur>(this.detach_ProduitFournisseurs));
-			this._Commandes = new EntitySet<Commande>(new Action<Commande>(this.attach_Commandes), new Action<Commande>(this.detach_Commandes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nom", DbType="NChar(20) NOT NULL", CanBeNull=false)]
-		public string Nom
-		{
-			get
-			{
-				return this._Nom;
-			}
-			set
-			{
-				if ((this._Nom != value))
-				{
-					this.OnNomChanging(value);
-					this.SendPropertyChanging();
-					this._Nom = value;
-					this.SendPropertyChanged("Nom");
-					this.OnNomChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NChar(30)")]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Prix", DbType="Int NOT NULL")]
-		public int Prix
-		{
-			get
-			{
-				return this._Prix;
-			}
-			set
-			{
-				if ((this._Prix != value))
-				{
-					this.OnPrixChanging(value);
-					this.SendPropertyChanging();
-					this._Prix = value;
-					this.SendPropertyChanged("Prix");
-					this.OnPrixChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date_exp", DbType="Date")]
-		public System.Nullable<System.DateTime> Date_exp
-		{
-			get
-			{
-				return this._Date_exp;
-			}
-			set
-			{
-				if ((this._Date_exp != value))
-				{
-					this.OnDate_expChanging(value);
-					this.SendPropertyChanging();
-					this._Date_exp = value;
-					this.SendPropertyChanged("Date_exp");
-					this.OnDate_expChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NChar(20) NOT NULL", CanBeNull=false)]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produit_Achat", Storage="_Achats", ThisKey="Id", OtherKey="Produit")]
-		public EntitySet<Achat> Achats
-		{
-			get
-			{
-				return this._Achats;
-			}
-			set
-			{
-				this._Achats.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produit_Vente", Storage="_Ventes", ThisKey="Id", OtherKey="Produit")]
-		public EntitySet<Vente> Ventes
-		{
-			get
-			{
-				return this._Ventes;
-			}
-			set
-			{
-				this._Ventes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produit_ProduitFournisseur", Storage="_ProduitFournisseurs", ThisKey="Id", OtherKey="Produit")]
-		public EntitySet<ProduitFournisseur> ProduitFournisseurs
-		{
-			get
-			{
-				return this._ProduitFournisseurs;
-			}
-			set
-			{
-				this._ProduitFournisseurs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produit_Commande", Storage="_Commandes", ThisKey="Id", OtherKey="Produit")]
-		public EntitySet<Commande> Commandes
-		{
-			get
-			{
-				return this._Commandes;
-			}
-			set
-			{
-				this._Commandes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Achats(Achat entity)
-		{
-			this.SendPropertyChanging();
-			entity.Produit1 = this;
-		}
-		
-		private void detach_Achats(Achat entity)
-		{
-			this.SendPropertyChanging();
-			entity.Produit1 = null;
-		}
-		
-		private void attach_Ventes(Vente entity)
-		{
-			this.SendPropertyChanging();
-			entity.Produit1 = this;
-		}
-		
-		private void detach_Ventes(Vente entity)
-		{
-			this.SendPropertyChanging();
-			entity.Produit1 = null;
-		}
-		
-		private void attach_ProduitFournisseurs(ProduitFournisseur entity)
-		{
-			this.SendPropertyChanging();
-			entity.Produit1 = this;
-		}
-		
-		private void detach_ProduitFournisseurs(ProduitFournisseur entity)
-		{
-			this.SendPropertyChanging();
-			entity.Produit1 = null;
-		}
-		
-		private void attach_Commandes(Commande entity)
-		{
-			this.SendPropertyChanging();
-			entity.Produit1 = this;
-		}
-		
-		private void detach_Commandes(Commande entity)
-		{
-			this.SendPropertyChanging();
-			entity.Produit1 = null;
 		}
 	}
 	
@@ -1416,6 +1122,324 @@ namespace Gestion
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Produits")]
+	public partial class Produit : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Nom;
+		
+		private string _Image;
+		
+		private int _Prix;
+		
+		private System.Nullable<System.DateTime> _Date_exp;
+		
+		private string _Status;
+		
+		private System.Nullable<int> _Quantite;
+		
+		private EntitySet<Achat> _Achats;
+		
+		private EntitySet<Vente> _Ventes;
+		
+		private EntitySet<ProduitFournisseur> _ProduitFournisseurs;
+		
+		private EntitySet<Commande> _Commandes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNomChanging(string value);
+    partial void OnNomChanged();
+    partial void OnImageChanging(string value);
+    partial void OnImageChanged();
+    partial void OnPrixChanging(int value);
+    partial void OnPrixChanged();
+    partial void OnDate_expChanging(System.Nullable<System.DateTime> value);
+    partial void OnDate_expChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnQuantiteChanging(System.Nullable<int> value);
+    partial void OnQuantiteChanged();
+    #endregion
+		
+		public Produit()
+		{
+			this._Achats = new EntitySet<Achat>(new Action<Achat>(this.attach_Achats), new Action<Achat>(this.detach_Achats));
+			this._Ventes = new EntitySet<Vente>(new Action<Vente>(this.attach_Ventes), new Action<Vente>(this.detach_Ventes));
+			this._ProduitFournisseurs = new EntitySet<ProduitFournisseur>(new Action<ProduitFournisseur>(this.attach_ProduitFournisseurs), new Action<ProduitFournisseur>(this.detach_ProduitFournisseurs));
+			this._Commandes = new EntitySet<Commande>(new Action<Commande>(this.attach_Commandes), new Action<Commande>(this.detach_Commandes));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nom", DbType="NChar(20) NOT NULL", CanBeNull=false)]
+		public string Nom
+		{
+			get
+			{
+				return this._Nom;
+			}
+			set
+			{
+				if ((this._Nom != value))
+				{
+					this.OnNomChanging(value);
+					this.SendPropertyChanging();
+					this._Nom = value;
+					this.SendPropertyChanged("Nom");
+					this.OnNomChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NChar(30)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Prix", DbType="Int NOT NULL")]
+		public int Prix
+		{
+			get
+			{
+				return this._Prix;
+			}
+			set
+			{
+				if ((this._Prix != value))
+				{
+					this.OnPrixChanging(value);
+					this.SendPropertyChanging();
+					this._Prix = value;
+					this.SendPropertyChanged("Prix");
+					this.OnPrixChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date_exp", DbType="Date")]
+		public System.Nullable<System.DateTime> Date_exp
+		{
+			get
+			{
+				return this._Date_exp;
+			}
+			set
+			{
+				if ((this._Date_exp != value))
+				{
+					this.OnDate_expChanging(value);
+					this.SendPropertyChanging();
+					this._Date_exp = value;
+					this.SendPropertyChanged("Date_exp");
+					this.OnDate_expChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NChar(20) NOT NULL", CanBeNull=false)]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantite", DbType="Int")]
+		public System.Nullable<int> Quantite
+		{
+			get
+			{
+				return this._Quantite;
+			}
+			set
+			{
+				if ((this._Quantite != value))
+				{
+					this.OnQuantiteChanging(value);
+					this.SendPropertyChanging();
+					this._Quantite = value;
+					this.SendPropertyChanged("Quantite");
+					this.OnQuantiteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produit_Achat", Storage="_Achats", ThisKey="Id", OtherKey="Produit")]
+		public EntitySet<Achat> Achats
+		{
+			get
+			{
+				return this._Achats;
+			}
+			set
+			{
+				this._Achats.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produit_Vente", Storage="_Ventes", ThisKey="Id", OtherKey="Produit")]
+		public EntitySet<Vente> Ventes
+		{
+			get
+			{
+				return this._Ventes;
+			}
+			set
+			{
+				this._Ventes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produit_ProduitFournisseur", Storage="_ProduitFournisseurs", ThisKey="Id", OtherKey="Produit")]
+		public EntitySet<ProduitFournisseur> ProduitFournisseurs
+		{
+			get
+			{
+				return this._ProduitFournisseurs;
+			}
+			set
+			{
+				this._ProduitFournisseurs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Produit_Commande", Storage="_Commandes", ThisKey="Id", OtherKey="Produit")]
+		public EntitySet<Commande> Commandes
+		{
+			get
+			{
+				return this._Commandes;
+			}
+			set
+			{
+				this._Commandes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Achats(Achat entity)
+		{
+			this.SendPropertyChanging();
+			entity.Produit1 = this;
+		}
+		
+		private void detach_Achats(Achat entity)
+		{
+			this.SendPropertyChanging();
+			entity.Produit1 = null;
+		}
+		
+		private void attach_Ventes(Vente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Produit1 = this;
+		}
+		
+		private void detach_Ventes(Vente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Produit1 = null;
+		}
+		
+		private void attach_ProduitFournisseurs(ProduitFournisseur entity)
+		{
+			this.SendPropertyChanging();
+			entity.Produit1 = this;
+		}
+		
+		private void detach_ProduitFournisseurs(ProduitFournisseur entity)
+		{
+			this.SendPropertyChanging();
+			entity.Produit1 = null;
+		}
+		
+		private void attach_Commandes(Commande entity)
+		{
+			this.SendPropertyChanging();
+			entity.Produit1 = this;
+		}
+		
+		private void detach_Commandes(Commande entity)
+		{
+			this.SendPropertyChanging();
+			entity.Produit1 = null;
 		}
 	}
 }
