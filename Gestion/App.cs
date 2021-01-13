@@ -480,7 +480,7 @@ namespace Gestion
             ModDelBackEnd(sender, e);
         }
         int _id;
-        int prod_id;
+        int prod_id=0;
         private void ModDelBackEnd(object sender , DataGridViewCellEventArgs e)
         {
             var _sender = (DataGridView)sender;
@@ -555,18 +555,42 @@ namespace Gestion
                         var Query = (from p in ProjectDB.Produits
                                      where p.Id.Equals(id)
                                      select p).First();
-                        var Query2 = (from c in ProjectDB.Commandes
-                                      where c.Produit.Equals(id)
-                                      select c).FirstOrDefault();
-                        var Query3 = (from v in ProjectDB.Ventes
-                                      where v.Produit.Equals(id)
-                                      select v).FirstOrDefault();
-                        var Query4 = (from pf in ProjectDB.ProduitFournisseurs
+                        var Query2 = from c in ProjectDB.Commandes
+                                     where c.Produit.Equals(id)
+                                     select c;
+                        var Query3 = from v in ProjectDB.Ventes
+                                     where v.Produit.Equals(id)
+                                     select v;
+                        var Query4 =  from pf in ProjectDB.ProduitFournisseurs
                                       where pf.Produit.Equals(id)
-                                      select pf).FirstOrDefault();
-                        if (Query2!=null) ProjectDB.Commandes.DeleteOnSubmit(Query2);
-                        if (Query3!= null) ProjectDB.Ventes.DeleteOnSubmit(Query3);
-                        if (Query4!=null) ProjectDB.ProduitFournisseurs.DeleteOnSubmit(Query4);
+                                      select pf;
+                        if (Query2 != null)
+                        {
+                            List<Commande> commandes = new List<Commande>();
+                            foreach (var c in Query2) commandes.Add(c);
+                            for(int i = 0; i < commandes.Count; i++)
+                            {
+                                ProjectDB.Commandes.DeleteOnSubmit(commandes[i]);
+                            }
+                        }
+                        if (Query3 != null)
+                        {
+                            List<Vente> ventes = new List<Vente>();
+                            foreach (var v in Query3) ventes.Add(v);
+                            for (int i = 0; i < ventes.Count; i++)
+                            {
+                                ProjectDB.Ventes.DeleteOnSubmit(ventes[i]);
+                            }
+                        }
+                        if (Query4 != null)
+                        {
+                            List<ProduitFournisseur> pfs = new List<ProduitFournisseur>();
+                            foreach (var pf in Query4) pfs.Add(pf);
+                            for (int i = 0; i < pfs.Count; i++)
+                            {
+                                ProjectDB.ProduitFournisseurs.DeleteOnSubmit(pfs[i]);
+                            }
+                        }
                         ProjectDB.Produits.DeleteOnSubmit(Query);
                         ProjectDB.SubmitChanges();
                         SearchProdDestB_Click(null, null);
@@ -577,14 +601,30 @@ namespace Gestion
                         var Query = (from f in ProjectDB.Fournisseurs
                                      where f.Id.Equals(id)
                                      select f).First();
-                        var Query2 = (from c in ProjectDB.Commandes
-                                      where c.Produit.Equals(id)
-                                      select c).FirstOrDefault();
-                        var Query3 = (from pf in ProjectDB.ProduitFournisseurs
-                                      where pf.Fournisseur.Equals(id)
-                                      select pf).FirstOrDefault();
-                        if(Query2!=null) ProjectDB.Commandes.DeleteOnSubmit(Query2);
-                        if (Query3 != null) ProjectDB.ProduitFournisseurs.DeleteOnSubmit(Query3);
+                        var Query2 = from c in ProjectDB.Commandes
+                                     where c.Produit.Equals(id)
+                                     select c;
+                        var Query3 = from pf in ProjectDB.ProduitFournisseurs
+                                     where pf.Fournisseur.Equals(id)
+                                     select pf;
+                        if (Query2 != null)
+                        {
+                            List<Commande> commandes = new List<Commande>();
+                            foreach (var c in Query2) commandes.Add(c);
+                            for (int i = 0; i < commandes.Count; i++)
+                            {
+                                ProjectDB.Commandes.DeleteOnSubmit(commandes[i]);
+                            }
+                        }
+                        if (Query3 != null)
+                        {
+                            List<ProduitFournisseur> pfs = new List<ProduitFournisseur>();
+                            foreach (var pf in Query3) pfs.Add(pf);
+                            for (int i = 0; i < pfs.Count; i++)
+                            {
+                                ProjectDB.ProduitFournisseurs.DeleteOnSubmit(pfs[i]);
+                            }
+                        }
                         ProjectDB.Fournisseurs.DeleteOnSubmit(Query);
                         ProjectDB.SubmitChanges();
                         SearchFournB_Click(null, null);
@@ -593,7 +633,7 @@ namespace Gestion
             }
             else if (_sender.Columns[e.ColumnIndex].Name == "Commander")
             {
-                if(_sender.Name== "ProdDestTab")
+                if(_sender.Name == "ProdDestTab")
                 {
                     ProDestPane.Hide();
                     Hidden_pane = ProDestPane;
@@ -611,10 +651,7 @@ namespace Gestion
                     foreach (string nom in Query) selected.Add(nom);
                     FournsCombo.DataSource = selected;
                 }
-                ////// case request came from  liste_fournisseurs to be treated here
-                
                 NouvCommandePane.Show();
-
             }
         }
         private void guna2Button19_Click(object sender, EventArgs e)
@@ -683,7 +720,31 @@ namespace Gestion
 
         private void ListeFournTab_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            ModDelBackEnd(sender, e);
+            DataGridView _sender = (DataGridView)sender;
+            if (_sender.Columns[e.ColumnIndex].Name == "Modifier" || _sender.Columns[e.ColumnIndex].Name == "Supprimer")
+            {
+                ModDelBackEnd(sender, e);
+            }
+            else
+            {
+                ListeFournsPanel.Hide();
+                Hidden_pane = ListeFournsPanel;
+                ///////////////////////////
+                FournsCombo.Items.Clear();
+                FournsCombo.Items.Add(_sender.Rows[e.RowIndex].Cells["Nom"].Value);
+                FournsCombo.SelectedIndex = 0;
+                var Query = from pf in ProjectDB.ProduitFournisseurs
+                            where pf.Fournisseur.Equals(_sender.Rows[e.RowIndex].Cells["Id"].Value)
+                            join p in ProjectDB.Produits on pf.Produit equals p.Id
+                            select p.Nom;
+                List<string> produits = new List<string>();
+                foreach (var nom in Query) produits.Add(nom);
+                ProduitsCombo.Items.Clear();
+                produits.ForEach(p => ProduitsCombo.Items.Add(p));
+                if(ProduitsCombo.Items.Count!=0) ProduitsCombo.SelectedIndex = 0;
+                ///////////////////////////
+                NouvCommandePane.Show();
+            }
         }
 
         private void annuler_Click(object sender, EventArgs e)
@@ -782,6 +843,12 @@ namespace Gestion
                         int fournisseur_id = (from f in ProjectDB.Fournisseurs
                                      where f.Nom.Equals(FournsCombo.SelectedItem.ToString())
                                      select f.Id).First();
+                        if (prod_id == 0 && ProduitsCombo.SelectedItem != null)
+                        {
+                            prod_id = (from p in ProjectDB.Produits
+                                       where p.Nom.Equals(ProduitsCombo.SelectedItem.ToString())
+                                       select p.Id).First();
+                        }
                         Commande c = new Commande()
                         {
                             Produit = prod_id,
@@ -790,9 +857,13 @@ namespace Gestion
                             Date_commande = DateTime.Now,
                             Date_livraison = CommandeLivraisonDate.Value,
                         };
-                        ProjectDB.Commandes.InsertOnSubmit(c);
-                        ProjectDB.SubmitChanges();
-                        MessageBox.Show("La commande a bien été enregistrée");
+                        if (c.Produit != 0)
+                        {
+                            ProjectDB.Commandes.InsertOnSubmit(c);
+                            ProjectDB.SubmitChanges();
+                            MessageBox.Show("La commande a bien été enregistrée");
+                        }
+                        else MessageBox.Show("aucune produit n'est selectionné");
                     } catch (FormatException){
                         MessageBox.Show("entrer une quantité de commande valide");
                     }
@@ -824,7 +895,7 @@ namespace Gestion
         {
             dgv.Visible = true;
             var Query = from p in ProjectDB.Produits
-                        where DateTime.Now.Date.CompareTo(p.Date_exp.Value.Date) > 0
+                        where DateTime.Now.Date.CompareTo(p.Date_exp.Value.Date) == 0
                         where p.Nom.Contains(ChercherPerte.Text)
                         select p;
             List<Produit> selected = new List<Produit>();
@@ -859,7 +930,7 @@ namespace Gestion
             dgv.Visible = true;
             dgv.Rows.Clear();
             var Query = from v in ProjectDB.Ventes
-                        where v.Date_vente.Value.Date.CompareTo(DateTime.Now.Date) == 0
+                        where v.Date_vente.Date.CompareTo(DateTime.Now.Date) == 0
                         join p in ProjectDB.Produits on v.Produit equals p.Id
                         where p.Nom.Contains(ChercherVent.Text)
                         select new
@@ -870,7 +941,7 @@ namespace Gestion
                             Prix = p.Prix,
                             Quant = v.Quant,
                             Date = v.Date_vente,
-                            Profit = v.Quant.Value * p.Prix,
+                            Profit = v.Quant * p.Prix,
                         };
             List < Vent_alt > selected = new List<Vent_alt>();
             foreach (var v in Query) selected.Add(new Vent_alt(v.Id,v.Prix,v.Quant,v.Profit,v.Produit,v.Image,v.Date));
@@ -969,6 +1040,119 @@ namespace Gestion
                 EnStockQuant.Enabled = false;
             }
             else if (ProdStatus.SelectedIndex == 0) EnStockQuant.Enabled = true;
+        }
+
+        private void guna2ImageButton14_Click(object sender, EventArgs e)
+        {
+            StatistiquesPanel.Hide();
+            MainPanel.Show();
+        }
+
+        private void statistiquesB_Click(object sender, EventArgs e)
+        {
+            MainPanel.Hide();
+            StatistiquesPanel.Show();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            MainPanel.Hide();
+            StatistiquesPanel.Show();
+        }
+        private void GenerateStats(System.Windows.Forms.DataVisualization.Charting.Chart Chart,Guna.UI2.WinForms.Guna2ComboBox StatTri,DateTime nowMinus)
+        {
+            Chart.Visible = false;
+            gainTot.Visible = false;
+            perteTot.Visible = false;
+            gainTot.Text = "";
+            perteTot.Text = "";
+            Chart.Series.Clear();
+            var Query = from v in ProjectDB.Ventes
+                        where v.Date_vente.Date.CompareTo(nowMinus.Date) >= 0
+                        join p in ProjectDB.Produits on v.Produit equals p.Id
+                        select v.Quant * p.Prix;
+            var Query2 = from p in ProjectDB.Produits
+                         where DateTime.Now.Date.CompareTo(p.Date_exp.Value.Date) > 0
+                         where p.Status.Trim().Equals("disponible")
+                         where p.Date_exp.Value.Date.CompareTo(nowMinus) >= 0
+                         select p.Prix * p.Quantite;
+            List<int> Profits = new List<int>();
+            List<int> losses = new List<int>();
+            foreach (var profit in Query) Profits.Add(profit);
+            foreach (var loss in Query2) losses.Add(loss);
+            if (Profits.Count != 0 || losses.Count != 0)
+            {
+                int total_gain = 0;
+                int total_loss = 0;
+                int i;
+                System.Windows.Forms.DataVisualization.Charting.Series serie = new System.Windows.Forms.DataVisualization.Charting.Series("Profit");
+                serie.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+                System.Windows.Forms.DataVisualization.Charting.Series serie2 = new System.Windows.Forms.DataVisualization.Charting.Series("Perte");
+                serie2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+                Chart.Series.Add(serie);
+                Chart.Series.Add(serie2);
+                Chart.Series["Profit"].Color = Color.FromArgb(56, 176, 0);
+                for (i = 0; i < Profits.Count; i++)
+                {
+                    Chart.Series["Profit"].Points.AddY(Profits[i]);
+                    total_gain += Profits[i];
+                }
+                Chart.Series["Perte"].Color = Color.FromArgb(208, 0, 0);
+                for (i = 0; i < losses.Count; i++)
+                {
+                    Chart.Series["Perte"].Points.AddY(losses[i]);
+                    total_loss += losses[i];
+                }
+                gainTot.Text = "Total de profits : " + total_gain + " DH";
+                perteTot.Text = "Total des pertes : " + total_loss + "DH";
+                Chart.Visible = true;
+                gainTot.Visible = true;
+                perteTot.Visible = true;
+            }
+        }
+        private void StatTri_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DateTime nowMinus=DateTime.Now;
+            if (StatTri.SelectedItem.ToString().Equals("par semaine"))
+            {
+                nowMinus = DateTime.Now.AddDays(-7);
+            }
+            else if (StatTri.SelectedItem.ToString().Equals("par mois"))
+            {
+                nowMinus = DateTime.Now.AddDays(-30);
+            }
+            else if (StatTri.SelectedItem.ToString().Equals("par année"))
+            {
+                nowMinus = DateTime.Now.AddDays(-365);
+            }
+            GenerateStats(Chart, StatTri, nowMinus);
+        }
+
+        private void AjFourn_Click(object sender, EventArgs e)
+        {
+            if(FournNom.Text!="" && FournContact.Text!="" && FournAdresse.Text != "")
+            {
+                Fournisseur f = new Fournisseur()
+                {
+                    Nom = FournNom.Text,
+                    Contact = FournContact.Text,
+                    Adresse = FournAdresse.Text
+                };
+                ProjectDB.Fournisseurs.InsertOnSubmit(f);
+                ProjectDB.SubmitChanges();
+                MessageBox.Show("Le fournisseur a bien été ajouté");
+            }
+            else
+            {
+                MessageBox.Show("Tous les champs doivent être remplis");
+            }
+        }
+
+        private void AnnulerFourn_Click(object sender, EventArgs e)
+        {
+            FournNom.Clear();
+            FournAdresse.Clear();
+            FournContact.Clear();
         }
     }
 }
