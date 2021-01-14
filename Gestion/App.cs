@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using Syncfusion.XlsIO;
+using System.Web;
 
 namespace Gestion
 {
@@ -1064,6 +1066,8 @@ namespace Gestion
             Chart.Visible = false;
             gainTot.Visible = false;
             perteTot.Visible = false;
+            ventesTot.Visible = false;
+            achatTot.Visible = false;
             gainTot.Text = "";
             perteTot.Text = "";
             Chart.Series.Clear();
@@ -1076,6 +1080,27 @@ namespace Gestion
                          where p.Status.Trim().Equals("disponible")
                          where p.Date_exp.Value.Date.CompareTo(nowMinus) >= 0
                          select p.Prix * p.Quantite;
+            int total_ventes = (from v in ProjectDB.Ventes
+                     where v.Date_vente.Date.CompareTo(nowMinus.Date) >= 0
+                     select v).Count();
+            var commandes_To_achats = (from c in ProjectDB.Commandes
+                     where c.Date_livraison.Value.Date.CompareTo(DateTime.Now.Date) <= 0
+                     select c).ToList(); //// list of commands that have been delivered to be transformed into achats
+            for(int i = 0; i < commandes_To_achats.Count; i++)
+            {
+                ProjectDB.Commandes.DeleteOnSubmit(commandes_To_achats[i]);
+                Achat achat = new Achat()
+                {
+                    Produit = commandes_To_achats[i].Produit,
+                    Quant = commandes_To_achats[i].Quant,
+                    Date_achat = commandes_To_achats[i].Date_livraison.Value,
+                };
+                ProjectDB.Achats.InsertOnSubmit(achat);
+                ProjectDB.SubmitChanges();
+            }
+            int total_achat = (from a in ProjectDB.Achats
+                                where a.Date_achat.Date.CompareTo(nowMinus.Date) >= 0
+                                select a).Count();
             List<int> Profits = new List<int>();
             List<int> losses = new List<int>();
             foreach (var profit in Query) Profits.Add(profit);
@@ -1085,12 +1110,20 @@ namespace Gestion
                 int total_gain = 0;
                 int total_loss = 0;
                 int i;
+                Chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+                Chart.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+
                 System.Windows.Forms.DataVisualization.Charting.Series serie = new System.Windows.Forms.DataVisualization.Charting.Series("Profit");
                 serie.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+                serie.BorderWidth = 3;
+
                 System.Windows.Forms.DataVisualization.Charting.Series serie2 = new System.Windows.Forms.DataVisualization.Charting.Series("Perte");
                 serie2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+                serie2.BorderWidth = 3;
+
                 Chart.Series.Add(serie);
                 Chart.Series.Add(serie2);
+
                 Chart.Series["Profit"].Color = Color.FromArgb(56, 176, 0);
                 for (i = 0; i < Profits.Count; i++)
                 {
@@ -1104,10 +1137,14 @@ namespace Gestion
                     total_loss += losses[i];
                 }
                 gainTot.Text = "Total de profits : " + total_gain + " DH";
-                perteTot.Text = "Total des pertes : " + total_loss + "DH";
+                perteTot.Text = "Total des pertes : " + total_loss + " DH";
+                ventesTot.Text = "Total des ventes : " + total_ventes;
+                achatTot.Text = "Total des achats : " + total_achat;
                 Chart.Visible = true;
                 gainTot.Visible = true;
                 perteTot.Visible = true;
+                ventesTot.Visible = true;
+                achatTot.Visible = true;
             }
         }
         private void StatTri_SelectedIndexChanged(object sender, EventArgs e)
@@ -1153,6 +1190,144 @@ namespace Gestion
             FournNom.Clear();
             FournAdresse.Clear();
             FournContact.Clear();
+        }
+        private void EtatDocB_Click(object sender, EventArgs e)
+        {
+            ExcelEngine excelEng = new ExcelEngine();
+            Syncfusion.XlsIO.IApplication excel = excelEng.Excel;
+            Syncfusion.XlsIO.IWorkbook workbook = excel.Workbooks.Create(5);
+            Syncfusion.XlsIO.IWorksheet worksheet1 = workbook.Worksheets[0];
+            Syncfusion.XlsIO.IWorksheet worksheet2 = workbook.Worksheets[1];
+            Syncfusion.XlsIO.IWorksheet worksheet3 = workbook.Worksheets[2];
+            Syncfusion.XlsIO.IWorksheet worksheet4 = workbook.Worksheets[3];
+            Syncfusion.XlsIO.IWorksheet worksheet5 = workbook.Worksheets[4];
+            Syncfusion.XlsIO.IWorksheet worksheet=null;
+            worksheet1.Name = "Produits";
+            worksheet2.Name = "Fournisseurs";
+            worksheet3.Name = "Commandes";
+            worksheet4.Name = "Ventes";
+            worksheet5.Name = "Achats";
+            int i;
+            ///////////Produits //////////////
+            worksheet = worksheet1;
+            var Query = (from p in ProjectDB.Produits
+                        select p).ToList();
+            worksheet[1, 1].Text = "Id";
+            worksheet[1, 2].Text = "Nom";
+            worksheet[1, 3].Text = "Prix";
+            worksheet[1, 4].Text = "Date_exp";
+            worksheet[1, 5].Text = "Status";
+            worksheet[1, 6].Text = "Quantité";
+            for(i=1;i<7;i++) worksheet[1,i].CellStyle.Color = Color.FromArgb(46, 196, 182);
+            for (i = 0; i < Query.Count; i++)
+            {
+                worksheet[i + 2, 1].Text = Query[i].Id.ToString();
+                worksheet[i + 2, 2].Text = Query[i].Nom;
+                worksheet.SetColumnWidth(2, 30);
+                worksheet[i + 2, 3].Text = Query[i].Prix.ToString();
+                worksheet[i + 2, 4].Text = Query[i].Date_exp.ToString();
+                worksheet.SetColumnWidth(4, 25);
+                worksheet[i + 2, 5].Text = Query[i].Status;
+                worksheet.SetColumnWidth(5, 25);
+                worksheet[i + 2, 6].Text = Query[i].Quantite.ToString();
+            }
+            /////////////////////////////
+            ///////////Fournisseurs //////////////
+            worksheet = worksheet2;
+            var Query2 = (from f in ProjectDB.Fournisseurs
+                         select f).ToList();
+            worksheet[1, 1].Text = "Id";
+            worksheet[1, 2].Text = "Nom";
+            worksheet[1, 3].Text = "Adresse";
+            worksheet[1, 4].Text = "Contact";
+            for (i = 1; i < 5; i++) worksheet[1, i].CellStyle.Color = Color.FromArgb(231, 29, 54);
+            for (i = 0; i < Query2.Count; i++)
+            {
+                worksheet[i + 2, 1].Text = Query2[i].Id.ToString();
+                worksheet[i + 2, 2].Text = Query2[i].Nom;
+                worksheet.SetColumnWidth(2, 25);
+                worksheet[i + 2, 3].Text = Query2[i].Adresse;
+                worksheet.SetColumnWidth(3, 25);
+                worksheet[i + 2, 4].Text = Query2[i].Contact;
+                worksheet.SetColumnWidth(4, 25);
+            }
+            /////////////////////////////
+            ///////////Commandes //////////////
+            worksheet = worksheet3;
+            var Query3 = (from c in ProjectDB.Commandes
+                          select c).ToList();
+            worksheet[1, 1].Text = "Id";
+            worksheet[1, 2].Text = "Produit";
+            worksheet[1, 3].Text = "Fournisseur";
+            worksheet[1, 4].Text = "Quantité";
+            worksheet[1, 5].Text = "Date de commande";
+            worksheet[1, 6].Text = "Date de livraison";
+            for (i = 1; i < 7; i++) worksheet[1, i].CellStyle.Color = Color.FromArgb(150, 108, 86);
+            for (i = 0; i < Query3.Count; i++)
+            {
+                worksheet[i + 2, 1].Text = Query3[i].Id.ToString();
+                worksheet[i + 2, 2].Text = Query3[i].Produit.ToString();
+                worksheet[i + 2, 3].Text = Query3[i].Fournisseur.ToString();
+                worksheet[i + 2, 4].Text = Query3[i].Quant.ToString();
+                worksheet[i + 2, 5].Text = Query3[i].Date_commande.ToString();
+                worksheet.SetColumnWidth(4, 25);
+                worksheet[i + 2, 6].Text = Query3[i].Date_livraison.ToString();
+                worksheet.SetColumnWidth(6, 25);
+            }
+            /////////////////////////////
+            /////////// Ventes //////////////
+            worksheet = worksheet4;
+            var Query4 = (from v in ProjectDB.Ventes
+                          select v).ToList();
+            worksheet[1, 1].Text = "Id";
+            worksheet[1, 2].Text = "Produit";
+            worksheet[1, 3].Text = "Quantite";
+            worksheet[1, 4].Text = "Date de vente";
+            for (i = 1; i < 5; i++) worksheet[1, i].CellStyle.Color = Color.FromArgb(230, 207, 0);
+            for (i = 0; i < Query4.Count; i++)
+            {
+                worksheet[i + 2, 1].Text = Query4[i].Id.ToString();
+                worksheet[i + 2, 2].Text = Query4[i].Produit.ToString();
+                worksheet[i + 2, 3].Text = Query4[i].Quant.ToString();
+                worksheet[i + 2, 4].Text = Query4[i].Date_vente.ToString();
+                worksheet.SetColumnWidth(4, 20);
+            }
+            /////////////////////////////
+            /////////// Achats //////////////
+            worksheet = worksheet5;
+            var Query5 = (from a in ProjectDB.Achats
+                          select a).ToList();
+            worksheet[1, 1].Text = "Id";
+            worksheet[1, 2].Text = "Produit";
+            worksheet[1, 3].Text = "Quantite";
+            worksheet[1, 4].Text = "Date d'achat";
+            for (i = 1; i < 5; i++) worksheet[1, i].CellStyle.Color = Color.FromArgb(255, 84, 0);
+            for (i = 0; i < Query5.Count; i++)
+            {
+                worksheet[i + 2, 1].Text = Query5[i].Id.ToString();
+                worksheet[i + 2, 2].Text = Query5[i].Produit.ToString();
+                worksheet[i + 2, 3].Text = Query5[i].Quant.ToString();
+                worksheet[i + 2, 4].Text = Query5[i].Date_achat.ToString();
+                worksheet.SetColumnWidth(4, 20);
+            }
+            /////////////////////////////
+            Retry:
+            try{
+                workbook.SaveAs(ProjectPath + @"\Output\EtatStock.xlsx");
+                notifyIcon1.Icon = new System.Drawing.Icon(ProjectPath + @"\Img\storeLogo.ico");
+                notifyIcon1.Text = "GestionStock";
+                notifyIcon1.Visible = true;
+                notifyIcon1.BalloonTipTitle = "Etat de stock [excel]";
+                notifyIcon1.BalloonTipText = "chemin : "+ ProjectPath + @"\Output";
+                notifyIcon1.ShowBalloonTip(150);
+            } catch (IOException){
+                DialogResult dr = MessageBox.Show("Le fichier est déja ouvert par un autre processus","Message",MessageBoxButtons.RetryCancel,MessageBoxIcon.Error);
+                if(dr == DialogResult.Retry) goto Retry;
+            }
+        }
+        private void EtatDocB2_Click(object sender, EventArgs e)
+        {
+            EtatDocB_Click(null, null);
         }
     }
 }

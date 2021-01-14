@@ -17211,15 +17211,6 @@
         oAXFIBKZIUAFABQAUAFABQAUAFABQAUAFABQAUAFADKkD//Z
 </value>
   </data>
-  <data name="EtatDocB2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGPC/xhBQAAAL5JREFUaEPt
-        z0kKQjEURNG/QBEVZ+5exU0oaH2wJqLYpHuJ90BBZnl3AgAAAAAAAIDuLLWTdg2++caFlqyHWO+oJfu7
-        4I121p59EGnzjWsti60WOfqi7bSsokYXibVo0UVjLUp0lVhrHV011lpFN4m12tFNY61WdIhYKx0dKtZK
-        RYeMtdzRoWMtV3QXsZYa3VWs/RrdZax9G911rH0aPUSsvYseKtZeRQ8Za4/RQ8faSjto+/sbAAAAANDY
-        NN0AqLFbSfWko14AAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="storeLogoB.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -17426,6 +17417,15 @@
         AR3PH3IQr+SF11ELCGqxIrAkBxs0KKhbldU3dbc42CAfICQ/EJjvOnCSNw01LkHfg1l9EwElHYEelcCA
         fDVVWIZGH8EGGnLNpyZA7bF+lNAMjR4aEAM1ueyvIYHaY5MooRkaPUTbT9gcDAwMDAwMDAwMDAwMDAwM
         DAwMDAwMDAwMDAwMDAwMDEYYxoz5f2RCycPm8W48AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="EtatDocB2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGPC/xhBQAAAL5JREFUaEPt
+        z0kKQjEURNG/QBEVZ+5exU0oaH2wJqLYpHuJ90BBZnl3AgAAAAAAAIDuLLWTdg2++caFlqyHWO+oJfu7
+        4I121p59EGnzjWsti60WOfqi7bSsokYXibVo0UVjLUp0lVhrHV011lpFN4m12tFNY61WdIhYKx0dKtZK
+        RYeMtdzRoWMtV3QXsZYa3VWs/RrdZax9G911rH0aPUSsvYseKtZeRQ8Za4/RQ8faSjto+/sbAAAAANDY
+        NN0AqLFbSfWko14AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="GestionProdIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -26225,6 +26225,9 @@
         B0O/gbFLAP5gGrfiEfz/kjALZbCs2Lc3C09QKw+kRobxH55ep1ZjImfSAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>55</value>
   </metadata>
