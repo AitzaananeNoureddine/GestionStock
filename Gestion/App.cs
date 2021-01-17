@@ -487,186 +487,189 @@ namespace Gestion
         {
             var _sender = (DataGridView)sender;
             int id=0;
-            if (_sender.Rows[e.RowIndex].Cells["Id"]!=null) id = (int)_sender.Rows[e.RowIndex].Cells["Id"].Value;
-            _id = id;
-            if(_sender.Columns[e.ColumnIndex].Name == "Modifier")
-            {
-                if (_sender.Name.Equals("ProdTab") || _sender.Name.Equals("ProdDestTab"))
-                {
-                    if (_sender.Name.Equals("ProdTab"))
-                    {
-                        ListeProdPane.Hide();
-                        Hidden_pane = ListeProdPane;
-                    }
-                    else if (_sender.Name.Equals("ProdDestTab"))
-                    {
-                        ProDestPane.Hide();
-                        Hidden_pane = ProDestPane;
-                    }
-                    var Query = from p in ProjectDB.Produits
-                                where p.Id.Equals(id)
-                                select p;
-                    Produit ToAlter = Query.First();
-                    ProdNom.Text = ToAlter.Nom.Trim();
-                    ProdPrix.Text = ToAlter.Prix.ToString();
-                    EnStockQuant.Text = ToAlter.Quantite.ToString();
-                    ProdStatus.SelectedIndex = ProdStatus.FindString(ToAlter.Status.Trim());
-                    ProdExpDate.Value = (DateTime)ToAlter.Date_exp;
-                    ProdImageId.Text = ToAlter.Image;
-                    ProdImageId.Visible = true;
-                    ModProdPane.Show();
-
-                    /*ListeFournsComboMod.Items.Clear();
-                    var Query2 = from pf in ProjectDB.ProduitFournisseurs
-                                 where pf.Produit.Equals(id)
-                                 select pf.Fournisseur;
-                    List<int> fournisseur_ids = new List<int>();
-                    foreach (var indice in Query2) fournisseur_ids.Add(indice);
-                    for (int i = 0; i < fournisseur_ids.Count; i++)
-                    {
-                        var Query3 = (from f in ProjectDB.Fournisseurs
-                                      where f.Id.Equals(fournisseur_ids[i])
-                                      select f).FirstOrDefault();
-                        if (Query3 != null)
-                        {
-                            ListeFournsComboMod.Items.Add(Query3.Nom);
-                            ListFourns.Items.Add(Query3.Nom);
-
-                        }
-                    }*/
-                }
-                else if (_sender.Name.Equals("ListeFournTab"))
-                {
-                    ListeFournsPanel.Hide();
-                    var Query = (from f in ProjectDB.Fournisseurs
-                                 where f.Id.Equals(id)
-                                 select f).First();
-                    NomFourn.Text = Query.Nom.Trim();
-                    AdresseFourn.Text = Query.Adresse.Trim();
-                    ContactFourn.Text = Query.Contact.Trim();
-                    ModFournPane.Show();
-                }
-            }
-            else if (_sender.Columns[e.ColumnIndex].Name == "Supprimer")
-            {
-                DialogResult dr = MessageBox.Show("Voulez vous vraiment supprimer l'element de la BD ?", "Supprimer", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (dr == DialogResult.OK)
+            try {
+                if (_sender.Rows[e.RowIndex].Cells["Id"] != null) id = (int)_sender.Rows[e.RowIndex].Cells["Id"].Value;
+                _id = id;
+                if (_sender.Columns[e.ColumnIndex].Name == "Modifier")
                 {
                     if (_sender.Name.Equals("ProdTab") || _sender.Name.Equals("ProdDestTab"))
                     {
-                        var Query = (from p in ProjectDB.Produits
-                                     where p.Id.Equals(id)
-                                     select p).First();
-                        var Query2 = from c in ProjectDB.Commandes
-                                     where c.Produit.Equals(id)
-                                     select c;
-                        var Query3 = from v in ProjectDB.Ventes
-                                     where v.Produit.Equals(id)
-                                     select v;
-                        var Query4 =  from pf in ProjectDB.ProduitFournisseurs
-                                      where pf.Produit.Equals(id)
-                                      select pf;
-                        var Query5 = from a in ProjectDB.Achats
-                                     where a.Produit.Equals(id)
-                                     select a;
-                        if (Query2 != null)
+                        if (_sender.Name.Equals("ProdTab"))
                         {
-                            List<Commande> commandes = new List<Commande>();
-                            foreach (var c in Query2) commandes.Add(c);
-                            for(int i = 0; i < commandes.Count; i++)
-                            {
-                                ProjectDB.Commandes.DeleteOnSubmit(commandes[i]);
-                            }
+                            ListeProdPane.Hide();
+                            Hidden_pane = ListeProdPane;
                         }
-                        if (Query3 != null)
+                        else if (_sender.Name.Equals("ProdDestTab"))
                         {
-                            List<Vente> ventes = new List<Vente>();
-                            foreach (var v in Query3) ventes.Add(v);
-                            for (int i = 0; i < ventes.Count; i++)
-                            {
-                                ProjectDB.Ventes.DeleteOnSubmit(ventes[i]);
-                            }
+                            ProDestPane.Hide();
+                            Hidden_pane = ProDestPane;
                         }
-                        if (Query4 != null)
+                        var Query = from p in ProjectDB.Produits
+                                    where p.Id.Equals(id)
+                                    select p;
+                        Produit ToAlter = Query.First();
+                        ProdNom.Text = ToAlter.Nom.Trim();
+                        ProdPrix.Text = ToAlter.Prix.ToString();
+                        EnStockQuant.Text = ToAlter.Quantite.ToString();
+                        ProdStatus.SelectedIndex = ProdStatus.FindString(ToAlter.Status.Trim());
+                        ProdExpDate.Value = (DateTime)ToAlter.Date_exp;
+                        ProdImageId.Text = ToAlter.Image;
+                        ProdImageId.Visible = true;
+                        ModProdPane.Show();
+
+                        /*ListeFournsComboMod.Items.Clear();
+                        var Query2 = from pf in ProjectDB.ProduitFournisseurs
+                                     where pf.Produit.Equals(id)
+                                     select pf.Fournisseur;
+                        List<int> fournisseur_ids = new List<int>();
+                        foreach (var indice in Query2) fournisseur_ids.Add(indice);
+                        for (int i = 0; i < fournisseur_ids.Count; i++)
                         {
-                            List<ProduitFournisseur> pfs = new List<ProduitFournisseur>();
-                            foreach (var pf in Query4) pfs.Add(pf);
-                            for (int i = 0; i < pfs.Count; i++)
+                            var Query3 = (from f in ProjectDB.Fournisseurs
+                                          where f.Id.Equals(fournisseur_ids[i])
+                                          select f).FirstOrDefault();
+                            if (Query3 != null)
                             {
-                                ProjectDB.ProduitFournisseurs.DeleteOnSubmit(pfs[i]);
+                                ListeFournsComboMod.Items.Add(Query3.Nom);
+                                ListFourns.Items.Add(Query3.Nom);
+
                             }
-                        }
-                        if (Query5 != null)
-                        {
-                            List<Achat> ach = new List<Achat>();
-                            foreach (var a in Query5) ach.Add(a);
-                            for (int i = 0; i < ach.Count; i++)
-                            {
-                                ProjectDB.Achats.DeleteOnSubmit(ach[i]);
-                            }
-                        }
-                        ProjectDB.Produits.DeleteOnSubmit(Query);
-                        ProjectDB.SubmitChanges();
-                        SearchProdDestB_Click(null, null);
-                        SearchProdB_Click(null, null);
+                        }*/
                     }
                     else if (_sender.Name.Equals("ListeFournTab"))
                     {
+                        ListeFournsPanel.Hide();
                         var Query = (from f in ProjectDB.Fournisseurs
                                      where f.Id.Equals(id)
                                      select f).First();
-                        var Query2 = from c in ProjectDB.Commandes
-                                     where c.Produit.Equals(id)
-                                     select c;
-                        var Query3 = from pf in ProjectDB.ProduitFournisseurs
-                                     where pf.Fournisseur.Equals(id)
-                                     select pf;
-                        if (Query2 != null)
-                        {
-                            List<Commande> commandes = new List<Commande>();
-                            foreach (var c in Query2) commandes.Add(c);
-                            for (int i = 0; i < commandes.Count; i++)
-                            {
-                                ProjectDB.Commandes.DeleteOnSubmit(commandes[i]);
-                            }
-                        }
-                        if (Query3 != null)
-                        {
-                            List<ProduitFournisseur> pfs = new List<ProduitFournisseur>();
-                            foreach (var pf in Query3) pfs.Add(pf);
-                            for (int i = 0; i < pfs.Count; i++)
-                            {
-                                ProjectDB.ProduitFournisseurs.DeleteOnSubmit(pfs[i]);
-                            }
-                        }
-                        ProjectDB.Fournisseurs.DeleteOnSubmit(Query);
-                        ProjectDB.SubmitChanges();
-                        SearchFournB_Click(null, null);
+                        NomFourn.Text = Query.Nom.Trim();
+                        AdresseFourn.Text = Query.Adresse.Trim();
+                        ContactFourn.Text = Query.Contact.Trim();
+                        ModFournPane.Show();
                     }
                 }
-            }
-            else if (_sender.Columns[e.ColumnIndex].Name == "Commander")
-            {
-                if(_sender.Name == "ProdDestTab")
+                else if (_sender.Columns[e.ColumnIndex].Name == "Supprimer")
                 {
-                    ProDestPane.Hide();
-                    Hidden_pane = ProDestPane;
-                    //// produit combobox
-                    ProduitsCombo.Items.Clear();
-                    ProduitsCombo.Items.Add(_sender.Rows[e.RowIndex].Cells["Nom"].Value);
-                    ProduitsCombo.SelectedItem = _sender.Rows[e.RowIndex].Cells["Nom"].Value;
-                    prod_id= Convert.ToInt32(_sender.Rows[e.RowIndex].Cells["Id"].Value.ToString());
-                    //// founisseur combobox
-                    var Query = from pf in ProjectDB.ProduitFournisseurs
-                                where pf.Produit.Equals(prod_id)
-                                join f in ProjectDB.Fournisseurs on pf.Fournisseur equals f.Id
-                                select f.Nom;
-                    List<string> selected = new List<string>();
-                    foreach (string nom in Query) selected.Add(nom);
-                    FournsCombo.DataSource = selected;
+                    DialogResult dr = MessageBox.Show("Voulez vous vraiment supprimer l'element de la BD ?", "Supprimer", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.OK)
+                    {
+                        if (_sender.Name.Equals("ProdTab") || _sender.Name.Equals("ProdDestTab"))
+                        {
+                            var Query = (from p in ProjectDB.Produits
+                                         where p.Id.Equals(id)
+                                         select p).First();
+                            var Query2 = from c in ProjectDB.Commandes
+                                         where c.Produit.Equals(id)
+                                         select c;
+                            var Query3 = from v in ProjectDB.Ventes
+                                         where v.Produit.Equals(id)
+                                         select v;
+                            var Query4 = from pf in ProjectDB.ProduitFournisseurs
+                                         where pf.Produit.Equals(id)
+                                         select pf;
+                            var Query5 = from a in ProjectDB.Achats
+                                         where a.Produit.Equals(id)
+                                         select a;
+                            if (Query2 != null)
+                            {
+                                List<Commande> commandes = new List<Commande>();
+                                foreach (var c in Query2) commandes.Add(c);
+                                for (int i = 0; i < commandes.Count; i++)
+                                {
+                                    ProjectDB.Commandes.DeleteOnSubmit(commandes[i]);
+                                }
+                            }
+                            if (Query3 != null)
+                            {
+                                List<Vente> ventes = new List<Vente>();
+                                foreach (var v in Query3) ventes.Add(v);
+                                for (int i = 0; i < ventes.Count; i++)
+                                {
+                                    ProjectDB.Ventes.DeleteOnSubmit(ventes[i]);
+                                }
+                            }
+                            if (Query4 != null)
+                            {
+                                List<ProduitFournisseur> pfs = new List<ProduitFournisseur>();
+                                foreach (var pf in Query4) pfs.Add(pf);
+                                for (int i = 0; i < pfs.Count; i++)
+                                {
+                                    ProjectDB.ProduitFournisseurs.DeleteOnSubmit(pfs[i]);
+                                }
+                            }
+                            if (Query5 != null)
+                            {
+                                List<Achat> ach = new List<Achat>();
+                                foreach (var a in Query5) ach.Add(a);
+                                for (int i = 0; i < ach.Count; i++)
+                                {
+                                    ProjectDB.Achats.DeleteOnSubmit(ach[i]);
+                                }
+                            }
+                            ProjectDB.Produits.DeleteOnSubmit(Query);
+                            ProjectDB.SubmitChanges();
+                            SearchProdDestB_Click(null, null);
+                            SearchProdB_Click(null, null);
+                        }
+                        else if (_sender.Name.Equals("ListeFournTab"))
+                        {
+                            var Query = (from f in ProjectDB.Fournisseurs
+                                         where f.Id.Equals(id)
+                                         select f).First();
+                            var Query2 = from c in ProjectDB.Commandes
+                                         where c.Produit.Equals(id)
+                                         select c;
+                            var Query3 = from pf in ProjectDB.ProduitFournisseurs
+                                         where pf.Fournisseur.Equals(id)
+                                         select pf;
+                            if (Query2 != null)
+                            {
+                                List<Commande> commandes = new List<Commande>();
+                                foreach (var c in Query2) commandes.Add(c);
+                                for (int i = 0; i < commandes.Count; i++)
+                                {
+                                    ProjectDB.Commandes.DeleteOnSubmit(commandes[i]);
+                                }
+                            }
+                            if (Query3 != null)
+                            {
+                                List<ProduitFournisseur> pfs = new List<ProduitFournisseur>();
+                                foreach (var pf in Query3) pfs.Add(pf);
+                                for (int i = 0; i < pfs.Count; i++)
+                                {
+                                    ProjectDB.ProduitFournisseurs.DeleteOnSubmit(pfs[i]);
+                                }
+                            }
+                            ProjectDB.Fournisseurs.DeleteOnSubmit(Query);
+                            ProjectDB.SubmitChanges();
+                            SearchFournB_Click(null, null);
+                        }
+                    }
                 }
-                NouvCommandePane.Show();
+                else if (_sender.Columns[e.ColumnIndex].Name == "Commander")
+                {
+                    if (_sender.Name == "ProdDestTab")
+                    {
+                        ProDestPane.Hide();
+                        Hidden_pane = ProDestPane;
+                        //// produit combobox
+                        ProduitsCombo.Items.Clear();
+                        ProduitsCombo.Items.Add(_sender.Rows[e.RowIndex].Cells["Nom"].Value);
+                        ProduitsCombo.SelectedItem = _sender.Rows[e.RowIndex].Cells["Nom"].Value;
+                        prod_id = Convert.ToInt32(_sender.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                        //// founisseur combobox
+                        var Query = from pf in ProjectDB.ProduitFournisseurs
+                                    where pf.Produit.Equals(prod_id)
+                                    join f in ProjectDB.Fournisseurs on pf.Fournisseur equals f.Id
+                                    select f.Nom;
+                        List<string> selected = new List<string>();
+                        foreach (string nom in Query) selected.Add(nom);
+                        FournsCombo.DataSource = selected;
+                    }
+                    NouvCommandePane.Show();
+                }
             }
+            catch (ArgumentOutOfRangeException) {}
         }
         private void guna2Button19_Click(object sender, EventArgs e)
         {
