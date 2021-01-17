@@ -566,6 +566,9 @@ namespace Gestion
                         var Query4 =  from pf in ProjectDB.ProduitFournisseurs
                                       where pf.Produit.Equals(id)
                                       select pf;
+                        var Query5 = from a in ProjectDB.Achats
+                                     where a.Produit.Equals(id)
+                                     select a;
                         if (Query2 != null)
                         {
                             List<Commande> commandes = new List<Commande>();
@@ -591,6 +594,15 @@ namespace Gestion
                             for (int i = 0; i < pfs.Count; i++)
                             {
                                 ProjectDB.ProduitFournisseurs.DeleteOnSubmit(pfs[i]);
+                            }
+                        }
+                        if (Query5 != null)
+                        {
+                            List<Achat> ach = new List<Achat>();
+                            foreach (var a in Query5) ach.Add(a);
+                            for (int i = 0; i < ach.Count; i++)
+                            {
+                                ProjectDB.Achats.DeleteOnSubmit(ach[i]);
                             }
                         }
                         ProjectDB.Produits.DeleteOnSubmit(Query);
