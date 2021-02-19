@@ -40,12 +40,13 @@ namespace Gestion
         }
         public class Vent_alt
         {
-            public int Id, Prix, Profit;
+            public int Id, Prix;
+            public double Profit;
             public int? Quant;
             public string Produit,Image;
             public DateTime? Date; /// date de vente
 
-            public Vent_alt(int id, int prix, int? quant, int profit, string produit,string image, DateTime? date)
+            public Vent_alt(int id, int prix, int? quant, double profit, string produit,string image, DateTime? date)
             {
                 Id = id;
                 Prix = prix;
@@ -958,7 +959,7 @@ namespace Gestion
                             Prix = p.Prix,
                             Quant = v.Quant,
                             Date = v.Date_vente,
-                            Profit = v.Quant * p.Prix,
+                            Profit = v.Quant * ((p.Prix)/(1.2))*0.2,
                         };
             List < Vent_alt > selected = new List<Vent_alt>();
             foreach (var v in Query) selected.Add(new Vent_alt(v.Id,v.Prix,v.Quant,v.Profit,v.Produit,v.Image,v.Date));
@@ -1081,49 +1082,26 @@ namespace Gestion
             Chart.Visible = false;
             gainTot.Visible = false;
             perteTot.Visible = false;
-            ventesTot.Visible = false;
-            achatTot.Visible = false;
             gainTot.Text = "";
             perteTot.Text = "";
             Chart.Series.Clear();
             var Query = from v in ProjectDB.Ventes
                         where v.Date_vente.Date.CompareTo(nowMinus.Date) >= 0
                         join p in ProjectDB.Produits on v.Produit equals p.Id
-                        select v.Quant * p.Prix;
+                        select v.Quant * ((p.Prix)/(1.2))*0.2;
             var Query2 = from p in ProjectDB.Produits
                          where DateTime.Now.Date.CompareTo(p.Date_exp.Value.Date) > 0
                          where p.Status.Trim().Equals("disponible")
                          where p.Date_exp.Value.Date.CompareTo(nowMinus) >= 0
-                         select p.Prix * p.Quantite;
-            int total_ventes = (from v in ProjectDB.Ventes
-                     where v.Date_vente.Date.CompareTo(nowMinus.Date) >= 0
-                     select v).Count();
-            var commandes_To_achats = (from c in ProjectDB.Commandes
-                     where c.Date_livraison.Value.Date.CompareTo(DateTime.Now.Date) <= 0
-                     select c).ToList(); //// list of commands that have been delivered to be transformed into achats
-            for(int i = 0; i < commandes_To_achats.Count; i++)
-            {
-                ProjectDB.Commandes.DeleteOnSubmit(commandes_To_achats[i]);
-                Achat achat = new Achat()
-                {
-                    Produit = commandes_To_achats[i].Produit,
-                    Quant = commandes_To_achats[i].Quant,
-                    Date_achat = commandes_To_achats[i].Date_livraison.Value,
-                };
-                ProjectDB.Achats.InsertOnSubmit(achat);
-                ProjectDB.SubmitChanges();
-            }
-            int total_achat = (from a in ProjectDB.Achats
-                                where a.Date_achat.Date.CompareTo(nowMinus.Date) >= 0
-                                select a).Count();
-            List<int> Profits = new List<int>();
-            List<int> losses = new List<int>();
+                         select (p.Prix)/(1.2) * p.Quantite;
+            List<double> Profits = new List<double>();
+            List<double> losses = new List<double>();
             foreach (var profit in Query) Profits.Add(profit);
             foreach (var loss in Query2) losses.Add(loss);
             if (Profits.Count != 0 || losses.Count != 0)
             {
-                int total_gain = 0;
-                int total_loss = 0;
+                double total_gain = 0;
+                double total_loss = 0;
                 int i;
                 Chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
                 Chart.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
@@ -1153,13 +1131,9 @@ namespace Gestion
                 }
                 gainTot.Text = "Total de profits : " + total_gain + " DH";
                 perteTot.Text = "Total des pertes : " + total_loss + " DH";
-                ventesTot.Text = "Total des ventes : " + total_ventes;
-                achatTot.Text = "Total des achats : " + total_achat;
                 Chart.Visible = true;
                 gainTot.Visible = true;
                 perteTot.Visible = true;
-                ventesTot.Visible = true;
-                achatTot.Visible = true;
             }
         }
         private void StatTri_SelectedIndexChanged(object sender, EventArgs e)
@@ -1208,6 +1182,22 @@ namespace Gestion
         }
         private void EtatDocB_Click(object sender, EventArgs e)
         {
+            int i;
+            var commandes_To_achats = (from c in ProjectDB.Commandes
+                                       where c.Date_livraison.Value.Date.CompareTo(DateTime.Now.Date) <= 0
+                                       select c).ToList(); //// list of commands that have been delivered to be transformed into achats
+            for (i = 0; i < commandes_To_achats.Count; i++)
+            {
+                ProjectDB.Commandes.DeleteOnSubmit(commandes_To_achats[i]);
+                Achat achat = new Achat()
+                {
+                    Produit = commandes_To_achats[i].Produit,
+                    Quant = commandes_To_achats[i].Quant,
+                    Date_achat = commandes_To_achats[i].Date_livraison.Value,
+                };
+                ProjectDB.Achats.InsertOnSubmit(achat);
+                ProjectDB.SubmitChanges();
+            }
             ExcelEngine excelEng = new ExcelEngine();
             Syncfusion.XlsIO.IApplication excel = excelEng.Excel;
             Syncfusion.XlsIO.IWorkbook workbook = excel.Workbooks.Create(5);
@@ -1222,7 +1212,6 @@ namespace Gestion
             worksheet3.Name = "Commandes";
             worksheet4.Name = "Ventes";
             worksheet5.Name = "Achats";
-            int i;
             ///////////Produits //////////////
             worksheet = worksheet1;
             var Query = (from p in ProjectDB.Produits
