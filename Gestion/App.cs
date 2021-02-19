@@ -459,9 +459,9 @@ namespace Gestion
                 {
                     MessageBox.Show("Format de l'entrée est non valide");
                 }
-                catch (Exception exp)
+                catch (Exception)
                 {
-                    MessageBox.Show(exp.StackTrace);
+                    MessageBox.Show("Date d'expiration non valide");
                 }
             }
             else
