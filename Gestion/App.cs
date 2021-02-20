@@ -426,8 +426,8 @@ namespace Gestion
                 {
                     pr.Prix = Convert.ToInt32(PrixProd.Text);
                     pr.Quantite = Convert.ToInt32(QuantiteEnStock.Text);
-                    if (DateTime.Now.CompareTo(ExpirProd.Value) > 0) throw new Exception();
-                    else pr.Date_exp = ExpirProd.Value;
+                    if (DateTime.Now.Date.CompareTo(ExpirProd.Value.Date) >= 0) throw new Exception();
+                    else pr.Date_exp = ExpirProd.Value.Date;
                     pr.Status = StatusProd.Text;
                     ProjectDB.Produits.InsertOnSubmit(pr);
                     ProjectDB.SubmitChanges();
@@ -1107,11 +1107,11 @@ namespace Gestion
                 Chart.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
 
                 System.Windows.Forms.DataVisualization.Charting.Series serie = new System.Windows.Forms.DataVisualization.Charting.Series("Profit");
-                serie.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+                serie.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
                 serie.BorderWidth = 3;
 
                 System.Windows.Forms.DataVisualization.Charting.Series serie2 = new System.Windows.Forms.DataVisualization.Charting.Series("Perte");
-                serie2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+                serie2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
                 serie2.BorderWidth = 3;
 
                 Chart.Series.Add(serie);
