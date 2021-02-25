@@ -741,27 +741,30 @@ namespace Gestion
             DataGridView _sender = (DataGridView)sender;
             if (_sender.Columns[e.ColumnIndex].Name == "Modifier" || _sender.Columns[e.ColumnIndex].Name == "Supprimer")
             {
-                ModDelBackEnd(sender, e);
+                if(e.RowIndex != -1) ModDelBackEnd(sender, e);
             }
             else
             {
-                ListeFournsPanel.Hide();
-                Hidden_pane = ListeFournsPanel;
-                ///////////////////////////
-                FournsCombo.Items.Clear();
-                FournsCombo.Items.Add(_sender.Rows[e.RowIndex].Cells["Nom"].Value);
-                FournsCombo.SelectedIndex = 0;
-                var Query = from pf in ProjectDB.ProduitFournisseurs
-                            where pf.Fournisseur.Equals(_sender.Rows[e.RowIndex].Cells["Id"].Value)
-                            join p in ProjectDB.Produits on pf.Produit equals p.Id
-                            select p.Nom;
-                List<string> produits = new List<string>();
-                foreach (var nom in Query) produits.Add(nom);
-                ProduitsCombo.Items.Clear();
-                produits.ForEach(p => ProduitsCombo.Items.Add(p));
-                if(ProduitsCombo.Items.Count!=0) ProduitsCombo.SelectedIndex = 0;
-                ///////////////////////////
-                NouvCommandePane.Show();
+                if(e.RowIndex != -1)
+                {
+                    ListeFournsPanel.Hide();
+                    Hidden_pane = ListeFournsPanel;
+                    ///////////////////////////
+                    FournsCombo.Items.Clear();
+                    FournsCombo.Items.Add(_sender.Rows[e.RowIndex].Cells["Nom"].Value);
+                    FournsCombo.SelectedIndex = 0;
+                    var Query = from pf in ProjectDB.ProduitFournisseurs
+                                where pf.Fournisseur.Equals(_sender.Rows[e.RowIndex].Cells["Id"].Value)
+                                join p in ProjectDB.Produits on pf.Produit equals p.Id
+                                select p.Nom;
+                    List<string> produits = new List<string>();
+                    foreach (var nom in Query) produits.Add(nom);
+                    ProduitsCombo.Items.Clear();
+                    produits.ForEach(p => ProduitsCombo.Items.Add(p));
+                    if (ProduitsCombo.Items.Count != 0) ProduitsCombo.SelectedIndex = 0;
+                    ///////////////////////////
+                    NouvCommandePane.Show();
+                }
             }
         }
 
